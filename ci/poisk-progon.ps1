@@ -130,6 +130,8 @@ for ($krug = 0; $krug -lt $Krugov; $krug++) {
       ms = $(if ($dv) { $dv.Ms } else { $null }); ozhidanie = $(if ($dv) { $dv.Ozhidanie } else { $null }); etapy = $(if ($dv) { $dv.Etapy } else { $null })
       strategiya = $(if ($dv) { $dv.Strategiya } else { $null }); kandidatov = $(if ($dv) { $dv.Kandidatov } else { $null })
       okno = $(if ($dv) { @($dv.Okno) } else { @() }); prokrutka = $(if ($dv) { $dv.Prokrutka } else { $null })
+      effekt = $(if ($dv) { $dv.Effekt } else { $null }); diag = $(if ($dv) { $dv.Diag } else { $null }); povtor = $(if ($dv) { $dv.Povtor } else { $null })
+      lozhnyj_ok = [bool]($status -eq 'ok' -and $nz.Klikov -eq 0)
       oshibka = $oshibka; log = $logTail; damp = $damp
     }
     Write-Host ("[{0}] {1} pomeha={2} status={3} nazhato={4} verno={5} ms={6}" -f $nomer, $z.imya, $pomeha, $status, ($nz.Klyuchi -join ','), $verno, $(if ($dv) { $dv.Ms }))

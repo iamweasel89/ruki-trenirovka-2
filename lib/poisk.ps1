@@ -284,7 +284,7 @@ function Show-Uzel($el, $doc, [IntPtr]$hwnd) {
 }
 
 # after the window was restored / moved the page relayouts: wait until the rectangle stops changing
-function Wait-RectUstojchiv($el, [int]$TimeoutMs = 1200, $ot = $null, [int]$rovnoNado = 2) {
+function Wait-RectUstojchiv($el, [int]$TimeoutMs = 1200, $ot = $null, [int]$rovnoNado = 2, [int]$shag = 30) {
   $sw = [Diagnostics.Stopwatch]::StartNew(); $pr = $null; $rovno = 0
   # first the rectangle must leave its old value (the relayout has started), if one is given
   while ($ot -ne $null -and $sw.ElapsedMilliseconds -lt 600) {
@@ -295,7 +295,7 @@ function Wait-RectUstojchiv($el, [int]$TimeoutMs = 1200, $ot = $null, [int]$rovn
     try { $r = $el.Current.BoundingRectangle } catch { return $false }
     if ($pr -ne $null -and $r -eq $pr) { $rovno++; if ($rovno -ge $rovnoNado) { return $true } } else { $rovno = 0 }
     $pr = $r
-    Start-Sleep -Milliseconds 30
+    Start-Sleep -Milliseconds $shag
   }
   return $false
 }
@@ -368,7 +368,7 @@ function Invoke-Dvizhenie($zadacha) {
   $sw = [Diagnostics.Stopwatch]::StartNew()
   $script:Spano = 0
   $et = [ordered]@{}
-  $rez = [ordered]@{ Status = 'ok'; Ms = 0; Ozhidanie = 0; Etapy = $et; Strategiya = $null; Kandidatov = 0; Okno = @(); Prokrutka = $null }
+  $rez = [ordered]@{ Status = 'ok'; Ms = 0; Ozhidanie = 0; Effekt = $null; Diag = $null; Povtor = $null; Etapy = $et; Strategiya = $null; Kandidatov = 0; Okno = @(); Prokrutka = $null }
   # Ozhidanie: time spent waiting for the page (appearance, enabling), not work of the hands
   function Konec($s) { $rez.Status = $s; $rez.Ms = [int]$sw.ElapsedMilliseconds; $rez.Ozhidanie = [int]$script:Spano; return $rez }
   $t = $sw.ElapsedMilliseconds
@@ -382,7 +382,8 @@ function Invoke-Dvizhenie($zadacha) {
   $et.vidimost = [int]($sw.ElapsedMilliseconds - $t)
   if (-not $g.Ok) { return Konec 'okno-ne-vidno' }
   $spec = Get-Pole $zadacha 'element'
-  if ($g.Bylo.Count) { $null = Wait-RectUstojchiv $o.Doc 1500 $r0 }
+  $fiks = $null
+  if ($g.Bylo.Count) { $fiks = $sw.ElapsedMilliseconds; $null = Wait-RectUstojchiv $o.Doc 1500 $r0 }
   for ($pop = 1; $pop -le 3; $pop++) {
     $t = $sw.ElapsedMilliseconds
     $f = Find-Uzel $o.Doc $spec $o.Hwnd
@@ -405,8 +406,12 @@ function Invoke-Dvizhenie($zadacha) {
     $g = Confirm-OknoGotovo $o.Hwnd
     if ($g.Bylo) { $rez.Okno += $g.Bylo }
     if (-not $g.Ok) { return Konec 'okno-ne-vidno' }
-    if ($g.Bylo.Count) { $null = Wait-RectUstojchiv $o.Doc 1500; $null = Show-Uzel $el $o.Doc $o.Hwnd }
-    $null = Wait-RectUstojchiv $el 300 $null 1
+    if ($g.Bylo.Count) { $fiks = $sw.ElapsedMilliseconds; $null = Wait-RectUstojchiv $o.Doc 1500; $null = Show-Uzel $el $o.Doc $o.Hwnd }
+    # after a window fix the page relayouts with a delay: give it time and demand a longer stable run
+    if ($fiks -ne $null) {
+      $ost = 300 - ($sw.ElapsedMilliseconds - $fiks); if ($ost -gt 0) { Start-Sleep -Milliseconds $ost }
+      $null = Wait-RectUstojchiv $el 1200 $null 3 50
+    } else { $null = Wait-RectUstojchiv $el 300 $null 1 }
     try { $r = $el.Current.BoundingRectangle } catch { continue }
     $x = [int]($r.X + $r.Width / 2); $y = [int]($r.Y + $r.Height / 2)
     $pt = Test-PodTochkoj $el $x $y $o.Hwnd
@@ -418,8 +423,45 @@ function Invoke-Dvizhenie($zadacha) {
       if ($pop -lt 3) { continue }
       return Konec ('pod-tochkoj-' + $pt)
     }
+    # snapshot for the effect check
+    $do = Get-SnimokEffekta $el $o
     [RukiMysh]::Klik($x, $y)
-    return Konec 'ok'
+    $t = $sw.ElapsedMilliseconds
+    $ef = Wait-Effekt $el $o $do 700
+    $et.effekt = [int]($sw.ElapsedMilliseconds - $t)
+    $rez.Effekt = $ef.Vid
+    $r2 = $null; try { $r2 = $el.Current.BoundingRectangle } catch {}
+    $rez.Diag = ('tochka={0},{1} rect_do={2} rect_posle={3} fiks={4}' -f $x, $y, $r, $r2, ($g.Bylo -join '+'))
+    if ($ef.Est) { return Konec 'ok' }
+    Write-RukiLog "klik bez effekta: $($rez.Diag)"
+    # no effect and the element moved since the point was taken: the layout was stale, a retry is safe
+    if ($pop -lt 3 -and $r2 -ne $null -and $r2 -ne $r) { $rez.Povtor = 'rect-sdvinulsya'; continue }
+    return Konec 'nazhatie-ne-doshlo'
   }
   return Konec 'ustarel'
+}
+
+# what the effect check compares: focus, window title, the element's own state
+function Get-SnimokEffekta($el, $o) {
+  $f = Get-Fokus
+  $sn = @{ Fokus = $f; Zag = $null; Imya = $null; Vkl = $null; Zhiv = $true }
+  try { $sn.Zag = $o.Okno.Current.Name } catch {}
+  try { $c = $el.Current; $sn.Imya = $c.Name; $sn.Vkl = $c.IsEnabled } catch { $sn.Zhiv = $false }
+  return $sn
+}
+
+# the page reacted to the click: focus moved onto the element or elsewhere, the title changed,
+# the element changed its name / enabled state or left the tree. Returns @{ Est; Vid }
+function Wait-Effekt($el, $o, $do, [int]$TimeoutMs = 700) {
+  $sw = [Diagnostics.Stopwatch]::StartNew()
+  while ($true) {
+    $f = Get-Fokus
+    if ($f -and (Test-TotZhe $f $el)) { return @{ Est = $true; Vid = 'fokus-na-celi' } }
+    try { if ($o.Okno.Current.Name -ne $do.Zag) { return @{ Est = $true; Vid = 'zagolovok' } } } catch {}
+    if (-not (Test-Zhivoj $el)) { return @{ Est = $true; Vid = 'element-ushel' } }
+    try { $c = $el.Current; if ($c.Name -ne $do.Imya -or $c.IsEnabled -ne $do.Vkl) { return @{ Est = $true; Vid = 'sostoyanie' } } } catch {}
+    if ($f -and $do.Fokus -and -not (Test-TotZhe $f $do.Fokus)) { return @{ Est = $true; Vid = 'fokus-drugoj' } }
+    if ($sw.ElapsedMilliseconds -ge $TimeoutMs) { return @{ Est = $false; Vid = 'net' } }
+    Start-Sleep -Milliseconds 30
+  }
 }

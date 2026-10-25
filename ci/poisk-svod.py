@@ -54,6 +54,10 @@ itog = {
     'ms_mediana': kvantil(ms_poz, .5), 'ms_p95': kvantil(ms_poz, .95),
     'ms_sobstv_mediana': kvantil(ms_sob, .5), 'ms_sobstv_p95': kvantil(ms_sob, .95),
     'ms_otsutstvie_mediana': kvantil(ms_neg, .5), 'ms_otsutstvie_p95': kvantil(ms_neg, .95),
+    'lozhnyh_ok': sum(1 for x in progony if x.get('lozhnyj_ok')),
+    'ne_doshlo': sum(1 for x in progony if x.get('status') == 'nazhatie-ne-doshlo'),
+    'povtorov_po_sdvigu': sum(1 for x in progony if x.get('povtor')),
+    'effekty': dict(collections.Counter(x.get('effekt') for x in progony if x.get('effekt'))),
     'etapy_mediana': {k: kvantil(v, .5) for k, v in etapy.items()},
     'etapy_p95': {k: kvantil(v, .95) for k, v in etapy.items()},
     'po_zadacham': {k: {'progonov': v['progonov'], 'verno': v['verno'], 'ms_mediana': kvantil(v['ms'], .5), 'ms_p95': kvantil(v['ms'], .95)} for k, v in sorted(po_zad.items())},
@@ -94,6 +98,8 @@ L = ['# Itog trenera poiska', '', f"run {itog['run']}, commit {str(itog['sha'])[
      f"- progonov: {vsego}, verno: {verno}, dolya: **{dolya} %**",
      f"- dvizhenie (najdeno): mediana {itog['ms_mediana']} ms, p95 **{itog['ms_p95']} ms**",
      f"- bez ozhidaniya stranicy: mediana {itog['ms_sobstv_mediana']} ms, p95 {itog['ms_sobstv_p95']} ms",
+     f"- lozhnyh ok (ok, a nazhatiya net): **{itog['lozhnyh_ok']}**, chestnyh 'nazhatie ne doshlo': {itog['ne_doshlo']}, povtorov posle sdviga: {itog['povtorov_po_sdvigu']}",
+     f"- effekty posle klika: {itog['effekty']}",
      f"- otsutstvie (net): mediana {itog['ms_otsutstvie_mediana']} ms, p95 {itog['ms_otsutstvie_p95']} ms",
      '', '## Etapy (mediana / p95, ms)', '']
 for k in itog['etapy_mediana']:
@@ -102,7 +108,7 @@ L += ['', '## Po zadacham', '']
 for k, v in itog['po_zadacham'].items():
     L.append(f"- {k}: {v['verno']}/{v['progonov']}, mediana {v['ms_mediana']} ms, p95 {v['ms_p95']} ms")
 L += ['', '## Po pomeham okna', ''] + [f"- {k}: {v['verno']}/{v['progonov']}" for k, v in itog['po_pomeham'].items()]
-L += ['', '## Neudachi', ''] + [f"- {x.get('zadacha')} pomeha={x.get('pomeha')} status={x.get('status')} nazhato={x.get('nazhato')} ozhid={x.get('ozhid')} ms={x.get('ms')}" for x in itog['neudachi'][:20]]
+L += ['', '## Neudachi', ''] + [f"- {x.get('zadacha')} pomeha={x.get('pomeha')} status={x.get('status')} nazhato={x.get('nazhato')} ozhid={x.get('ozhid')} ms={x.get('ms')} effekt={x.get('effekt')} {x.get('diag') or ''}" for x in itog['neudachi'][:20]]
 L += ['', '## Po rabotam', ''] + [f"- seed {r['seed']}: {r['verno']}/{r['progonov']}, {r['sekund']} s" for r in raboty]
 with open(os.path.join(dst, 'itog.md'), 'w', encoding='utf-8') as f:
     f.write('\n'.join(L) + '\n')
