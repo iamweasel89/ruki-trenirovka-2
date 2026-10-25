@@ -200,7 +200,7 @@ function Find-Uzel($koren, $spec, [IntPtr]$hwnd = [IntPtr]::Zero) {
       continue
     }
     # nothing yet after a while: content may be built only when scrolled to (frames, lazy parts)
-    if ($sw.ElapsedMilliseconds -ge 700 -and -not $avto) { $avto = $true; Write-RukiLog 'poisk: avto-prokrutka' }
+    if ($sw.ElapsedMilliseconds -ge 350 -and -not $avto) { $avto = $true; Write-RukiLog 'poisk: avto-prokrutka' }
     if ($avto) { $null = Move-StranicaVniz $koren $hwnd }
     Start-Sleep -Milliseconds $pauza; $script:Spano += $pauza
     if ($pauza -lt 160) { $pauza = [Math]::Min(160, $pauza * 2) }
@@ -300,6 +300,13 @@ function Wait-RectUstojchiv($el, [int]$TimeoutMs = 1200, $ot = $null, [int]$rovn
   return $false
 }
 
+# only a change of the window geometry (restore, maximise) makes the page relayout;
+# bringing the window to the front does not
+function Test-GeomFiks($bylo) {
+  foreach ($b in @($bylo)) { if ($b -eq 'svernuto' -or ([string]$b).StartsWith('za-ekranom')) { return $true } }
+  return $false
+}
+
 # the element is what lies under its own centre (not covered, not clipped by a frame)
 function Test-PodTochkoj($el, [int]$x, [int]$y, [IntPtr]$hwnd) {
   if ([RukiMysh]::RootPodTochkoj($x, $y) -ne $hwnd) { return 'drugoe-okno' }
@@ -383,7 +390,7 @@ function Invoke-Dvizhenie($zadacha) {
   if (-not $g.Ok) { return Konec 'okno-ne-vidno' }
   $spec = Get-Pole $zadacha 'element'
   $fiks = $null
-  if ($g.Bylo.Count) { $fiks = $sw.ElapsedMilliseconds; $null = Wait-RectUstojchiv $o.Doc 1500 $r0 }
+  if (Test-GeomFiks $g.Bylo) { $fiks = $sw.ElapsedMilliseconds; $null = Wait-RectUstojchiv $o.Doc 1500 $r0 }
   for ($pop = 1; $pop -le 3; $pop++) {
     $t = $sw.ElapsedMilliseconds
     $f = Find-Uzel $o.Doc $spec $o.Hwnd
@@ -406,7 +413,7 @@ function Invoke-Dvizhenie($zadacha) {
     $g = Confirm-OknoGotovo $o.Hwnd
     if ($g.Bylo) { $rez.Okno += $g.Bylo }
     if (-not $g.Ok) { return Konec 'okno-ne-vidno' }
-    if ($g.Bylo.Count) { $fiks = $sw.ElapsedMilliseconds; $null = Wait-RectUstojchiv $o.Doc 1500; $null = Show-Uzel $el $o.Doc $o.Hwnd }
+    if (Test-GeomFiks $g.Bylo) { $fiks = $sw.ElapsedMilliseconds; $null = Wait-RectUstojchiv $o.Doc 1500; $null = Show-Uzel $el $o.Doc $o.Hwnd }
     # after a window fix the page relayouts with a delay: give it time and demand a longer stable run
     if ($fiks -ne $null) {
       $ost = 300 - ($sw.ElapsedMilliseconds - $fiks); if ($ost -gt 0) { Start-Sleep -Milliseconds $ost }
