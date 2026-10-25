@@ -1,0 +1,1916 @@
+{
+ "run": "40220731627",
+ "sha": "47cac7744c2325e02b87302b2a82640a9db16e42",
+ "progonov": 285,
+ "verno": 172,
+ "dolya_verno_proc": 60.4,
+ "nahozhdenie_proc": 53.3,
+ "popadanie_proc": 52.9,
+ "est_celej": 240,
+ "chestnoe_ne_nashel_proc": 100.0,
+ "net_celej": 45,
+ "lozhnyh_klikov": 1,
+ "smeshchenie_px": {
+  "mediana": 1,
+  "p95": 6,
+  "maks": 14
+ },
+ "raspoznavanie_ms": {
+  "mediana": 2091,
+  "p95": 3960,
+  "maks": 19535
+ },
+ "po_planam": {
+  "blednyj": {
+   "progonov": 15,
+   "uspeh": 15,
+   "p95_ms": 1250
+  },
+  "blednyj-ru": {
+   "progonov": 15,
+   "uspeh": 9,
+   "p95_ms": 3944
+  },
+  "dvizhenie": {
+   "progonov": 15,
+   "uspeh": 0,
+   "p95_ms": 5560
+  },
+  "dvizhenie-en": {
+   "progonov": 15,
+   "uspeh": 15,
+   "p95_ms": 3398
+  },
+  "holst-en": {
+   "progonov": 15,
+   "uspeh": 15,
+   "p95_ms": 1894
+  },
+  "holst-ru": {
+   "progonov": 15,
+   "uspeh": 2,
+   "p95_ms": 4800
+  },
+  "holst-smes": {
+   "progonov": 15,
+   "uspeh": 0,
+   "p95_ms": 5339
+  },
+  "kartinka-en": {
+   "progonov": 15,
+   "uspeh": 14,
+   "p95_ms": 7327
+  },
+  "kartinka-ru": {
+   "progonov": 15,
+   "uspeh": 1,
+   "p95_ms": 3684
+  },
+  "melkij": {
+   "progonov": 15,
+   "uspeh": 7,
+   "p95_ms": 3109
+  },
+  "melkij-en": {
+   "progonov": 15,
+   "uspeh": 14,
+   "p95_ms": 2782
+  },
+  "migaet": {
+   "progonov": 15,
+   "uspeh": 5,
+   "p95_ms": 4511
+  },
+  "net-en": {
+   "progonov": 15,
+   "uspeh": 15,
+   "p95_ms": 4788
+  },
+  "net-kartinka": {
+   "progonov": 15,
+   "uspeh": 15,
+   "p95_ms": 3552
+  },
+  "net-ru": {
+   "progonov": 15,
+   "uspeh": 15,
+   "p95_ms": 2898
+  },
+  "pohozhie-en": {
+   "progonov": 15,
+   "uspeh": 15,
+   "p95_ms": 1569
+  },
+  "pohozhie-en2": {
+   "progonov": 15,
+   "uspeh": 15,
+   "p95_ms": 1558
+  },
+  "pohozhie-ru": {
+   "progonov": 15,
+   "uspeh": 0,
+   "p95_ms": 2718
+  },
+  "pohozhie-ru2": {
+   "progonov": 15,
+   "uspeh": 0,
+   "p95_ms": 2830
+  }
+ },
+ "po_masshtabu": {
+  "1": {
+   "progonov": 95,
+   "uspeh": 56
+  },
+  "1.25": {
+   "progonov": 95,
+   "uspeh": 57
+  },
+  "1.5": {
+   "progonov": 95,
+   "uspeh": 59
+  }
+ },
+ "prohody": {
+  "tess-eng-x2.5-otkl": {
+   "raz": 14,
+   "nashel": 0,
+   "mediana_ms": 760,
+   "p95_ms": 1076
+  },
+  "tess-rus+eng-x1.5-otkl": {
+   "raz": 183,
+   "nashel": 40,
+   "mediana_ms": 1129,
+   "p95_ms": 1738
+  },
+  "tess-rus+eng-x2.5-otkl": {
+   "raz": 143,
+   "nashel": 18,
+   "mediana_ms": 978,
+   "p95_ms": 1384
+  },
+  "win-en-x1-net": {
+   "raz": 123,
+   "nashel": 91,
+   "mediana_ms": 439,
+   "p95_ms": 1121
+  },
+  "win-en-x2-seryj": {
+   "raz": 32,
+   "nashel": 16,
+   "mediana_ms": 610,
+   "p95_ms": 1935
+  },
+  "win-en-x2.5-otkl": {
+   "raz": 16,
+   "nashel": 2,
+   "mediana_ms": 1024,
+   "p95_ms": 2019
+  }
+ },
+ "reshayushchij_prohod": {
+  "win-en-x1-net": 88,
+  "win-en-x2-seryj": 16,
+  "tess-rus+eng-x2.5-otkl": 8,
+  "tess-rus+eng-x1.5-otkl": 16
+ },
+ "statusy": {
+  "poteryal": 18,
+  "ne-nashel": 139,
+  "klik": 128
+ },
+ "proverka_posle_klika": {
+  "izmenilos": 117,
+  "bez-izmenenij": 10,
+  "propalo": 1
+ },
+ "prichiny_neudach": {
+  "blednyj-ru: ne-kliknul: poteryal": 6,
+  "dvizhenie: ne-kliknul: ne-nashel": 15,
+  "holst-ru: ne-kliknul: ne-nashel": 8,
+  "holst-smes: ne-kliknul: ne-nashel": 10,
+  "kartinka-ru: ne-kliknul: ne-nashel": 14,
+  "migaet: ne-kliknul: ne-nashel": 10,
+  "pohozhie-ru: ne-kliknul: ne-nashel": 15,
+  "pohozhie-ru2: ne-kliknul: ne-nashel": 15,
+  "holst-ru: ne-kliknul: poteryal": 5,
+  "holst-smes: ne-kliknul: poteryal": 5,
+  "melkij: ne-kliknul: ne-nashel": 8,
+  "melkij-en: ne-kliknul: poteryal": 1,
+  "kartinka-en: lozhnyj-klik: klik": 1
+ },
+ "lozhnye": [
+  {
+   "plan": "kartinka-en",
+   "masshtab": "1.25",
+   "seed": 5021,
+   "kliki": [
+    {
+     "i": -1,
+     "dx": 11,
+     "dy": -33,
+     "v": 0
+    }
+   ],
+   "prochitano": "Options",
+   "prohod": "win-en-x1-net"
+  }
+ ],
+ "sredy": [
+  {
+   "seed": 1,
+   "ekran": "1920x1080",
+   "dpi": "per-monitor-v2",
+   "chrome": true,
+   "podgotovka": {
+    "ekran_bylo": "1024x768",
+    "ekran_kod": "0",
+    "ekran": "1920x1080",
+    "winocr_bylo": "yazyki:en-US",
+    "winocr_ustanovka": "ne-uspela-za-240-s",
+    "winocr_ustanovka_sek": 246,
+    "winocr": "yazyki:en-US",
+    "tess_ustanovka": "26 s: \r\nChocolatey installed 1/1 packages. \r\n See the log for details (C:\\ProgramData\\chocolatey\\logs\\chocolatey.log).\r\n | skachan rus",
+    "tess": "eng,osd,rus",
+    "sekund": 259
+   }
+  },
+  {
+   "seed": 2,
+   "ekran": "1920x1080",
+   "dpi": "per-monitor-v2",
+   "chrome": true,
+   "podgotovka": {
+    "ekran_bylo": "1024x768",
+    "ekran_kod": "0",
+    "ekran": "1920x1080",
+    "winocr_bylo": "yazyki:en-US",
+    "winocr_ustanovka": "ne-uspela-za-240-s",
+    "winocr_ustanovka_sek": 247,
+    "winocr": "yazyki:en-US",
+    "tess_ustanovka": "25 s: \r\nChocolatey installed 1/1 packages. \r\n See the log for details (C:\\ProgramData\\chocolatey\\logs\\chocolatey.log).\r\n | skachan rus",
+    "tess": "eng,osd,rus",
+    "sekund": 259
+   }
+  },
+  {
+   "seed": 3,
+   "ekran": "1920x1080",
+   "dpi": "per-monitor-v2",
+   "chrome": true,
+   "podgotovka": {
+    "ekran_bylo": "1024x768",
+    "ekran_kod": "0",
+    "ekran": "1920x1080",
+    "winocr_bylo": "yazyki:en-US",
+    "winocr_ustanovka": "ne-uspela-za-240-s",
+    "winocr_ustanovka_sek": 247,
+    "winocr": "yazyki:en-US",
+    "tess_ustanovka": "26 s: \r\nChocolatey installed 1/1 packages. \r\n See the log for details (C:\\ProgramData\\chocolatey\\logs\\chocolatey.log).\r\n | skachan rus",
+    "tess": "eng,osd,rus",
+    "sekund": 257
+   }
+  },
+  {
+   "seed": 4,
+   "ekran": "1920x1080",
+   "dpi": "per-monitor-v2",
+   "chrome": true,
+   "podgotovka": {
+    "ekran_bylo": "1024x768",
+    "ekran_kod": "0",
+    "ekran": "1920x1080",
+    "winocr_bylo": "yazyki:en-US",
+    "winocr_ustanovka": "ne-uspela-za-240-s",
+    "winocr_ustanovka_sek": 246,
+    "winocr": "yazyki:en-US",
+    "tess_ustanovka": "21 s: \r\nChocolatey installed 1/1 packages. \r\n See the log for details (C:\\ProgramData\\chocolatey\\logs\\chocolatey.log).\r\n | skachan rus",
+    "tess": "eng,osd,rus",
+    "sekund": 259
+   }
+  },
+  {
+   "seed": 5,
+   "ekran": "1920x1080",
+   "dpi": "per-monitor-v2",
+   "chrome": true,
+   "podgotovka": {
+    "ekran_bylo": "1024x768",
+    "ekran_kod": "0",
+    "ekran": "1920x1080",
+    "winocr_bylo": "yazyki:en-US",
+    "winocr_ustanovka": "ne-uspela-za-240-s",
+    "winocr_ustanovka_sek": 246,
+    "winocr": "yazyki:en-US",
+    "tess_ustanovka": "24 s: \r\nChocolatey installed 1/1 packages. \r\n See the log for details (C:\\ProgramData\\chocolatey\\logs\\chocolatey.log).\r\n | skachan rus",
+    "tess": "eng,osd,rus",
+    "sekund": 258
+   }
+  }
+ ],
+ "minut_runnera": 61.2,
+ "oshibki_chteniya": [],
+ "neudachi": [
+  {
+   "seed": 1000,
+   "plan": "blednyj-ru",
+   "masshtab": "1",
+   "cel": "Отклонить",
+   "proverka": "ne-kliknul: poteryal",
+   "status": "poteryal",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1967,
+     "slov": 6,
+     "fraz": 6,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1178,
+     "slov": 6,
+     "fraz": 6,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:30:03.175 okno: ne-vperedi, vozvrashchayu",
+    "18:30:03.464 okno: ok=True bylo=ne-vperedi",
+    "18:30:04.010 winocr: yazyki [en-US] max 10000",
+    "18:30:04.490 tesseract: yazyki [eng,osd,rus]",
+    "18:30:06.488 prohod tess-rus+eng-x1.5-otkl: 1967 ms, slov 6, fraz 6, sovpalo 1, podtverzhdeno 1",
+    "18:30:09.167 vtoroe chtenie ne nashlo, popytka 1",
+    "18:30:10.352 prohod tess-rus+eng-x1.5-otkl: 1178 ms, slov 6, fraz 6, sovpalo 1, podtverzhdeno 1",
+    "18:30:15.146 vtoroe chtenie ne nashlo, popytka 2"
+   ]
+  },
+  {
+   "seed": 1001,
+   "plan": "dvizhenie",
+   "masshtab": "1",
+   "cel": "Старт",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1560,
+     "slov": 8,
+     "fraz": 5,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1373,
+     "slov": 10,
+     "fraz": 8,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:30:19.989 okno: ne-vperedi, vozvrashchayu",
+    "18:30:20.209 okno: ok=True bylo=ne-vperedi",
+    "18:30:20.431 winocr: yazyki [en-US] max 10000",
+    "18:30:20.869 tesseract: yazyki [eng,osd,rus]",
+    "18:30:22.480 prohod tess-rus+eng-x1.5-otkl: 1560 ms, slov 8, fraz 5, sovpalo 0, podtverzhdeno 0",
+    "18:30:22.486   frazy: Та: | тарт | пб К | | Стоп J | ,",
+    "18:30:23.864 prohod tess-rus+eng-x2.5-otkl: 1373 ms, slov 10, fraz 8, sovpalo 0, podtverzhdeno 0",
+    "18:30:23.867   frazy: [Next } | тарт | | iI | — | ок | ocr | © | cc"
+   ]
+  },
+  {
+   "seed": 1004,
+   "plan": "holst-ru",
+   "masshtab": "1",
+   "cel": "Печать",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1172,
+     "slov": 9,
+     "fraz": 9,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1019,
+     "slov": 8,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:30:43.513 okno: ne-vperedi, vozvrashchayu",
+    "18:30:43.703 okno: ok=True bylo=ne-vperedi",
+    "18:30:43.846 winocr: yazyki [en-US] max 10000",
+    "18:30:44.178 tesseract: yazyki [eng,osd,rus]",
+    "18:30:45.389 prohod tess-rus+eng-x1.5-otkl: 1172 ms, slov 9, fraz 9, sovpalo 0, podtverzhdeno 0",
+    "18:30:45.392   frazy: и. | iL | BED | Tul | er | cr | т | рыть | (+",
+    "18:30:46.412 prohod tess-rus+eng-x2.5-otkl: 1019 ms, slov 8, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:30:46.417   frazy: к | “On | Те) | ‚Выход ) | it | рав! | ить"
+   ]
+  },
+  {
+   "seed": 1005,
+   "plan": "holst-smes",
+   "masshtab": "1",
+   "cel": "Новый проект",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1089,
+     "slov": 9,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1001,
+     "slov": 12,
+     "fraz": 8,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:30:50.342 okno: ne-vperedi, vozvrashchayu",
+    "18:30:50.561 okno: ok=True bylo=ne-vperedi",
+    "18:30:50.859 winocr: yazyki [en-US] max 10000",
+    "18:30:51.269 tesseract: yazyki [eng,osd,rus]",
+    "18:30:52.395 prohod tess-rus+eng-x1.5-otkl: 1089 ms, slov 9, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:30:52.396   frazy: | Файл J | | нар | | (Новы | [Экко ]",
+    "18:30:53.399 prohod tess-rus+eng-x2.5-otkl: 1001 ms, slov 12, fraz 8, sovpalo 0, podtverzhdeno 0",
+    "18:30:53.403   frazy: — | | Help | | — | овый пр. | _Fait | и, | Файл | | —-"
+   ]
+  },
+  {
+   "seed": 1007,
+   "plan": "kartinka-ru",
+   "masshtab": "1",
+   "cel": "Рекорды",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1654,
+     "slov": 3,
+     "fraz": 2,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1177,
+     "slov": 1,
+     "fraz": 1,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:31:26.349 okno: ne-vperedi, vozvrashchayu",
+    "18:31:26.552 okno: ok=True bylo=ne-vperedi",
+    "18:31:26.697 winocr: yazyki [en-US] max 10000",
+    "18:31:26.945 tesseract: yazyki [eng,osd,rus]",
+    "18:31:28.635 prohod tess-rus+eng-x1.5-otkl: 1654 ms, slov 3, fraz 2, sovpalo 0, podtverzhdeno 0",
+    "18:31:28.639   frazy: И ИВ | (OT",
+    "18:31:29.819 prohod tess-rus+eng-x2.5-otkl: 1177 ms, slov 1, fraz 1, sovpalo 0, podtverzhdeno 0",
+    "18:31:29.822   frazy: iS)"
+   ]
+  },
+  {
+   "seed": 1010,
+   "plan": "migaet",
+   "masshtab": "1",
+   "cel": "Пауза",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1146,
+     "slov": 8,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1042,
+     "slov": 12,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:31:48.035 okno: ne-vperedi, vozvrashchayu",
+    "18:31:48.230 okno: ok=True bylo=ne-vperedi",
+    "18:31:48.376 winocr: yazyki [en-US] max 10000",
+    "18:31:48.680 tesseract: yazyki [eng,osd,rus]",
+    "18:31:49.862 prohod tess-rus+eng-x1.5-otkl: 1146 ms, slov 8, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:31:49.864   frazy: [т | | | | | гарт | x | Oo | |< п)",
+    "18:31:50.909 prohod tess-rus+eng-x2.5-otkl: 1042 ms, slov 12, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:31:50.910   frazy: [Next | | [< п) | x | [п ауза | oO | ох nOk | [ старт"
+   ]
+  },
+  {
+   "seed": 1016,
+   "plan": "pohozhie-ru",
+   "masshtab": "1",
+   "cel": "Сохранить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1127,
+     "slov": 3,
+     "fraz": 3,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 885,
+     "slov": 4,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:32:23.856 okno: ne-vperedi, vozvrashchayu",
+    "18:32:24.052 okno: ok=True bylo=ne-vperedi",
+    "18:32:24.202 winocr: yazyki [en-US] max 10000",
+    "18:32:24.606 tesseract: yazyki [eng,osd,rus]",
+    "18:32:25.770 prohod tess-rus+eng-x1.5-otkl: 1127 ms, slov 3, fraz 3, sovpalo 0, podtverzhdeno 0",
+    "18:32:25.772   frazy: x | Oo | cr",
+    "18:32:26.659 prohod tess-rus+eng-x2.5-otkl: 885 ms, slov 4, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:32:26.661   frazy: ть | ИТ | x | oO"
+   ]
+  },
+  {
+   "seed": 1017,
+   "plan": "pohozhie-ru2",
+   "masshtab": "1",
+   "cel": "Отправить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1501,
+     "slov": 4,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1001,
+     "slov": 4,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:32:29.826 okno: ne-vperedi, vozvrashchayu",
+    "18:32:30.025 okno: ok=True bylo=ne-vperedi",
+    "18:32:30.180 winocr: yazyki [en-US] max 10000",
+    "18:32:30.617 tesseract: yazyki [eng,osd,rus]",
+    "18:32:32.158 prohod tess-rus+eng-x1.5-otkl: 1501 ms, slov 4, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:32:32.160   frazy: ¢ | т | x | Oo",
+    "18:32:33.164 prohod tess-rus+eng-x2.5-otkl: 1001 ms, slov 4, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:32:33.166   frazy: x | 3 | oO | €"
+   ]
+  },
+  {
+   "seed": 1019,
+   "plan": "blednyj-ru",
+   "masshtab": "1.25",
+   "cel": "Отклонить",
+   "proverka": "ne-kliknul: poteryal",
+   "status": "poteryal",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 2422,
+     "slov": 8,
+     "fraz": 8,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1183,
+     "slov": 8,
+     "fraz": 8,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:32:40.998 okno: ne-vperedi, vozvrashchayu",
+    "18:32:41.193 okno: ok=True bylo=ne-vperedi",
+    "18:32:41.307 winocr: yazyki [en-US] max 10000",
+    "18:32:41.502 tesseract: yazyki [eng,osd,rus]",
+    "18:32:43.951 prohod tess-rus+eng-x1.5-otkl: 2422 ms, slov 8, fraz 8, sovpalo 1, podtverzhdeno 1",
+    "18:32:46.655 vtoroe chtenie ne nashlo, popytka 1",
+    "18:32:47.847 prohod tess-rus+eng-x1.5-otkl: 1183 ms, slov 8, fraz 8, sovpalo 1, podtverzhdeno 1",
+    "18:32:50.767 vtoroe chtenie ne nashlo, popytka 2"
+   ]
+  },
+  {
+   "seed": 1020,
+   "plan": "dvizhenie",
+   "masshtab": "1.25",
+   "cel": "Старт",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1995,
+     "slov": 9,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1365,
+     "slov": 12,
+     "fraz": 10,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:32:56.776 okno: ne-vperedi, vozvrashchayu",
+    "18:32:57.008 okno: ok=True bylo=ne-vperedi",
+    "18:32:57.267 winocr: yazyki [en-US] max 10000",
+    "18:32:57.622 tesseract: yazyki [eng,osd,rus]",
+    "18:32:59.656 prohod tess-rus+eng-x1.5-otkl: 1995 ms, slov 9, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:32:59.711   frazy: с. | fa) | ом nOk | © | В | x | sen J",
+    "18:33:01.081 prohod tess-rus+eng-x2.5-otkl: 1365 ms, slov 12, fraz 10, sovpalo 0, podtverzhdeno 0",
+    "18:33:01.083   frazy: ( | | | oO | т | x | > | nOk | © | | | | Next )"
+   ]
+  },
+  {
+   "seed": 1023,
+   "plan": "holst-ru",
+   "masshtab": "1.25",
+   "cel": "Печать",
+   "proverka": "ne-kliknul: poteryal",
+   "status": "poteryal",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1858,
+     "slov": 12,
+     "fraz": 8,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 2372,
+     "slov": 12,
+     "fraz": 8,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:33:20.571 okno: ne-vperedi, vozvrashchayu",
+    "18:33:20.814 okno: ok=True bylo=ne-vperedi",
+    "18:33:20.943 winocr: yazyki [en-US] max 10000",
+    "18:33:21.812 tesseract: yazyki [eng,osd,rus]",
+    "18:33:23.703 prohod tess-rus+eng-x1.5-otkl: 1858 ms, slov 12, fraz 8, sovpalo 1, podtverzhdeno 1",
+    "18:33:27.540 vtoroe chtenie ne nashlo, popytka 1",
+    "18:33:29.922 prohod tess-rus+eng-x1.5-otkl: 2372 ms, slov 12, fraz 8, sovpalo 1, podtverzhdeno 1",
+    "18:33:35.055 vtoroe chtenie ne nashlo, popytka 2"
+   ]
+  },
+  {
+   "seed": 1024,
+   "plan": "holst-smes",
+   "masshtab": "1.25",
+   "cel": "Новый проект",
+   "proverka": "ne-kliknul: poteryal",
+   "status": "poteryal",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1224,
+     "slov": 15,
+     "fraz": 12,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1461,
+     "slov": 17,
+     "fraz": 11,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1598,
+     "slov": 15,
+     "fraz": 12,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1063,
+     "slov": 17,
+     "fraz": 11,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:33:39.089 okno: ne-vperedi, vozvrashchayu",
+    "18:33:39.326 okno: ok=True bylo=ne-vperedi",
+    "18:33:39.577 winocr: yazyki [en-US] max 10000",
+    "18:33:39.907 tesseract: yazyki [eng,osd,rus]",
+    "18:33:41.160 prohod tess-rus+eng-x1.5-otkl: 1224 ms, slov 15, fraz 12, sovpalo 0, podtverzhdeno 0",
+    "18:33:41.162   frazy: cD | | | HV | ом nOk | © | x | alt) | fa) | T | | | eatin) | | Экно )",
+    "18:33:42.626 prohod tess-rus+eng-x2.5-otkl: 1461 ms, slov 17, fraz 11, sovpalo 1, podtverzhdeno 1",
+    "18:33:49.003 vtoroe chtenie ne nashlo, popytka 1",
+    "18:33:50.614 prohod tess-rus+eng-x1.5-otkl: 1598 ms, slov 15, fraz 12, sovpalo 0, podtverzhdeno 0",
+    "18:33:50.616   frazy: cD | | | HV | ом nOk | © | x | alt) | fa) | T | | | eatin) | | Экно )",
+    "18:33:51.682 prohod tess-rus+eng-x2.5-otkl: 1063 ms, slov 17, fraz 11, sovpalo 1, podtverzhdeno 1",
+    "18:33:57.238 vtoroe chtenie ne nashlo, popytka 2"
+   ]
+  },
+  {
+   "seed": 1026,
+   "plan": "kartinka-ru",
+   "masshtab": "1.25",
+   "cel": "Рекорды",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1185,
+     "slov": 12,
+     "fraz": 10,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1135,
+     "slov": 11,
+     "fraz": 11,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:34:07.012 okno: ne-vperedi, vozvrashchayu",
+    "18:34:07.221 okno: ok=True bylo=ne-vperedi",
+    "18:34:07.344 winocr: yazyki [en-US] max 10000",
+    "18:34:07.595 tesseract: yazyki [eng,osd,rus]",
+    "18:34:08.807 prohod tess-rus+eng-x1.5-otkl: 1185 ms, slov 12, fraz 10, sovpalo 0, podtverzhdeno 0",
+    "18:34:08.809   frazy: ‘Lr | = | 1 г1 n0'k | [Le | = | ШИ | © | {АЛ | _— | —",
+    "18:34:09.948 prohod tess-rus+eng-x2.5-otkl: 1135 ms, slov 11, fraz 11, sovpalo 0, podtverzhdeno 0",
+    "18:34:09.948   frazy: м | Li | Мачать | — | ban | О | k | © | | | Ц | —"
+   ]
+  },
+  {
+   "seed": 1027,
+   "plan": "melkij",
+   "masshtab": "1.25",
+   "cel": "Подробнее",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 927,
+     "slov": 4,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 829,
+     "slov": 6,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:34:13.012 okno: ne-vperedi, vozvrashchayu",
+    "18:34:13.211 okno: ok=True bylo=ne-vperedi",
+    "18:34:13.339 winocr: yazyki [en-US] max 10000",
+    "18:34:13.740 tesseract: yazyki [eng,osd,rus]",
+    "18:34:14.693 prohod tess-rus+eng-x1.5-otkl: 927 ms, slov 4, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:34:14.695   frazy: a | x | nok | ©",
+    "18:34:15.527 prohod tess-rus+eng-x2.5-otkl: 829 ms, slov 6, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:34:15.528   frazy: © ог nOk | Принять | Decline | oO"
+   ]
+  },
+  {
+   "seed": 1035,
+   "plan": "pohozhie-ru",
+   "masshtab": "1.25",
+   "cel": "Сохранить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1328,
+     "slov": 4,
+     "fraz": 3,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 832,
+     "slov": 6,
+     "fraz": 6,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:35:01.141 okno: ne-vperedi, vozvrashchayu",
+    "18:35:01.325 okno: ok=True bylo=ne-vperedi",
+    "18:35:01.435 winocr: yazyki [en-US] max 10000",
+    "18:35:01.633 tesseract: yazyki [eng,osd,rus]",
+    "18:35:02.987 prohod tess-rus+eng-x1.5-otkl: 1328 ms, slov 4, fraz 3, sovpalo 0, podtverzhdeno 0",
+    "18:35:02.987   frazy: ом nOk | © | о",
+    "18:35:03.824 prohod tess-rus+eng-x2.5-otkl: 832 ms, slov 6, fraz 6, sovpalo 0, podtverzhdeno 0",
+    "18:35:03.826   frazy: oO | all | = | пок | © | r"
+   ]
+  },
+  {
+   "seed": 1036,
+   "plan": "pohozhie-ru2",
+   "masshtab": "1.25",
+   "cel": "Отправить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 914,
+     "slov": 8,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 802,
+     "slov": 6,
+     "fraz": 6,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:35:07.221 okno: ne-vperedi, vozvrashchayu",
+    "18:35:07.451 okno: ok=True bylo=ne-vperedi",
+    "18:35:07.589 winocr: yazyki [en-US] max 10000",
+    "18:35:07.810 tesseract: yazyki [eng,osd,rus]",
+    "18:35:08.753 prohod tess-rus+eng-x1.5-otkl: 914 ms, slov 8, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:35:08.755   frazy: ¢ | ом nOk | © | х | о | ¢ | с.",
+    "18:35:09.559 prohod tess-rus+eng-x2.5-otkl: 802 ms, slov 6, fraz 6, sovpalo 0, podtverzhdeno 0",
+    "18:35:09.561   frazy: о | x | > | nOk | © | ue"
+   ]
+  },
+  {
+   "seed": 1039,
+   "plan": "dvizhenie",
+   "masshtab": "1.5",
+   "cel": "Старт",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1374,
+     "slov": 10,
+     "fraz": 5,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1155,
+     "slov": 11,
+     "fraz": 6,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:35:25.087 okno: ne-vperedi, vozvrashchayu",
+    "18:35:25.305 okno: ok=True bylo=ne-vperedi",
+    "18:35:25.746 winocr: yazyki [en-US] max 10000",
+    "18:35:26.233 tesseract: yazyki [eng,osd,rus]",
+    "18:35:27.652 prohod tess-rus+eng-x1.5-otkl: 1374 ms, slov 10, fraz 5, sovpalo 0, podtverzhdeno 0",
+    "18:35:27.657   frazy: x | _ | | Cron | | o | @ oer rt пок",
+    "18:35:28.816 prohod tess-rus+eng-x2.5-otkl: 1155 ms, slov 11, fraz 6, sovpalo 0, podtverzhdeno 0",
+    "18:35:28.817   frazy: (3 | @ oer ri n0k | C3 | o | x | | Gren |"
+   ]
+  },
+  {
+   "seed": 1042,
+   "plan": "holst-ru",
+   "masshtab": "1.5",
+   "cel": "Печать",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1381,
+     "slov": 13,
+     "fraz": 12,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 860,
+     "slov": 13,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:35:42.381 okno: ne-vperedi, vozvrashchayu",
+    "18:35:42.560 okno: ok=True bylo=ne-vperedi",
+    "18:35:42.669 winocr: yazyki [en-US] max 10000",
+    "18:35:42.859 tesseract: yazyki [eng,osd,rus]",
+    "18:35:44.263 prohod tess-rus+eng-x1.5-otkl: 1381 ms, slov 13, fraz 12, sovpalo 0, podtverzhdeno 0",
+    "18:35:44.265   frazy: и | lal | @ oer | C3 | поавка | lib | х | mKpEN | 5 | © | —— | CU",
+    "18:35:45.129 prohod tess-rus+eng-x2.5-otkl: 860 ms, slov 13, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:35:45.129   frazy: pay | @ oer ri n0k | KY | o | anon | | x | | toe |"
+   ]
+  },
+  {
+   "seed": 1043,
+   "plan": "holst-smes",
+   "masshtab": "1.5",
+   "cel": "Новый проект",
+   "proverka": "ne-kliknul: poteryal",
+   "status": "poteryal",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1672,
+     "slov": 17,
+     "fraz": 9,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1036,
+     "slov": 17,
+     "fraz": 9,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:35:48.065 okno: ne-vperedi, vozvrashchayu",
+    "18:35:48.248 okno: ok=True bylo=ne-vperedi",
+    "18:35:48.360 winocr: yazyki [en-US] max 10000",
+    "18:35:48.550 tesseract: yazyki [eng,osd,rus]",
+    "18:35:50.247 prohod tess-rus+eng-x1.5-otkl: 1672 ms, slov 17, fraz 9, sovpalo 1, podtverzhdeno 1",
+    "18:35:54.005 vtoroe chtenie ne nashlo, popytka 1",
+    "18:35:55.048 prohod tess-rus+eng-x1.5-otkl: 1036 ms, slov 17, fraz 9, sovpalo 1, podtverzhdeno 1",
+    "18:35:58.924 vtoroe chtenie ne nashlo, popytka 2"
+   ]
+  },
+  {
+   "seed": 1045,
+   "plan": "kartinka-ru",
+   "masshtab": "1.5",
+   "cel": "Рекорды",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1364,
+     "slov": 25,
+     "fraz": 23,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1154,
+     "slov": 27,
+     "fraz": 24,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:36:06.854 okno: ne-vperedi, vozvrashchayu",
+    "18:36:07.041 okno: ok=True bylo=ne-vperedi",
+    "18:36:07.156 winocr: yazyki [en-US] max 10000",
+    "18:36:07.433 tesseract: yazyki [eng,osd,rus]",
+    "18:36:08.826 prohod tess-rus+eng-x1.5-otkl: 1364 ms, slov 25, fraz 23, sovpalo 0, podtverzhdeno 0",
+    "18:36:08.828   frazy: in | — | | | =a) | ili — | weal | (ИО | x | U | [1 | = | De U | @ | ule | U | — | Sir | Ug | сл | {Cc | IU) | —— | =",
+    "18:36:09.985 prohod tess-rus+eng-x2.5-otkl: 1154 ms, slov 27, fraz 24, sovpalo 0, podtverzhdeno 0",
+    "18:36:09.987   frazy: @ | | | say | Lt | i) | И | п | _ | Ш) | що | rw | || | UC] | 118. 5) | ns | Lf | i | JUL | LU | © ocr г1 | ) | 5) | ft | AF"
+   ]
+  },
+  {
+   "seed": 1046,
+   "plan": "melkij",
+   "masshtab": "1.5",
+   "cel": "Подробнее",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 961,
+     "slov": 5,
+     "fraz": 2,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 804,
+     "slov": 6,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:36:12.665 okno: ne-vperedi, vozvrashchayu",
+    "18:36:12.864 okno: ok=True bylo=ne-vperedi",
+    "18:36:12.980 winocr: yazyki [en-US] max 10000",
+    "18:36:13.167 tesseract: yazyki [eng,osd,rus]",
+    "18:36:14.152 prohod tess-rus+eng-x1.5-otkl: 961 ms, slov 5, fraz 2, sovpalo 0, podtverzhdeno 0",
+    "18:36:14.154   frazy: @ ocr rt ок | o",
+    "18:36:14.962 prohod tess-rus+eng-x2.5-otkl: 804 ms, slov 6, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:36:14.964   frazy: @ cer ri | Принять | х | o"
+   ]
+  },
+  {
+   "seed": 1054,
+   "plan": "pohozhie-ru",
+   "masshtab": "1.5",
+   "cel": "Сохранить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 977,
+     "slov": 9,
+     "fraz": 6,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 824,
+     "slov": 10,
+     "fraz": 9,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:37:04.451 okno: ne-vperedi, vozvrashchayu",
+    "18:37:04.646 okno: ok=True bylo=ne-vperedi",
+    "18:37:04.759 winocr: yazyki [en-US] max 10000",
+    "18:37:04.958 tesseract: yazyki [eng,osd,rus]",
+    "18:37:05.967 prohod tess-rus+eng-x1.5-otkl: 977 ms, slov 9, fraz 6, sovpalo 0, podtverzhdeno 0",
+    "18:37:05.969   frazy: no >] | @ | @ ocr лок | х | ние | )",
+    "18:37:06.796 prohod tess-rus+eng-x2.5-otkl: 824 ms, slov 10, fraz 9, sovpalo 0, podtverzhdeno 0",
+    "18:37:06.796   frazy: ИТ | 1 | пок | o | @ ох | х | Ц | И | т"
+   ]
+  },
+  {
+   "seed": 1055,
+   "plan": "pohozhie-ru2",
+   "masshtab": "1.5",
+   "cel": "Отправить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1015,
+     "slov": 14,
+     "fraz": 12,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 821,
+     "slov": 10,
+     "fraz": 8,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:37:09.662 okno: ne-vperedi, vozvrashchayu",
+    "18:37:09.844 okno: ok=True bylo=ne-vperedi",
+    "18:37:09.951 winocr: yazyki [en-US] max 10000",
+    "18:37:10.142 tesseract: yazyki [eng,osd,rus]",
+    "18:37:11.188 prohod tess-rus+eng-x1.5-otkl: 1015 ms, slov 14, fraz 12, sovpalo 0, podtverzhdeno 0",
+    "18:37:11.188   frazy: ¢ | ить | ¢ | ТИ ll | х | @ oer | Kal | Г | To) | I | Ц | =!",
+    "18:37:12.013 prohod tess-rus+eng-x2.5-otkl: 821 ms, slov 10, fraz 8, sovpalo 0, podtverzhdeno 0",
+    "18:37:12.015   frazy: Ш | И lal | х | ток | @ ох | | | al | ATE"
+   ]
+  },
+  {
+   "seed": 2000,
+   "plan": "dvizhenie",
+   "masshtab": "1",
+   "cel": "Старт",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 2813,
+     "slov": 8,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1373,
+     "slov": 11,
+     "fraz": 10,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1678,
+     "slov": 11,
+     "fraz": 8,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1188,
+     "slov": 10,
+     "fraz": 9,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:30:07.953 okno: ne-vperedi, vozvrashchayu",
+    "18:30:08.155 okno: ok=True bylo=ne-vperedi",
+    "18:30:08.886 winocr: yazyki [en-US] max 10000",
+    "18:30:10.324 tesseract: yazyki [eng,osd,rus]",
+    "18:30:13.183 prohod tess-rus+eng-x1.5-otkl: 2813 ms, slov 8, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:30:13.185   frazy: Старл | пб К | | | x | Oo | 2 | 2",
+    "18:30:14.562 prohod tess-rus+eng-x2.5-otkl: 1373 ms, slov 11, fraz 10, sovpalo 1, podtverzhdeno 1",
+    "18:30:19.764 vtoroe chtenie ne nashlo, popytka 1",
+    "18:30:21.475 prohod tess-rus+eng-x1.5-otkl: 1678 ms, slov 11, fraz 8, sovpalo 0, podtverzhdeno 0",
+    "18:30:21.476   frazy: | пауза | | jap | x | Oo | пб К | | | 2 | 2",
+    "18:30:22.668 prohod tess-rus+eng-x2.5-otkl: 1188 ms, slov 10, fraz 9, sovpalo 0, podtverzhdeno 0",
+    "18:30:22.670   frazy: Next | тарл | o | x | ок | ocr | © | ( стоп) | Пауза,"
+   ]
+  },
+  {
+   "seed": 2003,
+   "plan": "holst-ru",
+   "masshtab": "1",
+   "cel": "Печать",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1029,
+     "slov": 9,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 894,
+     "slov": 13,
+     "fraz": 11,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:30:34.900 okno: ne-vperedi, vozvrashchayu",
+    "18:30:35.103 okno: ok=True bylo=ne-vperedi",
+    "18:30:35.217 winocr: yazyki [en-US] max 10000",
+    "18:30:35.709 tesseract: yazyki [eng,osd,rus]",
+    "18:30:36.783 prohod tess-rus+eng-x1.5-otkl: 1029 ms, slov 9, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:30:36.785   frazy: т | amit | [new | | x | Oo | | сп | ©",
+    "18:30:37.684 prohod tess-rus+eng-x2.5-otkl: 894 ms, slov 13, fraz 11, sovpalo 0, podtverzhdeno 0",
+    "18:30:37.684   frazy: ат | тк | [с | | | TI | x | o | € | (те | | Выход ) | Lc"
+   ]
+  },
+  {
+   "seed": 2004,
+   "plan": "holst-smes",
+   "masshtab": "1",
+   "cel": "Новый проект",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1029,
+     "slov": 7,
+     "fraz": 5,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 775,
+     "slov": 13,
+     "fraz": 10,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:30:40.304 okno: ne-vperedi, vozvrashchayu",
+    "18:30:40.486 okno: ok=True bylo=ne-vperedi",
+    "18:30:40.581 winocr: yazyki [en-US] max 10000",
+    "18:30:40.706 tesseract: yazyki [eng,osd,rus]",
+    "18:30:41.758 prohod tess-rus+eng-x1.5-otkl: 1029 ms, slov 7, fraz 5, sovpalo 0, podtverzhdeno 0",
+    "18:30:41.758   frazy: г KH | т) | | вид] | x | Oo",
+    "18:30:42.536 prohod tess-rus+eng-x2.5-otkl: 775 ms, slov 13, fraz 10, sovpalo 0, podtverzhdeno 0",
+    "18:30:42.538   frazy: Ip | | © | И, | o | (a | oer rt nOk | x | в. | 8 | It"
+   ]
+  },
+  {
+   "seed": 2006,
+   "plan": "kartinka-ru",
+   "masshtab": "1",
+   "cel": "Рекорды",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1274,
+     "slov": 4,
+     "fraz": 3,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 966,
+     "slov": 5,
+     "fraz": 5,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:30:51.320 okno: ne-vperedi, vozvrashchayu",
+    "18:30:51.502 okno: ok=True bylo=ne-vperedi",
+    "18:30:51.600 winocr: yazyki [en-US] max 10000",
+    "18:30:51.725 tesseract: yazyki [eng,osd,rus]",
+    "18:30:53.020 prohod tess-rus+eng-x1.5-otkl: 1274 ms, slov 4, fraz 3, sovpalo 0, podtverzhdeno 0",
+    "18:30:53.021   frazy: Hata | o/s as | Lt:",
+    "18:30:53.989 prohod tess-rus+eng-x2.5-otkl: 966 ms, slov 5, fraz 5, sovpalo 0, podtverzhdeno 0",
+    "18:30:53.991   frazy: on | | | aye | морду | a"
+   ]
+  },
+  {
+   "seed": 2009,
+   "plan": "migaet",
+   "masshtab": "1",
+   "cel": "Пауза",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1005,
+     "slov": 6,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 933,
+     "slov": 10,
+     "fraz": 9,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:31:08.880 okno: ne-vperedi, vozvrashchayu",
+    "18:31:09.069 okno: ok=True bylo=ne-vperedi",
+    "18:31:09.187 winocr: yazyki [en-US] max 10000",
+    "18:31:09.471 tesseract: yazyki [eng,osd,rus]",
+    "18:31:10.501 prohod tess-rus+eng-x1.5-otkl: 1005 ms, slov 6, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:31:10.504   frazy: © | и | i | х | о",
+    "18:31:11.441 prohod tess-rus+eng-x2.5-otkl: 933 ms, slov 10, fraz 9, sovpalo 0, podtverzhdeno 0",
+    "18:31:11.443   frazy: Mays | } | {cron | | отток | x | a | —_— | Cray | [меж"
+   ]
+  },
+  {
+   "seed": 2015,
+   "plan": "pohozhie-ru",
+   "masshtab": "1",
+   "cel": "Сохранить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 890,
+     "slov": 5,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 784,
+     "slov": 7,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:31:41.467 okno: ne-vperedi, vozvrashchayu",
+    "18:31:41.665 okno: ok=True bylo=ne-vperedi",
+    "18:31:41.758 winocr: yazyki [en-US] max 10000",
+    "18:31:41.889 tesseract: yazyki [eng,osd,rus]",
+    "18:31:42.802 prohod tess-rus+eng-x1.5-otkl: 890 ms, slov 5, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:31:42.803   frazy: Oo | VV | пб К | x",
+    "18:31:43.591 prohod tess-rus+eng-x2.5-otkl: 784 ms, slov 7, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:31:43.591   frazy: oO | x | ок | ocr | © | Alt | Отп|"
+   ]
+  },
+  {
+   "seed": 2016,
+   "plan": "pohozhie-ru2",
+   "masshtab": "1",
+   "cel": "Отправить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 889,
+     "slov": 8,
+     "fraz": 6,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 791,
+     "slov": 8,
+     "fraz": 8,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:31:46.646 okno: ne-vperedi, vozvrashchayu",
+    "18:31:46.829 okno: ok=True bylo=ne-vperedi",
+    "18:31:46.973 winocr: yazyki [en-US] max 10000",
+    "18:31:47.209 tesseract: yazyki [eng,osd,rus]",
+    "18:31:48.130 prohod tess-rus+eng-x1.5-otkl: 889 ms, slov 8, fraz 6, sovpalo 0, podtverzhdeno 0",
+    "18:31:48.133   frazy: |. | пб К | AT | x | Oo | ъ |",
+    "18:31:48.927 prohod tess-rus+eng-x2.5-otkl: 791 ms, slov 8, fraz 8, sovpalo 0, podtverzhdeno 0",
+    "18:31:48.928   frazy: Mint | oO | x | ок | ocr | © | Amt | ©"
+   ]
+  },
+  {
+   "seed": 2018,
+   "plan": "blednyj-ru",
+   "masshtab": "1",
+   "cel": "Отклонить",
+   "proverka": "ne-kliknul: poteryal",
+   "status": "poteryal",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1102,
+     "slov": 6,
+     "fraz": 6,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1038,
+     "slov": 6,
+     "fraz": 6,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:31:57.637 okno: ne-vperedi, vozvrashchayu",
+    "18:31:57.819 okno: ok=True bylo=ne-vperedi",
+    "18:31:57.931 winocr: yazyki [en-US] max 10000",
+    "18:31:58.059 tesseract: yazyki [eng,osd,rus]",
+    "18:31:59.181 prohod tess-rus+eng-x1.5-otkl: 1102 ms, slov 6, fraz 6, sovpalo 1, podtverzhdeno 1",
+    "18:32:01.447 vtoroe chtenie ne nashlo, popytka 1",
+    "18:32:02.491 prohod tess-rus+eng-x1.5-otkl: 1038 ms, slov 6, fraz 6, sovpalo 1, podtverzhdeno 1",
+    "18:32:04.745 vtoroe chtenie ne nashlo, popytka 2"
+   ]
+  },
+  {
+   "seed": 2019,
+   "plan": "dvizhenie",
+   "masshtab": "1.25",
+   "cel": "Старт",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1339,
+     "slov": 11,
+     "fraz": 9,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 974,
+     "slov": 9,
+     "fraz": 7,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:32:08.722 okno: ne-vperedi, vozvrashchayu",
+    "18:32:08.934 okno: ok=True bylo=ne-vperedi",
+    "18:32:09.068 winocr: yazyki [en-US] max 10000",
+    "18:32:09.278 tesseract: yazyki [eng,osd,rus]",
+    "18:32:10.653 prohod tess-rus+eng-x1.5-otkl: 1339 ms, slov 11, fraz 9, sovpalo 0, podtverzhdeno 0",
+    "18:32:10.655   frazy: | | [я | | ета] | с. | fa) | ом nOk | © | | | x",
+    "18:32:11.631 prohod tess-rus+eng-x2.5-otkl: 974 ms, slov 9, fraz 7, sovpalo 0, podtverzhdeno 0",
+    "18:32:11.633   frazy: | Пауза ) | (a) | x | = | пок | © | C3"
+   ]
+  },
+  {
+   "seed": 2023,
+   "plan": "holst-smes",
+   "masshtab": "1.25",
+   "cel": "Новый проект",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 937,
+     "slov": 13,
+     "fraz": 11,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1150,
+     "slov": 19,
+     "fraz": 16,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:32:38.991 okno: ne-vperedi, vozvrashchayu",
+    "18:32:39.175 okno: ok=True bylo=ne-vperedi",
+    "18:32:39.288 winocr: yazyki [en-US] max 10000",
+    "18:32:39.440 tesseract: yazyki [eng,osd,rus]",
+    "18:32:40.408 prohod tess-rus+eng-x1.5-otkl: 937 ms, slov 13, fraz 11, sovpalo 0, podtverzhdeno 0",
+    "18:32:40.410   frazy: | | edit ) | ог nk | | | ] | cy | x | fn) | 1% | 15715) | |",
+    "18:32:41.564 prohod tess-rus+eng-x2.5-otkl: 1150 ms, slov 19, fraz 16, sovpalo 0, podtverzhdeno 0",
+    "18:32:41.566   frazy: lel | 0] | | Файл | | ) | oO | I) | © | ci | nOk | ( | | | |151) | ) | _— | i | | Вид)"
+   ]
+  },
+  {
+   "seed": 2025,
+   "plan": "kartinka-ru",
+   "masshtab": "1.25",
+   "cel": "Рекорды",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1261,
+     "slov": 11,
+     "fraz": 11,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1168,
+     "slov": 12,
+     "fraz": 9,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:32:56.305 okno: ne-vperedi, vozvrashchayu",
+    "18:32:56.498 okno: ok=True bylo=ne-vperedi",
+    "18:32:56.621 winocr: yazyki [en-US] max 10000",
+    "18:32:57.155 tesseract: yazyki [eng,osd,rus]",
+    "18:32:58.440 prohod tess-rus+eng-x1.5-otkl: 1261 ms, slov 11, fraz 11, sovpalo 0, podtverzhdeno 0",
+    "18:32:58.442   frazy: a | — | 5 | И | Wai | = | rn | © | iz | Mii | —",
+    "18:32:59.613 prohod tess-rus+eng-x2.5-otkl: 1168 ms, slov 12, fraz 9, sovpalo 0, podtverzhdeno 0",
+    "18:32:59.615   frazy: | (5 | ЕТ | >) altos] | (U | ИН | x | — | Puce ab | J"
+   ]
+  },
+  {
+   "seed": 2034,
+   "plan": "pohozhie-ru",
+   "masshtab": "1.25",
+   "cel": "Сохранить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 904,
+     "slov": 5,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 730,
+     "slov": 4,
+     "fraz": 4,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:33:46.193 okno: ne-vperedi, vozvrashchayu",
+    "18:33:46.381 okno: ok=True bylo=ne-vperedi",
+    "18:33:46.477 winocr: yazyki [en-US] max 10000",
+    "18:33:46.585 tesseract: yazyki [eng,osd,rus]",
+    "18:33:47.510 prohod tess-rus+eng-x1.5-otkl: 904 ms, slov 5, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:33:47.511   frazy: ом nOk | oO | Ui | ©",
+    "18:33:48.244 prohod tess-rus+eng-x2.5-otkl: 730 ms, slov 4, fraz 4, sovpalo 0, podtverzhdeno 0",
+    "18:33:48.244   frazy: oO | = | пок | ©"
+   ]
+  },
+  {
+   "seed": 2035,
+   "plan": "pohozhie-ru2",
+   "masshtab": "1.25",
+   "cel": "Отправить",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 909,
+     "slov": 7,
+     "fraz": 5,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 777,
+     "slov": 9,
+     "fraz": 9,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:33:50.613 okno: ne-vperedi, vozvrashchayu",
+    "18:33:50.790 okno: ok=True bylo=ne-vperedi",
+    "18:33:50.880 winocr: yazyki [en-US] max 10000",
+    "18:33:50.994 tesseract: yazyki [eng,osd,rus]",
+    "18:33:51.921 prohod tess-rus+eng-x1.5-otkl: 909 ms, slov 7, fraz 5, sovpalo 0, podtverzhdeno 0",
+    "18:33:51.924   frazy: ить | © ом пок | i | с. | о",
+    "18:33:52.703 prohod tess-rus+eng-x2.5-otkl: 777 ms, slov 9, fraz 9, sovpalo 0, podtverzhdeno 0",
+    "18:33:52.704   frazy: iE | о | x | > | nOk | © | Ia | ¢ | п"
+   ]
+  },
+  {
+   "seed": 2038,
+   "plan": "dvizhenie",
+   "masshtab": "1.5",
+   "cel": "Старт",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1552,
+     "slov": 7,
+     "fraz": 5,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 843,
+     "slov": 8,
+     "fraz": 5,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:34:03.585 okno: ne-vperedi, vozvrashchayu",
+    "18:34:03.772 okno: ok=True bylo=ne-vperedi",
+    "18:34:03.881 winocr: yazyki [en-US] max 10000",
+    "18:34:04.011 tesseract: yazyki [eng,osd,rus]",
+    "18:34:05.588 prohod tess-rus+eng-x1.5-otkl: 1552 ms, slov 7, fraz 5, sovpalo 0, podtverzhdeno 0",
+    "18:34:05.590   frazy: 5 | С» | | @ oer | х | C3",
+    "18:34:06.437 prohod tess-rus+eng-x2.5-otkl: 843 ms, slov 8, fraz 5, sovpalo 0, podtverzhdeno 0",
+    "18:34:06.438   frazy: x | C3 | o | @ ocr ri n0k | tet"
+   ]
+  },
+  {
+   "seed": 2041,
+   "plan": "holst-ru",
+   "masshtab": "1.5",
+   "cel": "Печать",
+   "proverka": "ne-kliknul: poteryal",
+   "status": "poteryal",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1101,
+     "slov": 11,
+     "fraz": 8,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 937,
+     "slov": 11,
+     "fraz": 8,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 699,
+     "slov": 11,
+     "fraz": 8,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 876,
+     "slov": 11,
+     "fraz": 8,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:34:17.258 okno: ne-vperedi, vozvrashchayu",
+    "18:34:17.431 okno: ok=True bylo=ne-vperedi",
+    "18:34:17.516 winocr: yazyki [en-US] max 10000",
+    "18:34:17.629 tesseract: yazyki [eng,osd,rus]",
+    "18:34:18.749 prohod tess-rus+eng-x1.5-otkl: 1101 ms, slov 11, fraz 8, sovpalo 0, podtverzhdeno 0",
+    "18:34:18.751   frazy: Ро | Ul | @ oer rt пок | ) | o | im | x | LT",
+    "18:34:19.688 prohod tess-rus+eng-x2.5-otkl: 937 ms, slov 11, fraz 8, sovpalo 1, podtverzhdeno 1",
+    "18:34:22.885 vtoroe chtenie ne nashlo, popytka 1",
+    "18:34:23.589 prohod tess-rus+eng-x1.5-otkl: 699 ms, slov 11, fraz 8, sovpalo 0, podtverzhdeno 0",
+    "18:34:23.591   frazy: Ро | Ul | @ oer rt пок | ) | o | im | x | LT",
+    "18:34:24.468 prohod tess-rus+eng-x2.5-otkl: 876 ms, slov 11, fraz 8, sovpalo 1, podtverzhdeno 1",
+    "18:34:27.620 vtoroe chtenie ne nashlo, popytka 2"
+   ]
+  },
+  {
+   "seed": 2042,
+   "plan": "holst-smes",
+   "masshtab": "1.5",
+   "cel": "Новый проект",
+   "proverka": "ne-kliknul: poteryal",
+   "status": "poteryal",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 942,
+     "slov": 17,
+     "fraz": 10,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 1031,
+     "slov": 22,
+     "fraz": 10,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    },
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 673,
+     "slov": 17,
+     "fraz": 10,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 978,
+     "slov": 22,
+     "fraz": 10,
+     "sovpalo": 1,
+     "podtverzhdeno": 1
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:34:30.244 okno: ne-vperedi, vozvrashchayu",
+    "18:34:30.419 okno: ok=True bylo=ne-vperedi",
+    "18:34:30.502 winocr: yazyki [en-US] max 10000",
+    "18:34:30.611 tesseract: yazyki [eng,osd,rus]",
+    "18:34:31.572 prohod tess-rus+eng-x1.5-otkl: 942 ms, slov 17, fraz 10, sovpalo 0, podtverzhdeno 0",
+    "18:34:31.574   frazy: Co | 3 | @ oer rt nik | | | eats ) | ( ва ) | Файл ) | a | Новый’ | x",
+    "18:34:32.607 prohod tess-rus+eng-x2.5-otkl: 1031 ms, slov 22, fraz 10, sovpalo 1, podtverzhdeno 1",
+    "18:34:36.452 vtoroe chtenie ne nashlo, popytka 1",
+    "18:34:37.127 prohod tess-rus+eng-x1.5-otkl: 673 ms, slov 17, fraz 10, sovpalo 0, podtverzhdeno 0",
+    "18:34:37.127   frazy: Co | 3 | @ oer rt nik | | | eats ) | ( ва ) | Файл ) | a | Новый’ | x",
+    "18:34:38.107 prohod tess-rus+eng-x2.5-otkl: 978 ms, slov 22, fraz 10, sovpalo 1, podtverzhdeno 1",
+    "18:34:42.368 vtoroe chtenie ne nashlo, popytka 2"
+   ]
+  },
+  {
+   "seed": 2044,
+   "plan": "kartinka-ru",
+   "masshtab": "1.5",
+   "cel": "Рекорды",
+   "proverka": "ne-kliknul: ne-nashel",
+   "status": "ne-nashel",
+   "oshibka": null,
+   "prohody": [
+    {
+     "prohod": "tess-rus+eng-x1.5-otkl",
+     "ms": 1043,
+     "slov": 12,
+     "fraz": 9,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    },
+    {
+     "prohod": "tess-rus+eng-x2.5-otkl",
+     "ms": 904,
+     "slov": 15,
+     "fraz": 13,
+     "sovpalo": 0,
+     "podtverzhdeno": 0
+    }
+   ],
+   "kliki": [],
+   "log": [
+    "18:34:48.695 okno: ne-vperedi, vozvrashchayu",
+    "18:34:48.849 okno: ok=True bylo=ne-vperedi",
+    "18:34:48.932 winocr: yazyki [en-US] max 10000",
+    "18:34:49.041 tesseract: yazyki [eng,osd,rus]",
+    "18:34:50.104 prohod tess-rus+eng-x1.5-otkl: 1043 ms, slov 12, fraz 9, sovpalo 0, podtverzhdeno 0",
+    "18:34:50.106   frazy: Гу | || | © ocr rt nO’k | Jal) | Lg) | - | x | @ | |",
+    "18:34:51.011 prohod tess-rus+eng-x2.5-otkl: 904 ms, slov 15, fraz 13, sovpalo 0, podtverzhdeno 0",
+    "18:34:51.013   frazy: fu | | h | in | [5 WU] | — | НИ | @ | Ш | (a) | ан | = | [Л | п"
+   ]
+  }
+ ]
+}

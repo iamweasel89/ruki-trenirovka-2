@@ -1,0 +1,267 @@
+﻿{
+    "seed":  0,
+    "sekund":  34,
+    "sreda":  {
+                  "ekran":  "1920x1080",
+                  "dpi":  "per-monitor-v2",
+                  "chrome":  true,
+                  "podgotovka":  {
+                                     "ekran_bylo":  "1024x768",
+                                     "ekran_kod":  "0",
+                                     "ekran":  "1920x1080",
+                                     "winocr_bylo":  "yazyki:en-US",
+                                     "winocr_ustanovka":  "ne-uspela-za-240-s",
+                                     "winocr_ustanovka_sek":  245,
+                                     "winocr":  "yazyki:en-US",
+                                     "tess_ustanovka":  "27 s: \r\nChocolatey installed 1/1 packages. \r\n See the log for details (C:\\ProgramData\\chocolatey\\logs\\chocolatey.log).\r\n | skachan rus",
+                                     "tess":  "eng,osd,rus",
+                                     "sekund":  258
+                                 }
+              },
+    "sled":  [
+                 "0 progon 0 start",
+                 "1 chrome ubit",
+                 "1 chrome zapushchen",
+                 "8 okno 720914",
+                 "9 skill start",
+                 "15 skill konec 6272 ms",
+                 "15 progon 1 start",
+                 "16 chrome ubit",
+                 "16 chrome zapushchen",
+                 "17 okno 458816",
+                 "18 skill start",
+                 "23 skill konec 5712 ms",
+                 "24 progon 2 start",
+                 "24 chrome ubit",
+                 "24 chrome zapushchen",
+                 "25 okno 393570",
+                 "26 skill start",
+                 "33 skill konec 7503 ms"
+             ],
+    "progony":  [
+                    {
+                        "progon":  0,
+                        "seed":  0,
+                        "plan":  "holst-en",
+                        "st":  "knopki",
+                        "masshtab":  1,
+                        "cel":  "Settings",
+                        "skill_ms":  6272,
+                        "skill":  {
+                                      "tekst":  "Settings",
+                                      "status":  "klik",
+                                      "poisk_ms":  1849,
+                                      "prohody":  [
+                                                      {
+                                                          "prohod":  "win-en-x1-net",
+                                                          "ms":  1277,
+                                                          "slov":  5,
+                                                          "fraz":  5,
+                                                          "sovpalo":  1,
+                                                          "podtverzhdeno":  1
+                                                      }
+                                                  ],
+                                      "poisk_ms_posl":  1849,
+                                      "prohod":  "win-en-x1-net",
+                                      "uverennost":  "slabo",
+                                      "prochitano":  "Settings",
+                                      "ramka":  [
+                                                    1644,
+                                                    438,
+                                                    63,
+                                                    17
+                                                ],
+                                      "vtoroe_ms":  69,
+                                      "skorost":  [
+                                                      0,
+                                                      0
+                                                  ],
+                                      "klik":  [
+                                                   1676,
+                                                   446
+                                               ],
+                                      "izmenenie":  56.1,
+                                      "posle_vidno":  false,
+                                      "proverka":  "izmenilos",
+                                      "vsego_ms":  2495,
+                                      "dpi":  "per-monitor-v2",
+                                      "dvizhki":  {
+                                                      "win":  "en-US",
+                                                      "tess":  [
+                                                                   "eng",
+                                                                   "osd",
+                                                                   "rus"
+                                                               ]
+                                                  },
+                                      "skill_ms":  2893
+                                  },
+                        "proverka":  {
+                                         "uspeh":  true,
+                                         "prichina":  "ok",
+                                         "est_cel":  true,
+                                         "kliki":  [
+                                                       {
+                                                           "i":  3,
+                                                           "dx":  -1,
+                                                           "dy":  -2,
+                                                           "v":  1
+                                                       }
+                                                   ],
+                                         "lozhnyh":  0
+                                     },
+                        "log":  [
+                                    "18:24:45.465 okno: ne-vperedi, vozvrashchayu",
+                                    "18:24:45.668 okno: ok=True bylo=ne-vperedi",
+                                    "18:24:45.913 winocr: yazyki [en-US] max 10000",
+                                    "18:24:46.253 tesseract: yazyki [eng,osd,rus]",
+                                    "18:24:47.559 prohod win-en-x1-net: 1277 ms, slov 5, fraz 5, sovpalo 1, podtverzhdeno 1"
+                                ]
+                    },
+                    {
+                        "progon":  1,
+                        "seed":  1,
+                        "plan":  "holst-ru",
+                        "st":  "knopki",
+                        "masshtab":  1,
+                        "cel":  "Печать",
+                        "skill_ms":  5712,
+                        "skill":  {
+                                      "tekst":  "Печать",
+                                      "status":  "ne-nashel",
+                                      "poisk_ms":  3092,
+                                      "prohody":  [
+                                                      {
+                                                          "prohod":  "tess-rus+eng-x1.5-otkl",
+                                                          "ms":  1347,
+                                                          "slov":  10,
+                                                          "fraz":  9,
+                                                          "sovpalo":  0,
+                                                          "podtverzhdeno":  0
+                                                      },
+                                                      {
+                                                          "prohod":  "tess-rus+eng-x2.5-otkl",
+                                                          "ms":  1019,
+                                                          "slov":  8,
+                                                          "fraz":  8,
+                                                          "sovpalo":  0,
+                                                          "podtverzhdeno":  0
+                                                      }
+                                                  ],
+                                      "poisk_ms_posl":  3092,
+                                      "vsego_ms":  3122,
+                                      "dpi":  "per-monitor-v2",
+                                      "dvizhki":  {
+                                                      "win":  "en-US",
+                                                      "tess":  [
+                                                                   "eng",
+                                                                   "osd",
+                                                                   "rus"
+                                                               ]
+                                                  },
+                                      "skill_ms":  3540
+                                  },
+                        "proverka":  {
+                                         "uspeh":  false,
+                                         "prichina":  "ne-kliknul: ne-nashel",
+                                         "est_cel":  true,
+                                         "kliki":  [
+
+                                                   ],
+                                         "lozhnyh":  0
+                                     },
+                        "log":  [
+                                    "18:24:52.983 okno: ne-vperedi, vozvrashchayu",
+                                    "18:24:53.227 okno: ok=True bylo=ne-vperedi",
+                                    "18:24:53.396 winocr: yazyki [en-US] max 10000",
+                                    "18:24:53.931 tesseract: yazyki [eng,osd,rus]",
+                                    "18:24:55.335 prohod tess-rus+eng-x1.5-otkl: 1347 ms, slov 10, fraz 9, sovpalo 0, podtverzhdeno 0",
+                                    "18:24:55.339   frazy: а | ки ) | Tb | © | ] | x | Oo | =) | |\u003c",
+                                    "18:24:56.361 prohod tess-rus+eng-x2.5-otkl: 1019 ms, slov 8, fraz 8, sovpalo 0, podtverzhdeno 0",
+                                    "18:24:56.365   frazy: С | nN | BI | Теча | x | o | `вь | ITI"
+                                ]
+                    },
+                    {
+                        "progon":  2,
+                        "seed":  2,
+                        "plan":  "net-en",
+                        "st":  "knopki",
+                        "masshtab":  1,
+                        "cel":  "Save",
+                        "skill_ms":  7503,
+                        "skill":  {
+                                      "tekst":  "Save",
+                                      "status":  "ne-nashel",
+                                      "poisk_ms":  4600,
+                                      "prohody":  [
+                                                      {
+                                                          "prohod":  "win-en-x1-net",
+                                                          "ms":  648,
+                                                          "slov":  10,
+                                                          "fraz":  6,
+                                                          "sovpalo":  0,
+                                                          "podtverzhdeno":  0
+                                                      },
+                                                      {
+                                                          "prohod":  "win-en-x2-seryj",
+                                                          "ms":  1188,
+                                                          "slov":  9,
+                                                          "fraz":  5,
+                                                          "sovpalo":  0,
+                                                          "podtverzhdeno":  0
+                                                      },
+                                                      {
+                                                          "prohod":  "win-en-x2.5-otkl",
+                                                          "ms":  1264,
+                                                          "slov":  9,
+                                                          "fraz":  5,
+                                                          "sovpalo":  0,
+                                                          "podtverzhdeno":  0
+                                                      },
+                                                      {
+                                                          "prohod":  "tess-eng-x2.5-otkl",
+                                                          "ms":  948,
+                                                          "slov":  6,
+                                                          "fraz":  5,
+                                                          "sovpalo":  0,
+                                                          "podtverzhdeno":  0
+                                                      }
+                                                  ],
+                                      "poisk_ms_posl":  4600,
+                                      "vsego_ms":  4628,
+                                      "dpi":  "per-monitor-v2",
+                                      "dvizhki":  {
+                                                      "win":  "en-US",
+                                                      "tess":  [
+                                                                   "eng",
+                                                                   "osd",
+                                                                   "rus"
+                                                               ]
+                                                  },
+                                      "skill_ms":  5184
+                                  },
+                        "proverka":  {
+                                         "uspeh":  true,
+                                         "prichina":  "chestno: ne-nashel",
+                                         "est_cel":  false,
+                                         "kliki":  [
+
+                                                   ],
+                                         "lozhnyh":  0
+                                     },
+                        "log":  [
+                                    "18:25:01.127 okno: ne-vperedi, vozvrashchayu",
+                                    "18:25:01.459 okno: ok=True bylo=ne-vperedi",
+                                    "18:25:01.648 winocr: yazyki [en-US] max 10000",
+                                    "18:25:01.998 tesseract: yazyki [eng,osd,rus]",
+                                    "18:25:02.685 prohod win-en-x1-net: 648 ms, slov 10, fraz 6, sovpalo 0, podtverzhdeno 0",
+                                    "18:25:02.688   frazy: Save as | Saved | ocr rl n0 k | e | Point | Paint",
+                                    "18:25:03.884 prohod win-en-x2-seryj: 1188 ms, slov 9, fraz 5, sovpalo 0, podtverzhdeno 0",
+                                    "18:25:03.886   frazy: Saved | Save as | Point | r rl no k | Paint",
+                                    "18:25:05.181 prohod win-en-x2.5-otkl: 1264 ms, slov 9, fraz 5, sovpalo 0, podtverzhdeno 0",
+                                    "18:25:05.183   frazy: Save as | Paint | Saved | cr rl n0 k | Point",
+                                    "18:25:06.134 prohod tess-eng-x2.5-otkl: 948 ms, slov 6, fraz 5, sovpalo 0, podtverzhdeno 0",
+                                    "18:25:06.136   frazy: nOk | x | Ls | oer ri | o"
+                                ]
+                    }
+                ]
+}
