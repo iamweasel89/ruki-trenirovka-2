@@ -1,0 +1,187 @@
+{
+ "run": "40213378578",
+ "sha": "bb33d96c6a46edc1ae42ff5437634f71a727b096",
+ "progonov": 38,
+ "tochno": 38,
+ "dolya_tochno_proc": 100.0,
+ "bufer_ne_vosstanovlen": 0,
+ "po_planam": {
+  "avtodop": {
+   "progonov": 4,
+   "uspeh": 4,
+   "mediana_ms": 6216
+  },
+  "chislo": {
+   "progonov": 4,
+   "uspeh": 4,
+   "mediana_ms": 5676
+  },
+  "dlinnyj": {
+   "progonov": 4,
+   "uspeh": 4,
+   "mediana_ms": 2938
+  },
+  "limit-ok": {
+   "progonov": 4,
+   "uspeh": 4,
+   "mediana_ms": 6520
+  },
+  "limit-stop": {
+   "progonov": 4,
+   "uspeh": 4,
+   "mediana_ms": 3883
+  },
+  "limit-stop-vstavka": {
+   "progonov": 4,
+   "uspeh": 4,
+   "mediana_ms": 4797
+  },
+  "perenos-stop": {
+   "progonov": 5,
+   "uspeh": 5,
+   "mediana_ms": 4374
+  },
+  "srednij": {
+   "progonov": 4,
+   "uspeh": 4,
+   "mediana_ms": 2544
+  },
+  "unikod": {
+   "progonov": 5,
+   "uspeh": 5,
+   "mediana_ms": 20095
+  }
+ },
+ "prichiny_neudach": {},
+ "polya_mimo": {},
+ "pomehi_vstrecheno": {
+  "dialog": 27,
+  "fokus": 144,
+  "sverka-ispravila": 15,
+  "okno": 1,
+  "vstavka-zapreshchena": 5
+ },
+ "minut_runnera": 7.8,
+ "oshibki_chteniya": [],
+ "neudachi": [],
+ "primer_progona": {
+  "progon": 0,
+  "seed": 1000,
+  "stranica": "chislo",
+  "okno_pomeha": true,
+  "skill_ms": 5679,
+  "proverka_ms": 164,
+  "skill": {
+   "plan": "chislo",
+   "ok": true,
+   "shagi": [
+    {
+     "n": 1,
+     "tip": "chislo",
+     "id": "summa_ru",
+     "status": "ok",
+     "popytki": 1,
+     "ms": 1017
+    },
+    {
+     "n": 2,
+     "tip": "chislo",
+     "id": "summa_en",
+     "status": "ok",
+     "popytki": 1,
+     "ms": 591
+    },
+    {
+     "n": 3,
+     "tip": "chislo",
+     "id": "summa_de",
+     "status": "ok",
+     "popytki": 1,
+     "ms": 933
+    },
+    {
+     "n": 4,
+     "tip": "chislo",
+     "id": "kolichestvo",
+     "status": "ok",
+     "popytki": 1,
+     "ms": 418
+    },
+    {
+     "n": 5,
+     "tip": "knopka",
+     "id": "sohranit",
+     "status": "ok",
+     "popytki": 1,
+     "ms": 1667
+    }
+   ],
+   "ostanovka": null,
+   "pomehi": {
+    "dialog": 1,
+    "fokus": 6,
+    "sverka-ispravila": 1,
+    "okno": 1
+   },
+   "stranica": {
+    "po_url": true,
+    "final_metod": "url"
+   },
+   "ms": 4827
+  },
+  "proverka": {
+   "uspeh": true,
+   "prichina": "ok",
+   "polya": {
+    "summa_ru": {
+     "ok": true,
+     "dl_plan": 12,
+     "dl_fakt": 12
+    },
+    "summa_en": {
+     "ok": true,
+     "dl_plan": 9,
+     "dl_fakt": 9
+    },
+    "summa_de": {
+     "ok": true,
+     "dl_plan": 8,
+     "dl_fakt": 8
+    },
+    "kolichestvo": {
+     "ok": true,
+     "dl_plan": 5,
+     "dl_fakt": 5
+    }
+   },
+   "bufer": {
+    "ok": true,
+    "tekst": true,
+    "svoj_format": true,
+    "html": true
+   },
+   "pomehi_stranicy": [
+    "zaderzhka",
+    "pererisovka",
+    "fokus",
+    "modal"
+   ]
+  },
+  "log": [
+   "16:49:06.486 start plan=D:\\a\\ruki-trenirovka-2\\ruki-trenirovka-2\\plans\\vvod\\chislo.json",
+   "16:49:06.769 pole summa_ru: tip=ControlType.Edit aria=[] dlina_plana=12",
+   "16:49:07.671 shag 1 summa_ru: ok  994 ms",
+   "16:49:07.723 pole summa_en: tip=ControlType.Edit aria=[] dlina_plana=9",
+   "16:49:08.288 shag 2 summa_en: ok  590 ms",
+   "16:49:08.299 pole summa_de: tip=ControlType.Edit aria=[] dlina_plana=8",
+   "16:49:08.634 dialog: Подсказка",
+   "16:49:09.221 shag 3 summa_de: ok  932 ms",
+   "16:49:09.239 pole kolichestvo: tip=ControlType.Spinner aria=[] dlina_plana=5",
+   "16:49:09.639 shag 4 kolichestvo: ok  417 ms",
+   "16:49:09.765 sverka: summa_ru razoshlos",
+   "16:49:09.793 okno: ne-vperedi, vozvrashchayu",
+   "16:49:11.305 shag 5 sohranit: ok  1666 ms",
+   "ZAPUSK: kod= ms=5669"
+  ]
+ }
+}
