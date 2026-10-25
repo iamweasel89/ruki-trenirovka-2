@@ -1,0 +1,13 @@
+{
+ "imya": "dvizhenie",
+ "st": "knopki",
+ "metki": [
+  "Старт",
+  "Пауза",
+  "Стоп",
+  "Next"
+ ],
+ "cel": "Старт",
+ "okno": "ocr r1",
+ "dv": 0
+}

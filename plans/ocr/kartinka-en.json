@@ -1,0 +1,12 @@
+{
+ "imya": "kartinka-en",
+ "st": "kartinka",
+ "metki": [
+  "PLAY",
+  "Shop",
+  "Options",
+  "Quit"
+ ],
+ "cel": "Options",
+ "okno": "ocr r1"
+}

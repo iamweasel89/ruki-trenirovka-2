@@ -1,0 +1,13 @@
+{
+ "imya": "dvizhenie-en",
+ "st": "knopki",
+ "metki": [
+  "Пауза",
+  "Стоп",
+  "Next",
+  "Continue"
+ ],
+ "cel": "Continue",
+ "okno": "ocr r1",
+ "dv": 3
+}

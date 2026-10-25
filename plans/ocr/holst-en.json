@@ -1,0 +1,14 @@
+{
+ "imya": "holst-en",
+ "st": "knopki",
+ "metki": [
+  "Save",
+  "Open",
+  "Print",
+  "Settings",
+  "Exit",
+  "Help"
+ ],
+ "cel": "Settings",
+ "okno": "ocr r1"
+}
