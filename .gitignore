@@ -3,3 +3,4 @@ out/
 rez/
 jobs.json
 podgotovka.json
+__pycache__/

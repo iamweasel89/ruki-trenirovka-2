@@ -1,6 +1,6 @@
 # Prepares a CI runner for recognition training: screen 1920x1080, Windows OCR language
 # for Russian, Tesseract with rus+eng. Never fails: what worked goes into podgotovka.json.
-param([string]$Vyhod = 'podgotovka.json', [switch]$BezTess)
+param([string]$Vyhod = 'podgotovka.json', [switch]$BezTess, [int]$LimitOcrSek = 240, [int]$LimitTessSek = 240)
 $ErrorActionPreference = 'Continue'
 $itog = [ordered]@{}
 $sw = [Diagnostics.Stopwatch]::StartNew()
@@ -69,7 +69,7 @@ function Get-OcrYazyki {
   $kod = @'
 try {
   Add-Type -AssemblyName System.Runtime.WindowsRuntime
-  $t = [Type]::GetType('Windows.Media.Ocr.OcrEngine, Windows.Foundation, ContentType=WindowsRuntime')
+  $t = $null; foreach ($a in 'Windows.Foundation', 'Windows.Media') { if (-not $t) { $t = [Type]::GetType("Windows.Media.Ocr.OcrEngine, $a, ContentType=WindowsRuntime") } }
   ($t::AvailableRecognizerLanguages | ForEach-Object { $_.LanguageTag }) -join ','
 } catch { 'oshibka: ' + $_.Exception.Message }
 '@
@@ -79,20 +79,25 @@ $itog.winocr_bylo = Get-OcrYazyki
 Write-Host "winocr bylo: $($itog.winocr_bylo)"
 if ($itog.winocr_bylo -notmatch 'ru') {
   $t = [Diagnostics.Stopwatch]::StartNew()
-  try {
-    $cap = Get-WindowsCapability -Online -ErrorAction Stop | Where-Object { $_.Name -like 'Language.OCR*ru-RU*' } | Select-Object -First 1
-    $itog.winocr_paket = if ($cap) { "$($cap.Name) $($cap.State)" } else { 'net-v-spiske' }
-    $imya = if ($cap) { $cap.Name } else { ('Language.OCR~~~ru-RU~0.0.1' + '.0') }
-    $null = Add-WindowsCapability -Online -Name $imya -ErrorAction Stop
-    $itog.winocr_ustanovka = 'ok'
-  } catch { $itog.winocr_ustanovka = "oshibka: $($_.Exception.Message)" }
+  # Windows Update can hang: the install runs in a job with a time limit
+  $capJob = Start-Job -ScriptBlock {
+    try {
+      $cap = Get-WindowsCapability -Online -ErrorAction Stop | Where-Object { $_.Name -like 'Language.OCR*ru-RU*' } | Select-Object -First 1
+      $imya = if ($cap) { $cap.Name } else { ('Language.OCR~~~ru-RU~0.0.1' + '.0') }
+      $null = Add-WindowsCapability -Online -Name $imya -ErrorAction Stop
+      "ok ($imya, bylo $(if ($cap) { $cap.State } else { 'net-v-spiske' }))"
+    } catch { "oshibka: $($_.Exception.Message)" }
+  }
+  if (Wait-Job $capJob -Timeout $LimitOcrSek) { $itog.winocr_ustanovka = [string](Receive-Job $capJob | Select-Object -Last 1) }
+  else { Stop-Job $capJob -ErrorAction SilentlyContinue; $itog.winocr_ustanovka = "ne-uspela-za-$LimitOcrSek-s" }
+  Remove-Job $capJob -Force -ErrorAction SilentlyContinue
   $itog.winocr_ustanovka_sek = [int]$t.Elapsed.TotalSeconds
   $itog.winocr = Get-OcrYazyki
 } else { $itog.winocr = $itog.winocr_bylo }
 Write-Host "winocr: $($itog.winocr) ($($itog.winocr_ustanovka))"
 
 if ($tessJob) {
-  $null = Wait-Job $tessJob -Timeout 600
+  $null = Wait-Job $tessJob -Timeout $LimitTessSek
   $tr = Receive-Job $tessJob -ErrorAction SilentlyContinue | Select-Object -Last 1
   Remove-Job $tessJob -Force -ErrorAction SilentlyContinue
   $itog.tess_ustanovka = if ($tr) { "$($tr.sekund) s: $($tr.vyvod)" } else { 'net-otveta' }
