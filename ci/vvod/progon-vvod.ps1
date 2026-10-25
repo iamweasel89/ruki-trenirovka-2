@@ -91,6 +91,8 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
     $cherez = $rnd.Next(3, 12)
     $job = Start-Job -ScriptBlock { param($c) Start-Sleep -Seconds $c; Start-Process notepad } -ArgumentList $cherez
   }
+  # a cold browser start is the harness's business, not the skill's: wait for the page first
+  $null = Wait-Stranica $plan.stranica 60000
   $etapy += "storozh_pered=$($tE.ElapsedMilliseconds)"
   try { Set-Storozh } catch { Write-Host "storozh: $($_.Exception.Message)" }
   $out = Join-Path $tmp "skill_$s.json"

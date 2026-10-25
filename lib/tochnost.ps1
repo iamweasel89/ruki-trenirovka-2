@@ -104,6 +104,7 @@ function Test-PerenosSrezan([string]$v, [string]$cel) {
 # a stuck prefix: one more character does not get in -> a length limit
 function Test-Upor($ctx, $el, [string]$v, [string]$cel) {
   if ($v.Length -ge $cel.Length -or -not $cel.StartsWith($v) -or $v.Length -eq 0) { return $false }
+  if (Test-ChtenieObrezano $v) { return $false }
   if ((Confirm-Gotovnost $ctx $el) -ne 'ok') { return $false }
   Send-Klavisha 'CtrlEnd'
   $sled = Get-Kusok $cel.Substring($v.Length) 1
@@ -143,6 +144,10 @@ function Invoke-Vstavka($ctx, $el, $shag, [string]$cel, [int]$pop) {
     return New-Stop 'perenos-v-odnostrochnom' $pop "pole prinyalo $($v.Length) iz $($cel.Length) bez perenosov"
   }
   if ($v.Length -lt $cel.Length -and $v.Length -gt 0 -and $cel.StartsWith($v)) {
+    if (Test-ChtenieObrezano $v) {
+      Write-RukiLog "vstavka $($shag.id): chtenie obrezano na $($v.Length), tekstom tozhe ne prochest"
+      return New-Stop 'nelzya-sverit-dlinnoe' $pop "chitaetsya $($v.Length) iz $($cel.Length)"
+    }
     Start-Sleep -Milliseconds 300
     $v2 = ConvertTo-Lf ([string](Get-ZnachenieUstojchivo $el))
     if ($v2 -ceq $v) { $null = Clear-Pole $el; return New-Stop 'limit-dliny' $pop "vlezlo $($v.Length) iz $($cel.Length)" }

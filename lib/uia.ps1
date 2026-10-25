@@ -144,13 +144,33 @@ function Get-Znachenie($el) {
       return ($p.Current.ToggleState -eq [System.Windows.Automation.ToggleState]::On)
     }
     if ($el.TryGetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern, [ref]$p)) {
-      return ([string]$p.Current.Value) -replace "`r`n", "`n" -replace "`r", "`n"
+      $v = ([string]$p.Current.Value) -replace "`r`n", "`n" -replace "`r", "`n"
+      # Chrome cuts ValuePattern.Value at about 10000 UTF-8 bytes: read long values through TextPattern
+      if ([Text.Encoding]::UTF8.GetByteCount($v) -ge $script:PorogValue) {
+        $t = Get-ZnachenieTekstom $el
+        if ($null -ne $t -and $t.Length -ge $v.Length -and $t.StartsWith($v)) { return $t }
+      }
+      return $v
     }
     if ($el.TryGetCurrentPattern([System.Windows.Automation.RangeValuePattern]::Pattern, [ref]$p)) {
       return [string]$p.Current.Value
     }
   } catch { return $null }
   return $null
+}
+
+$script:PorogValue = 9000
+function Get-ZnachenieTekstom($el) {
+  try {
+    $tp = $el.GetCurrentPattern([System.Windows.Automation.TextPattern]::Pattern)
+    $t = ([string]$tp.DocumentRange.GetText(-1)) -replace "`r`n", "`n" -replace "`r", "`n"
+    return $t
+  } catch { return $null }
+}
+
+# true when a read-back may be cut by the accessibility layer and cannot prove a limit
+function Test-ChtenieObrezano([string]$v) {
+  return ([Text.Encoding]::UTF8.GetByteCount($v) -ge $script:PorogValue)
 }
 
 function Test-Zhivoj($el) {
