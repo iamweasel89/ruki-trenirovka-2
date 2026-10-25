@@ -62,6 +62,31 @@ itog = {
     'neudachi': [x for x in progony if not x.get('verno')][:40],
     'medlennye': sorted([x for x in progony if x.get('pozitiv') and x.get('ms')], key=lambda x: -x['ms'])[:8],
 }
+# public hygiene: mask anything that matches a hygiene pattern (paths from exceptions etc.)
+import re
+SHABL = []
+_sp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gigiena-shablony.txt')
+for _l in open(_sp, encoding='utf-8'):
+    _l = _l.rstrip('\n')
+    if _l and not _l.startswith('#'):
+        SHABL.append(re.compile(_l, re.I))
+skryto = collections.Counter()
+def chistit(o):
+    if isinstance(o, str):
+        o = re.sub(r'[A-Za-z]:\\[^\s"]*', '[put]', o)
+        for i, rx in enumerate(SHABL):
+            o, n = rx.subn('[skryto]', o)
+            if n:
+                skryto[i] += n
+        return o
+    if isinstance(o, list):
+        return [chistit(x) for x in o]
+    if isinstance(o, dict):
+        return {k: chistit(v) for k, v in o.items()}
+    return o
+itog = chistit(itog)
+itog['gigiena_skryto'] = {'shablon-' + str(i + 1): n for i, n in skryto.items()}
+print('gigiena: skryto', dict(skryto))
 with open(os.path.join(dst, 'itog.json'), 'w', encoding='utf-8') as f:
     json.dump(itog, f, ensure_ascii=False, indent=1)
 
