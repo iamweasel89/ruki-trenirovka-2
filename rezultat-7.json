@@ -1,0 +1,2424 @@
+{
+    "seed":  7,
+    "sekund":  165,
+    "progony":  [
+                    {
+                        "progon":  0,
+                        "seed":  7000,
+                        "plan":  "skroll",
+                        "skroll":  true,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  "skroll",
+                        "poryadok":  [
+                                         "dolzhnost",
+                                         "imya",
+                                         "pismo",
+                                         "rabota",
+                                         "imya"
+                                     ],
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "Position held",
+                                          "dlina":  8,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "dolzhnost"
+                                                          ],
+                                          "skill_ms":  2769,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,-1006 723x32",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  11
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  485,
+                                                        "poisk":  1282,
+                                                        "vvod":  1799
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "dolzhnost",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "Applicant name",
+                                          "dlina":  4,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "imya"
+                                                          ],
+                                          "skill_ms":  1757,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,-1106 723x32",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  7
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  168,
+                                                        "poisk":  565,
+                                                        "vvod":  967
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "imya",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "Cover letter",
+                                          "dlina":  22,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "pismo"
+                                                          ],
+                                          "skill_ms":  1724,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,2534 723x111",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  13
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  159,
+                                                        "poisk":  534,
+                                                        "vvod":  979
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "pismo",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  4,
+                                          "metka":  "Previous employer",
+                                          "dlina":  13,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "rabota"
+                                                          ],
+                                          "skill_ms":  2109,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,-761 723x32",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  9
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  161,
+                                                        "poisk":  547,
+                                                        "vvod":  1328
+                                                    },
+                                          "pomehi":  {
+                                                         "tochka-ne-nasha":  1
+                                                     },
+                                          "pole":  "rabota",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  5,
+                                          "metka":  "Applicant name",
+                                          "dlina":  11,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "imya"
+                                                          ],
+                                          "skill_ms":  2266,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,-1057 723x32",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  7
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  161,
+                                                        "poisk":  550,
+                                                        "vvod":  974
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "imya",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:27:57.063 start metka=\u0027Position held\u0027 dlina=8 dpi=per-monitor-v2",
+                                    "17:27:58.016 snimok: uzlov 15, redaktiruemyh 5, metok \u0027Position held\u0027 1, pryamyh 0, 495 ms",
+                                    "17:27:58.022 kandidatov-poley 1, otkazov metok 0",
+                                    "17:27:58.277 kandidat: derevo posle-prokrutki pole Edit 143,-1006 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:27:58.296 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:27:58.815 OK popytok 1 fokus klik prochitano 8",
+                                    "17:28:00.383 start metka=\u0027Applicant name\u0027 dlina=4 dpi=per-monitor-v2",
+                                    "17:28:00.712 snimok: uzlov 15, redaktiruemyh 5, metok \u0027Applicant name\u0027 1, pryamyh 0, 174 ms",
+                                    "17:28:00.718 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:00.904 kandidat: derevo posle-prokrutki pole Edit 143,-1106 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:00.970 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:01.325 OK popytok 1 fokus klik prochitano 4",
+                                    "17:28:02.620 start metka=\u0027Cover letter\u0027 dlina=22 dpi=per-monitor-v2",
+                                    "17:28:02.947 snimok: uzlov 15, redaktiruemyh 5, metok \u0027Cover letter\u0027 1, pryamyh 0, 173 ms",
+                                    "17:28:02.953 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:03.119 kandidat: derevo posle-prokrutki pole Group 143,2534 723x111 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:03.138 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:03.582 OK popytok 1 fokus klik prochitano 22",
+                                    "17:28:04.892 start metka=\u0027Previous employer\u0027 dlina=13 dpi=per-monitor-v2",
+                                    "17:28:05.226 snimok: uzlov 16, redaktiruemyh 5, metok \u0027Previous employer\u0027 1, pryamyh 0, 179 ms",
+                                    "17:28:05.232 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:05.401 kandidat: derevo posle-prokrutki pole Edit 143,-761 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:05.469 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:05.562 fokus: v tochke 157,401 ne nashe pole (ControlType.Group \u0027\u0027), zhdu",
+                                    "17:28:06.204 OK popytok 1 fokus klik prochitano 13",
+                                    "17:28:08.092 start metka=\u0027Applicant name\u0027 dlina=11 dpi=per-monitor-v2",
+                                    "17:28:08.429 snimok: uzlov 16, redaktiruemyh 5, metok \u0027Applicant name\u0027 1, pryamyh 0, 182 ms",
+                                    "17:28:08.433 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:08.605 kandidat: derevo posle-prokrutki pole Edit 143,-1057 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:08.672 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:09.046 OK popytok 1 fokus klik prochitano 11"
+                                ]
+                    },
+                    {
+                        "progon":  1,
+                        "seed":  7001,
+                        "plan":  "sleva",
+                        "skroll":  true,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  "skroll",
+                        "poryadok":  [
+                                         "gorod",
+                                         "ulica",
+                                         "dom",
+                                         "kvartira",
+                                         "faks",
+                                         "telefon",
+                                         "zametka"
+                                     ],
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "City",
+                                          "dlina":  11,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "gorod"
+                                                          ],
+                                          "skill_ms":  2421,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "287,138 579x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  7
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  161,
+                                                        "poisk":  972,
+                                                        "vvod":  1591
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "gorod",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "Street",
+                                          "dlina":  11,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "ulica"
+                                                          ],
+                                          "skill_ms":  1679,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "287,253 579x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  9
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  164,
+                                                        "poisk":  419,
+                                                        "vvod":  868
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "ulica",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "House",
+                                          "dlina":  2,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "dom"
+                                                          ],
+                                          "skill_ms":  1599,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "287,314 211x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  11
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  162,
+                                                        "poisk":  415,
+                                                        "vvod":  863
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "dom",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  4,
+                                          "metka":  "Flat",
+                                          "dlina":  1,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "kvartira"
+                                                          ],
+                                          "skill_ms":  1741,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "655,-95 211x32",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  13
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  159,
+                                                        "poisk":  601,
+                                                        "vvod":  980
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "kvartira",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  5,
+                                          "metka":  "Fax",
+                                          "dlina":  12,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "faks"
+                                                          ],
+                                          "skill_ms":  1670,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "geometriya",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "derevo: mezhdu metkoj i polem tekst \u0027Courier note\u0027; blizhajshee sprava v 122 px; edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "287,163 579x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  18
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  162,
+                                                        "poisk":  458,
+                                                        "vvod":  907
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "faks",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  6,
+                                          "metka":  "Phone",
+                                          "dlina":  12,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "telefon"
+                                                          ],
+                                          "skill_ms":  2125,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "geometriya",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "derevo: mezhdu metkoj i polem tekst \u0027Fax\u0027; blizhajshee sprava v 101 px; edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "287,281 579x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  17
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  168,
+                                                        "poisk":  510,
+                                                        "vvod":  907
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "telefon",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  7,
+                                          "metka":  "Courier note",
+                                          "dlina":  10,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "zametka"
+                                                          ],
+                                          "skill_ms":  1694,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "geometriya",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "derevo: pole ne nizhe i ne pravee metki; blizhajshee sprava v 60 px; edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "287,407 579x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  19
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  160,
+                                                        "poisk":  446,
+                                                        "vvod":  912
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "zametka",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:28:12.365 start metka=\u0027City\u0027 dlina=11 dpi=per-monitor-v2",
+                                    "17:28:13.218 snimok: uzlov 21, redaktiruemyh 8, metok \u0027City\u0027 1, pryamyh 0, 698 ms",
+                                    "17:28:13.224 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:13.294 kandidat: derevo v-okne pole Edit 287,138 579x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:28:13.355 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                    "17:28:13.945 OK popytok 1 fokus klik prochitano 11",
+                                    "17:28:15.399 start metka=\u0027Street\u0027 dlina=11 dpi=per-monitor-v2",
+                                    "17:28:15.738 snimok: uzlov 21, redaktiruemyh 8, metok \u0027Street\u0027 1, pryamyh 0, 182 ms",
+                                    "17:28:15.744 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:15.780 kandidat: derevo v-okne pole Edit 287,253 579x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:28:15.801 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                    "17:28:16.245 OK popytok 1 fokus klik prochitano 11",
+                                    "17:28:17.531 start metka=\u0027House\u0027 dlina=2 dpi=per-monitor-v2",
+                                    "17:28:17.870 snimok: uzlov 21, redaktiruemyh 8, metok \u0027House\u0027 1, pryamyh 0, 181 ms",
+                                    "17:28:17.875 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:17.911 kandidat: derevo v-okne pole Edit 287,314 211x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:28:17.931 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                    "17:28:18.375 OK popytok 1 fokus klik prochitano 2",
+                                    "17:28:19.696 start metka=\u0027Flat\u0027 dlina=1 dpi=per-monitor-v2",
+                                    "17:28:20.030 snimok: uzlov 21, redaktiruemyh 8, metok \u0027Flat\u0027 1, pryamyh 0, 181 ms",
+                                    "17:28:20.036 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:20.261 kandidat: derevo posle-prokrutki pole Edit 655,-95 211x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:28:20.281 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                    "17:28:20.657 OK popytok 1 fokus klik prochitano 1",
+                                    "17:28:21.970 start metka=\u0027Fax\u0027 dlina=12 dpi=per-monitor-v2",
+                                    "17:28:22.352 snimok: uzlov 21, redaktiruemyh 8, metok \u0027Fax\u0027 1, pryamyh 0, 225 ms",
+                                    "17:28:22.358 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:22.392 kandidat: geometriya v-okne pole Edit 287,163 579x35 | derevo: mezhdu metkoj i polem tekst \u0027Courier note\u0027; blizhajshee sprava v 122 px",
+                                    "17:28:22.412 vybor: geometriya v-okne | derevo: mezhdu metkoj i polem tekst \u0027Courier note\u0027; blizhajshee sprava v 122 px; edinstvennyj kandidat",
+                                    "17:28:22.857 OK popytok 1 fokus klik prochitano 12",
+                                    "17:28:24.642 start metka=\u0027Phone\u0027 dlina=12 dpi=per-monitor-v2",
+                                    "17:28:25.069 snimok: uzlov 21, redaktiruemyh 8, metok \u0027Phone\u0027 1, pryamyh 0, 269 ms",
+                                    "17:28:25.075 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:25.114 kandidat: geometriya v-okne pole Edit 287,281 579x35 | derevo: mezhdu metkoj i polem tekst \u0027Fax\u0027; blizhajshee sprava v 101 px",
+                                    "17:28:25.131 vybor: geometriya v-okne | derevo: mezhdu metkoj i polem tekst \u0027Fax\u0027; blizhajshee sprava v 101 px; edinstvennyj kandidat",
+                                    "17:28:25.526 OK popytok 1 fokus klik prochitano 12",
+                                    "17:28:26.858 start metka=\u0027Courier note\u0027 dlina=10 dpi=per-monitor-v2",
+                                    "17:28:27.229 snimok: uzlov 21, redaktiruemyh 8, metok \u0027Courier note\u0027 1, pryamyh 0, 218 ms",
+                                    "17:28:27.235 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:27.267 kandidat: geometriya v-okne pole Edit 287,407 579x35 | derevo: pole ne nizhe i ne pravee metki; blizhajshee sprava v 60 px",
+                                    "17:28:27.287 vybor: geometriya v-okne | derevo: pole ne nizhe i ne pravee metki; blizhajshee sprava v 60 px; edinstvennyj kandidat",
+                                    "17:28:27.749 OK popytok 1 fokus klik prochitano 10"
+                                ]
+                    },
+                    {
+                        "progon":  2,
+                        "seed":  7002,
+                        "plan":  "sverhu",
+                        "skroll":  false,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  {
+
+                                            },
+                        "poryadok":  [
+                                         "imya",
+                                         "familiya",
+                                         "indeks",
+                                         "pochta",
+                                         "soobshchenie",
+                                         "podpis"
+                                     ],
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "First name",
+                                          "dlina":  4,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "imya"
+                                                          ],
+                                          "skill_ms":  1649,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,254 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  7
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  163,
+                                                        "poisk":  429,
+                                                        "vvod":  889
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "imya",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "Last name",
+                                          "dlina":  6,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "familiya"
+                                                          ],
+                                          "skill_ms":  2038,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "imya",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "u polya svoyo imya = metka; edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "Last name",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,323 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  9
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  203,
+                                                        "poisk":  457,
+                                                        "vvod":  904
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "familiya",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "Postal code",
+                                          "dlina":  5,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "indeks"
+                                                          ],
+                                          "skill_ms":  1631,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "imya",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "u polya svoyo imya = metka; edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "Postal code",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,392 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  11
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  168,
+                                                        "poisk":  424,
+                                                        "vvod":  865
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "indeks",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  4,
+                                          "metka":  "Email address",
+                                          "dlina":  19,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "pochta"
+                                                          ],
+                                          "skill_ms":  1616,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "name@example.org",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,461 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  13
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  160,
+                                                        "poisk":  419,
+                                                        "vvod":  881
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "pochta",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  5,
+                                          "metka":  "Message",
+                                          "dlina":  33,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "soobshchenie"
+                                                          ],
+                                          "skill_ms":  1693,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,530 723x91",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  15
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  167,
+                                                        "poisk":  435,
+                                                        "vvod":  924
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "soobshchenie",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  6,
+                                          "metka":  "Signature",
+                                          "dlina":  9,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "podpis"
+                                                          ],
+                                          "skill_ms":  2366,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,662 723x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  17
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  278,
+                                                        "poisk":  587,
+                                                        "vvod":  1076
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "podpis",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:28:30.988 start metka=\u0027First name\u0027 dlina=4 dpi=per-monitor-v2",
+                                    "17:28:31.338 snimok: uzlov 19, redaktiruemyh 7, metok \u0027First name\u0027 1, pryamyh 0, 194 ms",
+                                    "17:28:31.345 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:31.380 kandidat: derevo v-okne pole Edit 143,254 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:31.400 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:31.857 OK popytok 1 fokus klik prochitano 4",
+                                    "17:28:33.571 start metka=\u0027Last name\u0027 dlina=6 dpi=per-monitor-v2",
+                                    "17:28:33.935 snimok: uzlov 19, redaktiruemyh 7, metok \u0027Last name\u0027 1, pryamyh 1, 173 ms",
+                                    "17:28:33.942 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:33.986 kandidat: imya v-okne pole Edit 143,323 723x32 | u polya svoyo imya = metka",
+                                    "17:28:34.059 vybor: imya v-okne | u polya svoyo imya = metka; edinstvennyj kandidat",
+                                    "17:28:34.450 OK popytok 1 fokus klik prochitano 6",
+                                    "17:28:35.783 start metka=\u0027Postal code\u0027 dlina=5 dpi=per-monitor-v2",
+                                    "17:28:36.118 snimok: uzlov 19, redaktiruemyh 7, metok \u0027Postal code\u0027 1, pryamyh 1, 175 ms",
+                                    "17:28:36.123 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:36.168 kandidat: imya v-okne pole Edit 143,392 723x32 | u polya svoyo imya = metka",
+                                    "17:28:36.189 vybor: imya v-okne | u polya svoyo imya = metka; edinstvennyj kandidat",
+                                    "17:28:36.625 OK popytok 1 fokus klik prochitano 5",
+                                    "17:28:37.914 start metka=\u0027Email address\u0027 dlina=19 dpi=per-monitor-v2",
+                                    "17:28:38.255 snimok: uzlov 19, redaktiruemyh 7, metok \u0027Email address\u0027 1, pryamyh 0, 187 ms",
+                                    "17:28:38.261 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:38.296 kandidat: derevo v-okne pole Edit 143,461 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:38.316 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:38.776 OK popytok 1 fokus klik prochitano 19",
+                                    "17:28:40.098 start metka=\u0027Message\u0027 dlina=33 dpi=per-monitor-v2",
+                                    "17:28:40.452 snimok: uzlov 19, redaktiruemyh 7, metok \u0027Message\u0027 1, pryamyh 0, 194 ms",
+                                    "17:28:40.458 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:40.495 kandidat: derevo v-okne pole Edit 143,530 723x91 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:40.515 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:41.001 OK popytok 1 fokus klik prochitano 33",
+                                    "17:28:42.869 start metka=\u0027Signature\u0027 dlina=9 dpi=per-monitor-v2",
+                                    "17:28:43.363 snimok: uzlov 19, redaktiruemyh 7, metok \u0027Signature\u0027 1, pryamyh 0, 227 ms",
+                                    "17:28:43.367 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:43.403 kandidat: derevo v-okne pole Group 143,662 723x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:43.423 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:43.908 OK popytok 1 fokus klik prochitano 9"
+                                ]
+                    },
+                    {
+                        "progon":  3,
+                        "seed":  7003,
+                        "plan":  "ten",
+                        "skroll":  true,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  "skroll",
+                        "poryadok":  [
+                                         "nazvanie",
+                                         "byudzhet",
+                                         "srok",
+                                         "trebovaniya"
+                                     ],
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "Project title",
+                                          "dlina":  15,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "nazvanie"
+                                                          ],
+                                          "skill_ms":  1950,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,94 723x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  7
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  163,
+                                                        "poisk":  415,
+                                                        "vvod":  1155
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "nazvanie",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "Budget",
+                                          "dlina":  4,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "byudzhet"
+                                                          ],
+                                          "skill_ms":  1668,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,334 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  9
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  161,
+                                                        "poisk":  410,
+                                                        "vvod":  842
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "byudzhet",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "Deadline",
+                                          "dlina":  10,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "srok"
+                                                          ],
+                                          "skill_ms":  1805,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,-524 723x35",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  11
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  163,
+                                                        "poisk":  543,
+                                                        "vvod":  1030
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "srok",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  4,
+                                          "metka":  "Requirements",
+                                          "dlina":  33,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "trebovaniya"
+                                                          ],
+                                          "skill_ms":  2294,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,48 723x101",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  14
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  159,
+                                                        "poisk":  408,
+                                                        "vvod":  1542
+                                                    },
+                                          "pomehi":  {
+                                                         "klik-mimo":  1
+                                                     },
+                                          "pole":  "trebovaniya",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:28:47.546 start metka=\u0027Project title\u0027 dlina=15 dpi=per-monitor-v2",
+                                    "17:28:47.881 snimok: uzlov 15, redaktiruemyh 5, metok \u0027Project title\u0027 1, pryamyh 0, 176 ms",
+                                    "17:28:47.888 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:47.925 kandidat: derevo v-okne pole Edit 143,94 723x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:47.945 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:48.684 OK popytok 1 fokus klik prochitano 15",
+                                    "17:28:50.098 start metka=\u0027Budget\u0027 dlina=4 dpi=per-monitor-v2",
+                                    "17:28:50.429 snimok: uzlov 15, redaktiruemyh 5, metok \u0027Budget\u0027 1, pryamyh 0, 177 ms",
+                                    "17:28:50.433 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:50.470 kandidat: derevo v-okne pole Edit 143,334 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:50.491 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:50.922 OK popytok 1 fokus klik prochitano 4",
+                                    "17:28:52.252 start metka=\u0027Deadline\u0027 dlina=10 dpi=per-monitor-v2",
+                                    "17:28:52.584 snimok: uzlov 15, redaktiruemyh 5, metok \u0027Deadline\u0027 1, pryamyh 0, 176 ms",
+                                    "17:28:52.590 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:52.757 kandidat: derevo posle-prokrutki pole Group 143,-524 723x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:52.824 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:53.266 OK popytok 1 fokus klik prochitano 10",
+                                    "17:28:54.567 start metka=\u0027Requirements\u0027 dlina=33 dpi=per-monitor-v2",
+                                    "17:28:54.896 snimok: uzlov 16, redaktiruemyh 5, metok \u0027Requirements\u0027 1, pryamyh 0, 176 ms",
+                                    "17:28:54.900 kandidatov-poley 1, otkazov metok 0",
+                                    "17:28:54.938 kandidat: derevo v-okne pole Group 143,48 723x101 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:28:54.957 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:28:55.739 fokus: posle klika fokus ne v pole, a v ControlType.Document \u0027Poligon - Pole sosed: ten\u0027",
+                                    "17:28:56.096 OK popytok 1 fokus klik prochitano 33"
+                                ]
+                    },
+                    {
+                        "progon":  4,
+                        "seed":  7004,
+                        "plan":  "dubl",
+                        "skroll":  false,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  {
+
+                                            },
+                        "poryadok":  [
+                                         "zametka",
+                                         "firma",
+                                         "pochta",
+                                         "zametka"
+                                     ],
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "Anything we should know",
+                                          "dlina":  17,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "zametka"
+                                                          ],
+                                          "skill_ms":  3049,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "imya",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "u polya svoyo imya = metka; otbrosheny: nedostupno -5000,894 600x34",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "Anything we should know",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,406 723x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  15
+                                                                 }
+                                                    },
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  160,
+                                                        "poisk":  1458,
+                                                        "vvod":  2289
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "zametka",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "Company",
+                                          "dlina":  13,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "firma"
+                                                          ],
+                                          "skill_ms":  2681,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); otbrosheny: nedostupno 124,221 761x32",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,248 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  11
+                                                                 }
+                                                    },
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  159,
+                                                        "poisk":  1435,
+                                                        "vvod":  1886
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "firma",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "Email",
+                                          "dlina":  14,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "pochta"
+                                                          ],
+                                          "skill_ms":  3628,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); otbrosheny: zakryto 124,221 15x32, nedostupno -5000,805 600x31",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,317 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  13
+                                                                 }
+                                                    },
+                                          "kandidatov":  3,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  163,
+                                                        "poisk":  2480,
+                                                        "vvod":  2869
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "pochta",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  4,
+                                          "metka":  "Order note",
+                                          "dlina":  10,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "zametka"
+                                                          ],
+                                          "skill_ms":  3374,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); otbrosheny: nedostupno -5000,894 600x34",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "Anything we should know",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,406 723x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  15
+                                                                 }
+                                                    },
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  329,
+                                                        "poisk":  1773,
+                                                        "vvod":  2402
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "zametka",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:28:59.336 start metka=\u0027Anything we should know\u0027 dlina=17 dpi=per-monitor-v2",
+                                    "17:28:59.667 snimok: uzlov 27, redaktiruemyh 10, metok \u0027Anything we should know\u0027 0, pryamyh 2, 178 ms",
+                                    "17:28:59.673 kandidatov-poley 2, otkazov metok 0",
+                                    "17:29:00.736 kandidat: imya v-okne pole Group 143,406 723x35 | u polya svoyo imya = metka",
+                                    "17:29:00.739 kandidat: imya nedostupno pole Group -5000,894 600x34 | u polya svoyo imya = metka",
+                                    "17:29:00.817 vybor: imya v-okne | u polya svoyo imya = metka; otbrosheny: nedostupno -5000,894 600x34",
+                                    "17:29:01.605 OK popytok 1 fokus klik prochitano 17",
+                                    "17:29:02.967 start metka=\u0027Company\u0027 dlina=13 dpi=per-monitor-v2",
+                                    "17:29:03.312 snimok: uzlov 27, redaktiruemyh 10, metok \u0027Company\u0027 2, pryamyh 0, 191 ms",
+                                    "17:29:03.318 kandidatov-poley 2, otkazov metok 0",
+                                    "17:29:04.362 kandidat: derevo nedostupno pole Edit 124,221 761x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:04.364 kandidat: derevo v-okne pole Edit 143,248 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:04.385 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); otbrosheny: nedostupno 124,221 761x32",
+                                    "17:29:04.832 OK popytok 1 fokus klik prochitano 13",
+                                    "17:29:06.156 start metka=\u0027Email\u0027 dlina=14 dpi=per-monitor-v2",
+                                    "17:29:06.512 snimok: uzlov 27, redaktiruemyh 10, metok \u0027Email\u0027 3, pryamyh 0, 198 ms",
+                                    "17:29:06.517 kandidatov-poley 3, otkazov metok 0",
+                                    "17:29:08.546 kandidat: derevo zakryto pole Edit 124,221 15x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:08.547 kandidat: derevo v-okne pole Edit 143,317 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:08.598 kandidat: derevo nedostupno pole Edit -5000,805 600x31 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:08.620 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); otbrosheny: zakryto 124,221 15x32, nedostupno -5000,805 600x31",
+                                    "17:29:09.006 OK popytok 1 fokus klik prochitano 14",
+                                    "17:29:10.552 start metka=\u0027Order note\u0027 dlina=10 dpi=per-monitor-v2",
+                                    "17:29:11.287 snimok: uzlov 27, redaktiruemyh 10, metok \u0027Order note\u0027 2, pryamyh 0, 411 ms",
+                                    "17:29:11.296 kandidatov-poley 2, otkazov metok 0",
+                                    "17:29:12.266 kandidat: derevo v-okne pole Group 143,406 723x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:12.268 kandidat: derevo nedostupno pole Group -5000,894 600x34 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:12.289 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); otbrosheny: nedostupno -5000,894 600x34",
+                                    "17:29:12.913 OK popytok 1 fokus klik prochitano 10"
+                                ]
+                    },
+                    {
+                        "progon":  5,
+                        "seed":  7005,
+                        "plan":  "dubl-stop",
+                        "skroll":  true,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  "skroll",
+                        "poryadok":  "pochta",
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "Comment",
+                                          "dlina":  1,
+                                          "status":  "stop",
+                                          "prichina":  "neodnoznachno",
+                                          "kuda_popalo":  [
+
+                                                          ],
+                                          "skill_ms":  1230,
+                                          "zapusk":  "kod=",
+                                          "vybor":  null,
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  0,
+                                          "fokus":  null,
+                                          "etapy":  {
+                                                        "stranica":  164,
+                                                        "poisk":  472
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "kandidaty":  [
+                                                            {
+                                                                "sposob":  "derevo",
+                                                                "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                                                "dostup":  "v-okne",
+                                                                "metka":  {
+                                                                              "imya":  "Comment",
+                                                                              "ramka":  "143,235 68x21",
+                                                                              "off":  false
+                                                                          },
+                                                                "pole":  {
+                                                                             "tip":  "Edit",
+                                                                             "imya":  "",
+                                                                             "id":  null,
+                                                                             "ramka":  "143,259 352x51",
+                                                                             "off":  false,
+                                                                             "nomer_v_dereve":  18
+                                                                         }
+                                                            },
+                                                            {
+                                                                "sposob":  "derevo",
+                                                                "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                                                "dostup":  "v-okne",
+                                                                "metka":  {
+                                                                              "imya":  "Comment",
+                                                                              "ramka":  "514,235 68x21",
+                                                                              "off":  false
+                                                                          },
+                                                                "pole":  {
+                                                                             "tip":  "Edit",
+                                                                             "imya":  "",
+                                                                             "id":  null,
+                                                                             "ramka":  "514,259 352x51",
+                                                                             "off":  false,
+                                                                             "nomer_v_dereve":  20
+                                                                         }
+                                                            }
+                                                        ],
+                                          "podrobno":  "kandidatov 2, otkazov 0",
+                                          "ozhid_stop":  "neodnoznachno",
+                                          "ok":  true,
+                                          "mimo":  [
+
+                                                   ]
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "Fax number",
+                                          "dlina":  1,
+                                          "status":  "stop",
+                                          "prichina":  "net-metki",
+                                          "kuda_popalo":  [
+
+                                                          ],
+                                          "skill_ms":  9834,
+                                          "zapusk":  "kod=",
+                                          "vybor":  null,
+                                          "kandidatov":  0,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  0,
+                                          "fokus":  null,
+                                          "etapy":  {
+                                                        "stranica":  194,
+                                                        "poisk":  8415
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "kandidaty":  [
+
+                                                        ],
+                                          "podrobno":  "kandidatov 0, otkazov 0",
+                                          "ozhid_stop":  "net-metki",
+                                          "ok":  true,
+                                          "mimo":  [
+
+                                                   ]
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "Email",
+                                          "dlina":  11,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "pochta"
+                                                          ],
+                                          "skill_ms":  3857,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); otbrosheny: zakryto 124,-196 15x32, nedostupno -5000,388 600x31",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,-100 723x32",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  13
+                                                                 }
+                                                    },
+                                          "kandidatov":  3,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  164,
+                                                        "poisk":  2483,
+                                                        "vvod":  2847
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "pochta",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:29:16.187 start metka=\u0027Comment\u0027 dlina=1 dpi=per-monitor-v2",
+                                    "17:29:16.539 snimok: uzlov 27, redaktiruemyh 10, metok \u0027Comment\u0027 2, pryamyh 0, 196 ms",
+                                    "17:29:16.547 kandidatov-poley 2, otkazov metok 0",
+                                    "17:29:16.627 kandidat: derevo v-okne pole Edit 143,259 352x51 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:16.629 kandidat: derevo v-okne pole Edit 514,259 352x51 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:16.642 STOP neodnoznachno kandidatov 2, otkazov 0",
+                                    "17:29:18.673 start metka=\u0027Fax number\u0027 dlina=1 dpi=per-monitor-v2",
+                                    "17:29:26.922 net metki v control view, probuyu raw view",
+                                    "17:29:27.050 snimok: uzlov 42, redaktiruemyh 10, metok \u0027Fax number\u0027 0, pryamyh 0, 8192 ms",
+                                    "17:29:27.074 STOP net-metki kandidatov 0, otkazov 0",
+                                    "17:29:28.679 start metka=\u0027Email\u0027 dlina=11 dpi=per-monitor-v2",
+                                    "17:29:29.036 snimok: uzlov 27, redaktiruemyh 10, metok \u0027Email\u0027 3, pryamyh 0, 200 ms",
+                                    "17:29:29.042 kandidatov-poley 3, otkazov metok 0",
+                                    "17:29:31.072 kandidat: derevo zakryto pole Edit 124,-196 15x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:31.122 kandidat: derevo posle-prokrutki pole Edit 143,-100 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:31.122 kandidat: derevo nedostupno pole Edit -5000,388 600x31 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:31.144 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); otbrosheny: zakryto 124,-196 15x32, nedostupno -5000,388 600x31",
+                                    "17:29:31.506 OK popytok 1 fokus klik prochitano 11"
+                                ]
+                    },
+                    {
+                        "progon":  6,
+                        "seed":  7006,
+                        "plan":  "kwork",
+                        "skroll":  false,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  {
+
+                                            },
+                        "poryadok":  [
+                                         "imya",
+                                         "specialnost",
+                                         "o-sebe"
+                                     ],
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "Your Name",
+                                          "dlina":  11,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "imya"
+                                                          ],
+                                          "skill_ms":  1711,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,234 499x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  7
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  160,
+                                                        "poisk":  417,
+                                                        "vvod":  934
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "imya",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "What do you do?",
+                                          "dlina":  30,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "specialnost"
+                                                          ],
+                                          "skill_ms":  1937,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,376 499x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  13
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  160,
+                                                        "poisk":  433,
+                                                        "vvod":  924
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "specialnost",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "About You",
+                                          "dlina":  52,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "o-sebe"
+                                                          ],
+                                          "skill_ms":  2847,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); otbrosheny: nedostupno -5000,980 560x110",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "I have over 5 years of experience in...",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,449 499x111",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  17
+                                                                 }
+                                                    },
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  160,
+                                                        "poisk":  1443,
+                                                        "vvod":  2089
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "o-sebe",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:29:34.769 start metka=\u0027Your Name\u0027 dlina=11 dpi=per-monitor-v2",
+                                    "17:29:35.109 snimok: uzlov 24, redaktiruemyh 5, metok \u0027Your Name\u0027 1, pryamyh 0, 184 ms",
+                                    "17:29:35.114 kandidatov-poley 1, otkazov metok 0",
+                                    "17:29:35.150 kandidat: derevo v-okne pole Group 367,234 499x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:29:35.169 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                    "17:29:35.683 OK popytok 1 fokus klik prochitano 11",
+                                    "17:29:37.302 start metka=\u0027What do you do?\u0027 dlina=30 dpi=per-monitor-v2",
+                                    "17:29:37.652 snimok: uzlov 24, redaktiruemyh 5, metok \u0027What do you do?\u0027 1, pryamyh 0, 197 ms",
+                                    "17:29:37.658 kandidatov-poley 1, otkazov metok 0",
+                                    "17:29:37.697 kandidat: derevo v-okne pole Group 367,376 499x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:29:37.719 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                    "17:29:38.205 OK popytok 1 fokus klik prochitano 30",
+                                    "17:29:39.521 start metka=\u0027About You\u0027 dlina=52 dpi=per-monitor-v2",
+                                    "17:29:39.858 snimok: uzlov 24, redaktiruemyh 5, metok \u0027About You\u0027 2, pryamyh 0, 184 ms",
+                                    "17:29:39.864 kandidatov-poley 2, otkazov metok 0",
+                                    "17:29:40.924 kandidat: derevo v-okne pole Group 367,449 499x111 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:29:40.926 kandidat: derevo nedostupno pole Group -5000,980 560x110 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:40.946 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); otbrosheny: nedostupno -5000,980 560x110",
+                                    "17:29:41.590 OK popytok 1 fokus klik prochitano 52"
+                                ]
+                    },
+                    {
+                        "progon":  7,
+                        "seed":  7007,
+                        "plan":  "kwork-dlinnyj",
+                        "skroll":  false,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  {
+
+                                            },
+                        "poryadok":  "o-sebe",
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "About You",
+                                          "dlina":  6201,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "o-sebe"
+                                                          ],
+                                          "skill_ms":  13076,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); otbrosheny: nedostupno -5000,980 560x110",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "I have over 5 years of experience in...",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,449 499x111",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  17
+                                                                 }
+                                                    },
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  158,
+                                                        "poisk":  1351,
+                                                        "vvod":  12338
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "o-sebe",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:29:45.190 start metka=\u0027About You\u0027 dlina=6201 dpi=per-monitor-v2",
+                                    "17:29:45.523 snimok: uzlov 24, redaktiruemyh 5, metok \u0027About You\u0027 2, pryamyh 0, 181 ms",
+                                    "17:29:45.528 kandidatov-poley 2, otkazov metok 0",
+                                    "17:29:46.493 kandidat: derevo v-okne pole Group 367,449 499x111 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:29:46.495 kandidat: derevo nedostupno pole Group -5000,980 560x110 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:29:46.532 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); otbrosheny: nedostupno -5000,980 560x110",
+                                    "17:29:57.509 OK popytok 1 fokus klik prochitano 6201"
+                                ]
+                    },
+                    {
+                        "progon":  8,
+                        "seed":  7008,
+                        "plan":  "kwork-foto-stop",
+                        "skroll":  false,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  {
+
+                                            },
+                        "poryadok":  "specialnost",
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "Profile Picture",
+                                          "dlina":  1,
+                                          "status":  "stop",
+                                          "prichina":  "net-polya",
+                                          "kuda_popalo":  [
+
+                                                          ],
+                                          "skill_ms":  1178,
+                                          "zapusk":  "kod=",
+                                          "vybor":  null,
+                                          "kandidatov":  0,
+                                          "otkazy":  [
+                                                         {
+                                                             "metka":  "Profile Picture",
+                                                             "ramka":  "143,293 96x21",
+                                                             "neodnoznachno":  false,
+                                                             "pochemu":  "derevo: mezhdu metkoj i polem tekst \u0027What do you do?\u0027; geometriya: net polya nizhe v 120 px ili pravee v 200 px"
+                                                         }
+                                                     ],
+                                          "popytki":  0,
+                                          "fokus":  null,
+                                          "etapy":  {
+                                                        "stranica":  169,
+                                                        "poisk":  414
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "kandidaty":  [
+
+                                                        ],
+                                          "podrobno":  "kandidatov 0, otkazov 1",
+                                          "ozhid_stop":  "net-polya",
+                                          "ok":  true,
+                                          "mimo":  [
+
+                                                   ]
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "What do you do?",
+                                          "dlina":  7,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "specialnost"
+                                                          ],
+                                          "skill_ms":  2855,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,376 499x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  13
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  167,
+                                                        "poisk":  479,
+                                                        "vvod":  950
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "specialnost",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:30:00.996 start metka=\u0027Profile Picture\u0027 dlina=1 dpi=per-monitor-v2",
+                                    "17:30:01.365 snimok: uzlov 24, redaktiruemyh 5, metok \u0027Profile Picture\u0027 1, pryamyh 0, 209 ms",
+                                    "17:30:01.377 otkaz metki Profile Picture 143,293 96x21: derevo: mezhdu metkoj i polem tekst \u0027What do you do?\u0027; geometriya: net polya nizhe v 120 px ili pravee v 200 px",
+                                    "17:30:01.377 kandidatov-poley 0, otkazov metok 1",
+                                    "17:30:01.397 STOP net-polya kandidatov 0, otkazov 1",
+                                    "17:30:03.899 start metka=\u0027What do you do?\u0027 dlina=7 dpi=per-monitor-v2",
+                                    "17:30:04.299 snimok: uzlov 24, redaktiruemyh 5, metok \u0027What do you do?\u0027 1, pryamyh 0, 242 ms",
+                                    "17:30:04.304 kandidatov-poley 1, otkazov metok 0",
+                                    "17:30:04.338 kandidat: derevo v-okne pole Group 367,376 499x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:30:04.358 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                    "17:30:04.827 OK popytok 1 fokus klik prochitano 7"
+                                ]
+                    },
+                    {
+                        "progon":  9,
+                        "seed":  7009,
+                        "plan":  "kwork-povtor",
+                        "skroll":  false,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  {
+
+                                            },
+                        "poryadok":  [
+                                         "o-sebe",
+                                         "imya"
+                                     ],
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "I have over 5 years of experience in...",
+                                          "dlina":  13,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "o-sebe"
+                                                          ],
+                                          "skill_ms":  2948,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "imya",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "u polya svoyo imya = metka; otbrosheny: nedostupno -5000,980 560x110",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "I have over 5 years of experience in...",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,449 499x111",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  17
+                                                                 }
+                                                    },
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  160,
+                                                        "poisk":  1466,
+                                                        "vvod":  2165
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "o-sebe",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "About You",
+                                          "dlina":  24,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "o-sebe"
+                                                          ],
+                                          "skill_ms":  4147,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); otbrosheny: nedostupno -5000,879 560x110",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "I have over 5 years of experience in...",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,348 499x111",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  17
+                                                                 }
+                                                    },
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "uzhe",
+                                          "etapy":  {
+                                                        "stranica":  163,
+                                                        "poisk":  1441,
+                                                        "vvod":  1746
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "o-sebe",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "About You",
+                                          "dlina":  28,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "o-sebe"
+                                                          ],
+                                          "skill_ms":  3535,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); otbrosheny: nedostupno -5000,611 560x110",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "I have over 5 years of experience in...",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,80 499x111",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  17
+                                                                 }
+                                                    },
+                                          "kandidatov":  2,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "uzhe",
+                                          "etapy":  {
+                                                        "stranica":  229,
+                                                        "poisk":  1674,
+                                                        "vvod":  2075
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "o-sebe",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  4,
+                                          "metka":  "Your Name",
+                                          "dlina":  4,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "imya"
+                                                          ],
+                                          "skill_ms":  2220,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "posle-prokrutki",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "367,-135 499x35",
+                                                                     "off":  true,
+                                                                     "nomer_v_dereve":  7
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  182,
+                                                        "poisk":  634,
+                                                        "vvod":  1035
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "imya",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:30:08.246 start metka=\u0027I have over 5 years of experience in...\u0027 dlina=13 dpi=per-monitor-v2",
+                                    "17:30:08.567 snimok: uzlov 24, redaktiruemyh 5, metok \u0027I have over 5 years of experience in...\u0027 0, pryamyh 2, 168 ms",
+                                    "17:30:08.573 kandidatov-poley 2, otkazov metok 0",
+                                    "17:30:09.643 kandidat: imya v-okne pole Group 367,449 499x111 | u polya svoyo imya = metka",
+                                    "17:30:09.646 kandidat: imya nedostupno pole Group -5000,980 560x110 | u polya svoyo imya = metka",
+                                    "17:30:09.703 vybor: imya v-okne | u polya svoyo imya = metka; otbrosheny: nedostupno -5000,980 560x110",
+                                    "17:30:10.392 OK popytok 1 fokus klik prochitano 13",
+                                    "17:30:13.345 start metka=\u0027About You\u0027 dlina=24 dpi=per-monitor-v2",
+                                    "17:30:13.696 snimok: uzlov 24, redaktiruemyh 5, metok \u0027About You\u0027 2, pryamyh 0, 196 ms",
+                                    "17:30:13.702 kandidatov-poley 2, otkazov metok 0",
+                                    "17:30:14.745 kandidat: derevo v-okne pole Group 367,348 499x111 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:30:14.747 kandidat: derevo nedostupno pole Group -5000,879 560x110 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:30:14.769 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); otbrosheny: nedostupno -5000,879 560x110",
+                                    "17:30:15.069 OK popytok 1 fokus uzhe prochitano 24",
+                                    "17:30:17.027 start metka=\u0027About You\u0027 dlina=28 dpi=per-monitor-v2",
+                                    "17:30:17.582 snimok: uzlov 24, redaktiruemyh 5, metok \u0027About You\u0027 2, pryamyh 0, 332 ms",
+                                    "17:30:17.588 kandidatov-poley 2, otkazov metok 0",
+                                    "17:30:18.652 kandidat: derevo v-okne pole Group 367,80 499x111 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:30:18.654 kandidat: derevo nedostupno pole Group -5000,611 560x110 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:30:18.674 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); otbrosheny: nedostupno -5000,611 560x110",
+                                    "17:30:19.102 OK popytok 1 fokus uzhe prochitano 28",
+                                    "17:30:20.909 start metka=\u0027Your Name\u0027 dlina=4 dpi=per-monitor-v2",
+                                    "17:30:21.282 snimok: uzlov 24, redaktiruemyh 5, metok \u0027Your Name\u0027 1, pryamyh 0, 201 ms",
+                                    "17:30:21.289 kandidatov-poley 1, otkazov metok 0",
+                                    "17:30:21.502 kandidat: derevo posle-prokrutki pole Group 367,-135 499x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava)",
+                                    "17:30:21.522 vybor: derevo posle-prokrutki | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (sprava); edinstvennyj kandidat",
+                                    "17:30:21.920 OK popytok 1 fokus klik prochitano 4"
+                                ]
+                    },
+                    {
+                        "progon":  10,
+                        "seed":  7010,
+                        "plan":  "obertka",
+                        "skroll":  false,
+                        "uspeh":  true,
+                        "prichina":  "ok",
+                        "mimo_itog":  [
+
+                                      ],
+                        "pomehi_stranicy":  {
+
+                                            },
+                        "poryadok":  [
+                                         "firma",
+                                         "nomer",
+                                         "sajt",
+                                         "opisanie"
+                                     ],
+                        "shagi":  [
+                                      {
+                                          "n":  1,
+                                          "metka":  "Company name",
+                                          "dlina":  13,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "firma"
+                                                          ],
+                                          "skill_ms":  1652,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,256 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  8
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  163,
+                                                        "poisk":  415,
+                                                        "vvod":  872
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "firma",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  2,
+                                          "metka":  "Registration number",
+                                          "dlina":  8,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "nomer"
+                                                          ],
+                                          "skill_ms":  1908,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Edit",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,347 723x32",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  11
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  169,
+                                                        "poisk":  475,
+                                                        "vvod":  846
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "nomer",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  3,
+                                          "metka":  "Website",
+                                          "dlina":  15,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "sajt"
+                                                          ],
+                                          "skill_ms":  1637,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,418 723x35",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  13
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  160,
+                                                        "poisk":  412,
+                                                        "vvod":  890
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "sajt",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      },
+                                      {
+                                          "n":  4,
+                                          "metka":  "Short description",
+                                          "dlina":  27,
+                                          "status":  "ok",
+                                          "prichina":  "",
+                                          "kuda_popalo":  [
+                                                              "opisanie"
+                                                          ],
+                                          "skill_ms":  1671,
+                                          "zapusk":  "kod=",
+                                          "vybor":  {
+                                                        "sposob":  "derevo",
+                                                        "dostup":  "v-okne",
+                                                        "pochemu":  "pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                                        "pole":  {
+                                                                     "tip":  "Group",
+                                                                     "imya":  "",
+                                                                     "id":  null,
+                                                                     "ramka":  "143,512 723x111",
+                                                                     "off":  false,
+                                                                     "nomer_v_dereve":  17
+                                                                 }
+                                                    },
+                                          "kandidatov":  1,
+                                          "otkazy":  [
+
+                                                     ],
+                                          "popytki":  1,
+                                          "fokus":  "klik",
+                                          "etapy":  {
+                                                        "stranica":  162,
+                                                        "poisk":  419,
+                                                        "vvod":  908
+                                                    },
+                                          "pomehi":  {
+
+                                                     },
+                                          "pole":  "opisanie",
+                                          "mimo":  [
+
+                                                   ],
+                                          "ok":  true
+                                      }
+                                  ],
+                        "log":  [
+                                    "17:30:25.165 start metka=\u0027Company name\u0027 dlina=13 dpi=per-monitor-v2",
+                                    "17:30:25.501 snimok: uzlov 19, redaktiruemyh 5, metok \u0027Company name\u0027 1, pryamyh 0, 179 ms",
+                                    "17:30:25.507 kandidatov-poley 1, otkazov metok 0",
+                                    "17:30:25.543 kandidat: derevo v-okne pole Edit 143,256 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:30:25.563 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:30:26.029 OK popytok 1 fokus klik prochitano 13",
+                                    "17:30:27.692 start metka=\u0027Registration number\u0027 dlina=8 dpi=per-monitor-v2",
+                                    "17:30:28.038 snimok: uzlov 19, redaktiruemyh 5, metok \u0027Registration number\u0027 1, pryamyh 0, 183 ms",
+                                    "17:30:28.045 kandidatov-poley 1, otkazov metok 0",
+                                    "17:30:28.084 kandidat: derevo v-okne pole Edit 143,347 723x32 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:30:28.151 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:30:28.519 OK popytok 1 fokus klik prochitano 8",
+                                    "17:30:29.815 start metka=\u0027Website\u0027 dlina=15 dpi=per-monitor-v2",
+                                    "17:30:30.148 snimok: uzlov 19, redaktiruemyh 5, metok \u0027Website\u0027 1, pryamyh 0, 179 ms",
+                                    "17:30:30.154 kandidatov-poley 1, otkazov metok 0",
+                                    "17:30:30.190 kandidat: derevo v-okne pole Group 143,418 723x35 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:30:30.211 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:30:30.685 OK popytok 1 fokus klik prochitano 15",
+                                    "17:30:31.997 start metka=\u0027Short description\u0027 dlina=27 dpi=per-monitor-v2",
+                                    "17:30:32.337 snimok: uzlov 20, redaktiruemyh 5, metok \u0027Short description\u0027 1, pryamyh 0, 184 ms",
+                                    "17:30:32.342 kandidatov-poley 1, otkazov metok 0",
+                                    "17:30:32.378 kandidat: derevo v-okne pole Group 143,512 723x111 | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu)",
+                                    "17:30:32.400 vybor: derevo v-okne | pervoe redaktiruemoe posle metki v konteynere urovnya 1 (snizu); edinstvennyj kandidat",
+                                    "17:30:32.884 OK popytok 1 fokus klik prochitano 27"
+                                ]
+                    }
+                ]
+}

@@ -1,0 +1,105 @@
+{
+ "run": "40216493479",
+ "sha": "9fca07de3af04706255e1bb1f9cdf1fcb3e948fc",
+ "progonov": 46,
+ "uspeh": 46,
+ "dolya_uspeha_proc": 100.0,
+ "vyzovov": 178,
+ "vyzovov_ok": 178,
+ "vyzovov_mimo_polya": 0,
+ "mimo_polya": {},
+ "po_planam": {
+  "dubl": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 0,
+   "mediana_vyzova_ms": 3027
+  },
+  "dubl-stop": {
+   "progonov": 5,
+   "uspeh": 5,
+   "skroll": 2,
+   "mediana_vyzova_ms": 3857
+  },
+  "kwork": {
+   "progonov": 5,
+   "uspeh": 5,
+   "skroll": 2,
+   "mediana_vyzova_ms": 1939
+  },
+  "kwork-dlinnyj": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 1,
+   "mediana_vyzova_ms": 13329
+  },
+  "kwork-foto-stop": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 1,
+   "mediana_vyzova_ms": 1380
+  },
+  "kwork-povtor": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 1,
+   "mediana_vyzova_ms": 2563
+  },
+  "obertka": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 1,
+   "mediana_vyzova_ms": 1684
+  },
+  "skroll": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 4,
+   "mediana_vyzova_ms": 1884
+  },
+  "sleva": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 3,
+   "mediana_vyzova_ms": 1688
+  },
+  "sverhu": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 0,
+   "mediana_vyzova_ms": 1668
+  },
+  "ten": {
+   "progonov": 4,
+   "uspeh": 4,
+   "skroll": 2,
+   "mediana_vyzova_ms": 1758
+  }
+ },
+ "sposob_vybora": {
+  "imya": 16,
+  "derevo": 136,
+  "geometriya": 12
+ },
+ "dostup_vybrannogo": {
+  "v-okne": 128,
+  "posle-prokrutki": 36
+ },
+ "fokus": {
+  "klik": 156,
+  "uzhe": 8
+ },
+ "ozhidaemye_ostanovki": {
+  "neodnoznachno": 5,
+  "net-metki": 5,
+  "net-polya": 4
+ },
+ "neozhidannye_ostanovki": {},
+ "pomehi": {
+  "tochka-ne-nasha": 9,
+  "klik-mimo": 3
+ },
+ "minut_runnera": 12.3,
+ "oshibki_chteniya": [],
+ "neudachi": []
+}
