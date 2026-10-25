@@ -227,7 +227,7 @@ function Initialize-WinOcr {
 }
 function Wait-WinRt($operaciya, [type]$tipRezultata) {
   $zadacha = $script:WinOcr.AsTask.MakeGenericMethod($tipRezultata).Invoke($null, @($operaciya))
-  $null = $zadacha.Wait(-1)
+  if (-not $zadacha.Wait(20000)) { throw 'WinRT: net otveta 20 s' }
   return $zadacha.Result
 }
 # engine for a language prefix ('ru', 'en'); $null when not installed

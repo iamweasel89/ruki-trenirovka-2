@@ -33,7 +33,7 @@ jobs:
       - name: smoke runs
         shell: powershell
         run: |
-          ./ci/ocr/progon-ocr.ps1 -Seed 0 -Tolko 'holst-ru,holst-en,net-en,kartinka-ru' -Masshtaby '1,1.5' -Vyhod rezultat-smoke.json
+          ./ci/ocr/progon-ocr.ps1 -Seed 0 -Tolko 'holst-ru,holst-en,net-en,kartinka-ru' -Masshtaby '1,1.5' -LimitSek 600 -Vyhod rezultat-smoke.json
           if (-not (Test-Path rezultat-smoke.json)) { Write-Host 'harness gave no result'; exit 1 }
           exit 0
       - uses: actions/upload-artifact@v4
@@ -60,7 +60,7 @@ jobs:
       - name: runs of the skill on recognition plans
         shell: powershell
         run: |
-          ./ci/ocr/progon-ocr.ps1 -Seed ${{ matrix.seed }} -Vyhod "rezultat-${{ matrix.seed }}.json"
+          ./ci/ocr/progon-ocr.ps1 -Seed ${{ matrix.seed }} -LimitSek 2100 -Vyhod "rezultat-${{ matrix.seed }}.json"
           if (-not (Test-Path "rezultat-${{ matrix.seed }}.json")) { Write-Host 'harness gave no result'; exit 1 }
           exit 0
       - uses: actions/upload-artifact@v4
@@ -72,7 +72,7 @@ jobs:
 
   svod:
     needs: [smoke, matrica]
-    if: always() && needs.smoke.result != 'cancelled'
+    if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

@@ -2,7 +2,7 @@
 # browser scale (100 / 125 / 150 %, Chrome device scale factor), layout seeded per run.
 # The page reports clicks in its window title as codes: label index, offset from the
 # label centre, inside or not. Skill failures never fail the job: they go into the result.
-param([int]$Seed = 1, [string]$Vyhod = 'rezultat.json', [string]$Tolko = '', [string]$Masshtaby = '1,1.25,1.5')
+param([int]$Seed = 1, [string]$Vyhod = 'rezultat.json', [string]$Tolko = '', [string]$Masshtaby = '1,1.25,1.5', [int]$LimitSkillSek = 45, [int]$LimitSek = 1500)
 $ErrorActionPreference = 'Continue'
 $koren = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 . (Join-Path $koren 'lib\ocr.ps1')
@@ -55,6 +55,7 @@ $vsegoProgonov = $plany.Count * $mash.Count
 foreach ($m in $mash) {
   for ($j = 0; $j -lt $plany.Count; $j++) {
     $plan = $null
+    if ($jobSw.Elapsed.TotalSeconds -gt $LimitSek) { Write-Host "limit raboty $LimitSek s: ostanovka"; $sreda.obrezano = $true; break }
     try {
       $planPut = $plany[($Seed + $j) % $plany.Count]
       $plan = Get-Content -Raw -Encoding UTF8 $planPut | ConvertFrom-Json
@@ -84,7 +85,16 @@ foreach ($m in $mash) {
         $env:RUKI_LOG = $log
         Remove-Item $out, $log -ErrorAction SilentlyContinue
         $skSw = [Diagnostics.Stopwatch]::StartNew()
-        $vyvod = & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $koren 'skills\klik-po-tekstu.ps1') -Plan $planPut -Vyhod $out 2>&1 | Out-String
+        # hard time limit: a hung engine must not eat the job
+        $err = Join-Path $tmp "err_$s.txt"
+        $pr = Start-Process powershell.exe -PassThru -RedirectStandardError $err -ArgumentList @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File',
+               "`"$(Join-Path $koren 'skills\klik-po-tekstu.ps1')`"", '-Plan', "`"$planPut`"", '-Vyhod', "`"$out`"")
+        $vyvod = ''
+        if (-not $pr.WaitForExit($LimitSkillSek * 1000)) {
+          & taskkill.exe /F /T /PID $pr.Id 2>&1 | Out-Null
+          $vyvod = "SKILL: prevyshen limit $LimitSkillSek s"
+        }
+        if (Test-Path $err) { $vyvod += (Get-Content $err -Raw -ErrorAction SilentlyContinue) }
         $skMs = $skSw.ElapsedMilliseconds
         $skill = if (Test-Path $out) { Get-Content -Raw -Encoding UTF8 $out | ConvertFrom-Json } else { $null }
         Start-Sleep -Milliseconds 300
