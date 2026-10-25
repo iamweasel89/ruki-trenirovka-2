@@ -18,7 +18,9 @@ def spisok(x):
 
 raboty, oshibki = [], []
 for p in sorted(glob.glob(os.path.join(src, '**', 'rezultat-*.json'), recursive=True)):
-    try: raboty.append(load(p))
+    try:
+        rb = load(p); raboty.append(rb)
+        if rb.get('oshibka'): oshibki.append(f"{os.path.basename(p)}: {rb.get('oshibka')}")
     except Exception as e: oshibki.append(f'{os.path.basename(p)}: {e}')
 
 vsego = uspeh = bufer_ploho = 0
@@ -86,4 +88,5 @@ if oshibki: L += ['', '## Oshibki chteniya', ''] + [f'- {x}' for x in oshibki]
 with open(os.path.join(dst, 'itog.md'), 'w', encoding='utf-8') as f:
     f.write('\n'.join(L) + '\n')
 print('\n'.join(L))
-sys.exit(0 if vsego else 1)
+files = glob.glob(os.path.join(src, '**', 'rezultat-*.json'), recursive=True)
+sys.exit(0 if files else 1)

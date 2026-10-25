@@ -2,11 +2,11 @@
 # an independent check of what the page received (length + FNV hash per field, picked flags,
 # no stray submit) and a clipboard check (an operator-like sentinel must survive the run).
 # Skill failures never fail the job: they go into the result file.
-param([int]$Seed = 1, [string]$Vyhod = 'rezultat.json', [string]$Tolko = '')
+param([int]$Seed = 1, [string]$Vyhod = 'rezultat.json', [string]$Tolko = '', [int]$LimitSkillaS = 150, [int]$BudzhetS = 1500)
 $ErrorActionPreference = 'Continue'
 # the clipboard needs a single-threaded apartment
 if ([Threading.Thread]::CurrentThread.GetApartmentState() -ne 'STA') {
-  & powershell.exe -NoProfile -STA -ExecutionPolicy Bypass -File $PSCommandPath -Seed $Seed -Vyhod $Vyhod -Tolko $Tolko
+  & powershell.exe -NoProfile -STA -ExecutionPolicy Bypass -File $PSCommandPath -Seed $Seed -Vyhod $Vyhod -Tolko $Tolko -LimitSkillaS $LimitSkillaS -BudzhetS $BudzhetS
   exit 0
 }
 $koren = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
@@ -54,10 +54,14 @@ function Test-Storozh {
 function Save-Itog {
   $itog = [ordered]@{ seed = $Seed; sekund = [int]$jobSw.Elapsed.TotalSeconds; apartment = [string][Threading.Thread]::CurrentThread.GetApartmentState(); progony = $vse }
   try { ($itog | ConvertTo-Json -Depth 9) | Out-File -FilePath $Vyhod -Encoding utf8 }
-  catch { "{`"seed`": $Seed, `"oshibka`": `"json`"}" | Out-File -FilePath $Vyhod -Encoding utf8 }
+  catch {
+    $m = ($_.Exception.Message -replace '[\\"]', ' ')
+    "{`"seed`": $Seed, `"oshibka`": `"json: $m`", `"progonov`": $($vse.Count)}" | Out-File -FilePath $Vyhod -Encoding utf8
+  }
 }
 Save-Itog
 for ($r = 0; $r -lt $plany.Count; $r++) {
+  if ($jobSw.Elapsed.TotalSeconds -gt $BudzhetS) { Write-Host "budzhet ischerpan na progone $r"; break }
   try {
   $planPut = $plany[($Seed + $r) % $plany.Count]
   $plan = Get-Content -Raw -Encoding UTF8 $planPut | ConvertFrom-Json
@@ -86,12 +90,19 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
   $zapusk = $null
   $skSw = [Diagnostics.Stopwatch]::StartNew()
   try {
-    $vyvod = & powershell.exe -NoProfile -STA -ExecutionPolicy Bypass -File (Join-Path $koren 'skills\zapolnit-formu.ps1') -Plan $planPut -Vyhod $out 2>&1 | Out-String
-    $zapusk = "kod=$LASTEXITCODE ms=$($skSw.ElapsedMilliseconds)"
+    $soF = Join-Path $tmp "so_$s.txt"; $seF = Join-Path $tmp "se_$s.txt"
+    $pr = Start-Process powershell.exe -PassThru -WindowStyle Hidden -RedirectStandardOutput $soF -RedirectStandardError $seF -ArgumentList @(
+      '-NoProfile', '-STA', '-ExecutionPolicy', 'Bypass', '-File', "`"$(Join-Path $koren 'skills\zapolnit-formu.ps1')`"", '-Plan', "`"$planPut`"", '-Vyhod', "`"$out`"")
+    if (-not $pr.WaitForExit($LimitSkillaS * 1000)) {
+      try { $pr.Kill() } catch {}
+      $zapusk = "ubit-po-limitu ${LimitSkillaS}s"
+    } else { $zapusk = "kod=$($pr.ExitCode) ms=$($skSw.ElapsedMilliseconds)" }
+    $vyvod = (@(Get-Content $soF, $seF -Encoding UTF8 -ErrorAction SilentlyContinue) | Select-Object -Last 12) -join "`n"
   } catch { $zapusk = $_.Exception.Message }
   $skMs = $skSw.ElapsedMilliseconds
   $skill = if (Test-Path $out) { Get-Content -Raw -Encoding UTF8 $out | ConvertFrom-Json } else { $null }
   $bufer = Test-Storozh
+  $tProv = [Diagnostics.Stopwatch]::StartNew()
 
   # independent check through the page's control field
   $prov = [ordered]@{ uspeh = $false; prichina = ''; polya = [ordered]@{}; bufer = $bufer; pomehi_stranicy = @() }
@@ -132,7 +143,7 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
   $logTail += "ZAPUSK: $zapusk"
   if ($vyvod) { $logTail += @(($vyvod -split "`n") | Select-Object -Last 10) }
   $vse += [ordered]@{
-    progon = $r; seed = $s; stranica = $imya; okno_pomeha = $oknoPomeha; skill_ms = $skMs
+    progon = $r; seed = $s; stranica = $imya; okno_pomeha = $oknoPomeha; skill_ms = $skMs; proverka_ms = [int]$tProv.ElapsedMilliseconds
     skill = $skill; proverka = $prov; log = $logTail
   }
   Write-Host ("[{0}/{1}] {2} seed={3} uspeh={4} {5} {6} ms" -f ($r + 1), $plany.Count, $imya, $s, $prov.uspeh, $prov.prichina, $skMs)

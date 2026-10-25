@@ -119,6 +119,7 @@ foreach ($shag in $pl.shagi) {
     $r = Invoke-Shag $shag
     if ($r.Status -eq 'ok') { $polya += $shag }
   }
+  Write-RukiLog "shag $n $($shag.id): $($r.Status) $($r.Prichina) $([int]($sw.ElapsedMilliseconds - $t0)) ms"
   $rez.shagi += [ordered]@{ n = $n; tip = $shag.tip; id = $shag.id; status = $r.Status; popytki = $r.Popytki; ms = [int]($sw.ElapsedMilliseconds - $t0) }
   if ($r.Status -ne 'ok') { Stop-Skill $n $shag $r.Prichina ([string]$r.Podrobno) }
 }

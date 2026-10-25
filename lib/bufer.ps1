@@ -54,7 +54,9 @@ function New-ObektBezIstorii {
 function Set-BuferTekst([string]$s) {
   $o = New-ObektBezIstorii
   $o.SetData([System.Windows.Forms.DataFormats]::UnicodeText, $false, $s)
-  Invoke-SPovtorom { [System.Windows.Forms.Clipboard]::SetDataObject($o, $false, 10, 40) } | Out-Null
+  # copy = true: data is rendered at once; with delayed rendering the target app would wait
+  # on our thread, which does not pump messages while we wait for the read-back
+  Invoke-SPovtorom { [System.Windows.Forms.Clipboard]::SetDataObject($o, $true, 10, 40) } | Out-Null
   return [RukiBufer]::GetClipboardSequenceNumber()
 }
 
