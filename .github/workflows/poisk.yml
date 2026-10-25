@@ -1,0 +1,82 @@
+name: trener-poiska
+on:
+  push:
+    branches: [trener-poisk]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: trener-poisk
+  cancel-in-progress: true
+jobs:
+  gigiena:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: public hygiene check
+        shell: pwsh
+        run: ./ci/proverka-gigieny.ps1
+
+  dym:
+    needs: gigiena
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: smoke, one pass of every task
+        shell: powershell
+        run: ./ci/poisk-progon.ps1 -Seed 99 -Krugov 1 -Vyhod "poisk-99.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: poisk-99
+          path: poisk-99.json
+          if-no-files-found: warn
+
+  matrica:
+    needs: dym
+    runs-on: windows-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        seed: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - name: search movements
+        shell: powershell
+        run: ./ci/poisk-progon.ps1 -Seed ${{ matrix.seed }} -Krugov 2 -Vyhod "poisk-${{ matrix.seed }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: poisk-${{ matrix.seed }}
+          path: poisk-${{ matrix.seed }}.json
+          if-no-files-found: warn
+
+  svod:
+    needs: [dym, matrica]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: poisk-*
+          path: rez
+          merge-multiple: true
+      - name: aggregate
+        run: python3 ci/poisk-svod.py rez out
+      - name: hygiene of the result
+        run: |
+          mapfile -t P < <(grep -v '^#' ci/gigiena-shablony.txt | grep -v '^$')
+          for p in "${P[@]}"; do if grep -qPi -- "$p" out/itog.json out/itog.md; then echo "hygiene: pattern found in result"; exit 1; fi; done
+      - name: publish to branch itog-poisk
+        run: |
+          git config user.name ci; git config user.email ci@users.noreply.github.com
+          git checkout --orphan itog-tmp && git rm -rf . -q
+          cp out/itog.json out/itog.md . && git add itog.json itog.md
+          git commit -qm "itog-poisk run $GITHUB_RUN_ID sha $GITHUB_SHA"
+          git push -f origin HEAD:itog-poisk

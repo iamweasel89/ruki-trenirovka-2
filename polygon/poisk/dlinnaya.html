@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Полигон П — Длинная</title>
+<link rel="stylesheet" href="../stil.css"><link rel="stylesheet" href="poisk.css"></head>
+<body>
+<header><b>Полигон</b><input id="poisk" type="text" aria-label="Поиск по сайту" placeholder="Поиск"></header>
+<main id="spisok"><h1>Длинный список</h1></main>
+<p id="konec" class="zagruzka">Загрузка…</p>
+<script src="obshchee.js"></script>
+<script>
+// 30 sections x 8 rows, each row has the same button label "Открыть".
+// Sections after 20 are added only when the page is scrolled near the end (lazy load).
+(function () {
+  var m = document.getElementById('spisok'), dobavleno = 0;
+  function razdel(r) {
+    var sec = document.createElement('section');
+    sec.setAttribute('aria-label', 'Раздел ' + r); sec.className = 'razdel';
+    var h = document.createElement('h2'); h.textContent = 'Раздел ' + r; sec.appendChild(h);
+    for (var i = 1; i <= 8; i++) {
+      var d = document.createElement('div'); d.className = 'stroka';
+      d.appendChild(document.createTextNode('Запись ' + r + '.' + i + ' '));
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = 'Открыть';
+      b.id = 'otkr-' + r + '-' + i; b.setAttribute('data-k', 'otkr-' + r + '-' + i);
+      d.appendChild(b); sec.appendChild(d);
+    }
+    m.appendChild(sec);
+  }
+  function dobavit(n) { for (var k = 0; k < n && dobavleno < 30; k++) razdel(++dobavleno); if (dobavleno >= 30) document.getElementById('konec').textContent = 'Конец списка'; }
+  dobavit(20);
+  window.addEventListener('scroll', function () {
+    if (window.innerHeight + window.scrollY > document.body.scrollHeight - 600) dobavit(5);
+  });
+})();
+</script>
+</body></html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Полигон П — Окно</title>
+<link rel="stylesheet" href="../stil.css"><link rel="stylesheet" href="poisk.css"></head>
+<body>
+<header><b>Полигон</b><input id="poisk" type="text" aria-label="Поиск по сайту" placeholder="Поиск"></header>
+<main><h1 id="zag">Окно</h1>
+<button type="button" id="primenit">Применить</button>
+</main>
+<script>
+// title carries the window number so windows and tabs differ: "Полигон П — Окно N"
+var n = new URLSearchParams(location.search).get('n') || '1';
+document.title = 'Полигон П — Окно ' + n;
+document.getElementById('zag').textContent = 'Окно ' + n;
+document.getElementById('primenit').setAttribute('data-k', 'okno' + n);
+</script>
+<script src="obshchee.js"></script>
+</body></html>

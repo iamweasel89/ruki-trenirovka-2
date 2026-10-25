@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Полигон П — Задержка</title>
+<link rel="stylesheet" href="../stil.css"><link rel="stylesheet" href="poisk.css"></head>
+<body>
+<header><b>Полигон</b><input id="poisk" type="text" aria-label="Поиск по сайту" placeholder="Поиск"></header>
+<main id="m"><h1>Элементы появляются не сразу</h1><p class="zagruzka">Загрузка…</p></main>
+<script src="obshchee.js"></script>
+<script>
+// "Подтвердить" appears after 150..1200 ms, first disabled, enabled 100..500 ms later.
+// "Продолжить" appears, then is re-rendered (replaced by a new node) 200..700 ms later.
+// "Никогда" never appears.
+(function () {
+  var m = document.getElementById('m');
+  function knopka(txt, k) { var b = document.createElement('button'); b.type = 'button'; b.textContent = txt; b.id = k; b.setAttribute('data-k', k); return b; }
+  setTimeout(function () {
+    var b = knopka('Подтвердить', 'podtv'); b.disabled = true; m.appendChild(b);
+    setTimeout(function () { b.disabled = false; }, O.mezhdu(100, 500));
+  }, O.mezhdu(150, 1200));
+  setTimeout(function () {
+    var b = knopka('Продолжить', 'prod'); b.setAttribute('data-k', 'prod-staraya'); m.appendChild(b);
+    setTimeout(function () { var n = knopka('Продолжить', 'prod'); b.replaceWith(n); }, O.mezhdu(200, 700));
+  }, O.mezhdu(100, 900));
+})();
+</script>
+</body></html>
