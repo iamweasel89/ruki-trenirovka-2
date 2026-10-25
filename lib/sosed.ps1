@@ -14,8 +14,8 @@
 #      after the label); refused when another label-like text stands between them, or when the
 #      field is neither below nor to the right of the label;
 #   4. geometriya: the nearest editable below (horizontally overlapping or left edges within
-#      120 px) or to the right (vertically overlapping) within 120 px, with no other label-like
-#      text between them; two candidates within 6 px of each other = ambiguous.
+#      120 px) within 120 px, or to the right (vertically overlapping) within 200 px, with no
+#      other label-like text between them; two candidates within 6 px of each other = ambiguous.
 # Candidates are then checked for reachability: a field of 2 px or less, or one that is still
 # off screen after ScrollIntoView, is a hidden copy and is dropped. When more than one
 # reachable field remains, a hit test at each field drops the covered ones; if more than one
@@ -25,6 +25,9 @@
 
 $script:VP = [System.Windows.Automation.ValuePattern]
 $script:SosedRadius = 120
+# to the right the reach is longer: a short label ("Fax") in a fixed-width label column ends
+# far from the field column; the in-between text check still guards the row
+$script:SosedRadiusSprava = 200
 
 function Get-NormMetka([string]$s) {
   if ($null -eq $s) { return '' }
@@ -169,7 +172,9 @@ function Resolve-PoGeometrii($sn, $L) {
     $kak = $null; $dist = 0.0
     if ($pr.X -ge ($prav - 8) -and (Test-PerekrytieV $pr $lr)) { $kak = 'sprava'; $dist = [Math]::Max(0, $pr.X - $prav) }
     elseif ($pr.Y -ge ($niz - 8) -and ((Test-PerekrytieH $pr $lr) -or [Math]::Abs($pr.X - $lr.X) -le $script:SosedRadius)) { $kak = 'snizu'; $dist = [Math]::Max(0, $pr.Y - $niz) }
-    if (-not $kak -or $dist -gt $script:SosedRadius) { continue }
+    if (-not $kak) { continue }
+    if ($kak -eq 'sprava' -and $dist -gt $script:SosedRadiusSprava) { continue }
+    if ($kak -eq 'snizu' -and $dist -gt $script:SosedRadius) { continue }
     $mezhdu = $null
     foreach ($t in $tex) {
       $tr = $t.R
@@ -182,7 +187,7 @@ function Resolve-PoGeometrii($sn, $L) {
     if ($mezhdu) { Write-RukiLog "geometriya: pole $(Format-Ramka $pr) otbrosheno, mezhdu tekst '$($mezhdu.Imya)'"; continue }
     $kand.Add([pscustomobject]@{ Uzel = $u; Dist = $dist; Kak = $kak })
   }
-  if ($kand.Count -eq 0) { return @{ Uzel = $null; Pochemu = "geometriya: net polya nizhe ili pravee v $($script:SosedRadius) px" } }
+  if ($kand.Count -eq 0) { return @{ Uzel = $null; Pochemu = "geometriya: net polya nizhe v $($script:SosedRadius) px ili pravee v $($script:SosedRadiusSprava) px" } }
   $s = @($kand | Sort-Object Dist)
   if ($s.Count -gt 1 -and ($s[1].Dist - $s[0].Dist) -lt 6) {
     return @{ Uzel = $null; Neodnoznachno = $true; Pochemu = ("geometriya: dva polya na odnom rasstoyanii ({0} i {1} px)" -f [int]$s[0].Dist, [int]$s[1].Dist) }
@@ -202,13 +207,17 @@ function Get-Vidimost($doc, $el) {
   if ($r.Pusto -or $r.W -le 2 -or $r.H -le 2) { return [pscustomobject]@{ Sost = 'skryto'; R = $r } }
   $okno = $null; try { $okno = ConvertTo-Ramka $doc.Current.BoundingRectangle } catch {}
   $vOkne = -not $off
+  $vid = $r
   if ($vOkne -and $okno -and -not $okno.Pusto) {
-    $sh = [Math]::Min($r.X + $r.W, $okno.X + $okno.W) - [Math]::Max($r.X, $okno.X)
-    $vy = [Math]::Min($r.Y + $r.H, $okno.Y + $okno.H) - [Math]::Max($r.Y, $okno.Y)
-    $vOkne = ($sh -ge [Math]::Min(6, $r.W)) -and ($vy -ge [Math]::Min(6, $r.H))
+    $x1 = [Math]::Max($r.X, $okno.X); $y1 = [Math]::Max($r.Y, $okno.Y)
+    $sh = [Math]::Min($r.X + $r.W, $okno.X + $okno.W) - $x1
+    $vy = [Math]::Min($r.Y + $r.H, $okno.Y + $okno.H) - $y1
+    # enough of it must show to click safely inside: a sliver at the edge counts as outside
+    $vOkne = ($sh -ge [Math]::Min(20, $r.W)) -and ($vy -ge [Math]::Min(20, $r.H))
+    if ($vOkne) { $vid = [pscustomobject]@{ X = $x1; Y = $y1; W = $sh; H = $vy; Pusto = $false } }
   }
-  if ($vOkne) { return [pscustomobject]@{ Sost = 'v-okne'; R = $r } }
-  return [pscustomobject]@{ Sost = 'za-oknom'; R = $r }
+  if ($vOkne) { return [pscustomobject]@{ Sost = 'v-okne'; R = $r; Vid = $vid } }
+  return [pscustomobject]@{ Sost = 'za-oknom'; R = $r; Vid = $null }
 }
 
 function Invoke-Prokrutka($el) {
@@ -241,7 +250,7 @@ function Test-NeZakryto($doc, $el, [int]$raz = 3) {
   for ($i = 0; $i -lt $raz; $i++) {
     $v = Get-Vidimost $doc $el
     if ($v.Sost -eq 'v-okne') {
-      $t = Get-TochkaKlika $v.R
+      $t = Get-TochkaKlika $v.Vid
       $pod = Get-ElementVTochke $t.X $t.Y
       if (Test-VnutriElementa $pod $el) { return $true }
     }
@@ -269,8 +278,8 @@ function Find-Pryamye($sn, [string]$norm) {
 # pure part of the resolution (no live UIA except LabeledBy comparison): every field some
 # label candidate leads to, one entry per field, and the labels that led nowhere
 function Find-KandidatyPolya($sn, [string]$norm) {
-  $metki = Find-Metki $sn $norm
-  $pryamye = Find-Pryamye $sn $norm
+  $metki = @(Find-Metki $sn $norm)
+  $pryamye = @(Find-Pryamye $sn $norm)
   $redakt = @($sn | Where-Object { $_.Red })
   $nayd = New-Object System.Collections.Generic.List[object]
   $otkazy = New-Object System.Collections.Generic.List[object]
@@ -314,7 +323,8 @@ function Resolve-PoleUMetki($doc, [string]$Metka, [int]$OzhidanieMs = 8000) {
   $sn = $null
   while ($true) {
     $sn = Get-Snimok $doc $syroj
-    if ((Find-Metki $sn $norm).Count -gt 0 -or (Find-Pryamye $sn $norm).Count -gt 0) { break }
+    # @(): a one-element result unrolls to a single object, which has no Count in PS 5.1
+    if (@(Find-Metki $sn $norm).Count -gt 0 -or @(Find-Pryamye $sn $norm).Count -gt 0) { break }
     if ($sw.ElapsedMilliseconds -ge $OzhidanieMs) {
       if ($syroj) { break }
       $syroj = $true; Write-RukiLog 'net metki v control view, probuyu raw view'; continue

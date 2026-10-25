@@ -77,7 +77,7 @@ function Set-FokusKlikom($ctx, $uzel) {
     if ($i -le 4) {
       $v = Confirm-Dostupno $ctx.Doc $el
       if ($v.Sost -ne 'v-okne') { Write-RukiLog "fokus: pole $($v.Sost)"; Start-Sleep -Milliseconds 200; continue }
-      $t = Get-TochkaKlika $v.R
+      $t = Get-TochkaKlika $v.Vid
       $pod = Get-ElementVTochke $t.X $t.Y
       if (-not (Test-VnutriElementa $pod $el)) {
         $kto = ''; try { $kto = "$($pod.Current.ControlType.ProgrammaticName) '$($pod.Current.Name)'" } catch {}
