@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Poligon - Pole sosed: metka sverhu</title>
+<link rel="stylesheet" href="sosed.css">
+<style>
+.pole { margin: 14px 0; }
+.pole .zag { display: block; margin-bottom: 4px; font-weight: 600; }
+.pole input, .pole textarea { width: 100%; }
+.pole textarea { min-height: 90px; }
+</style></head>
+<body>
+<header><b>Poligon</b> label above the field</header>
+<main>
+<h1>Contact details</h1>
+<div id="forma" hidden>
+<div class="blok">
+  <!-- plain text above, no label element, no aria -->
+  <div class="pole"><div class="zag">First name</div><input type="text" data-pole="imya"></div>
+  <!-- a proper label element: the name comes through the association -->
+  <div class="pole"><label class="zag" for="familiya">Last name</label><input type="text" id="familiya" data-pole="familiya"></div>
+  <!-- aria-labelledby -->
+  <div class="pole"><span class="zag" id="indeks-zag">Postal code</span><input type="text" aria-labelledby="indeks-zag" data-pole="indeks"></div>
+  <!-- a span and a field with its own placeholder (the name is the placeholder) -->
+  <div class="pole"><span class="zag">Email address</span><input type="email" placeholder="name@example.org" data-pole="pochta"></div>
+  <!-- multi-line -->
+  <div class="pole"><div class="zag">Message</div><textarea data-pole="soobshchenie"></textarea></div>
+  <!-- contenteditable without any name -->
+  <div class="pole"><div class="zag">Signature</div><div class="ce" contenteditable="true" data-pole="podpis"></div></div>
+</div>
+</div>
+<div class="kontrol-blok"><textarea id="kontrol" readonly aria-label="Kontrol"></textarea></div>
+</main>
+<script src="sosed.js"></script>
+<script>S.pokazat();</script>
+</body></html>

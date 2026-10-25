@@ -1,0 +1,29 @@
+{
+ "imya": "obertka",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/obertka.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: obertka"
+ },
+ "shagi": [
+  {
+   "metka": "Company name",
+   "znachenie": "Polygon Works",
+   "pole": "firma"
+  },
+  {
+   "metka": "Registration number",
+   "znachenie": "12345678",
+   "pole": "nomer"
+  },
+  {
+   "metka": "Website",
+   "znachenie": "polygon.example",
+   "pole": "sajt"
+  },
+  {
+   "metka": "Short description",
+   "znachenie": "Small team, reliable tools.",
+   "pole": "opisanie"
+  }
+ ]
+}

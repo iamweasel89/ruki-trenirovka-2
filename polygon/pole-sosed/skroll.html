@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Poligon - Pole sosed: skroll</title>
+<link rel="stylesheet" href="sosed.css">
+<style>
+.pole { margin: 14px 0; }
+.pole .zag { font-weight: 600; margin-bottom: 4px; }
+.pole input, .pole .ce { width: 100%; }
+.razryv { height: 1100px; background: repeating-linear-gradient(#f4f4f0, #f4f4f0 40px, #ecece6 40px, #ecece6 80px); }
+</style></head>
+<body data-skroll>
+<header><b>Poligon</b> a page that scrolls between calls</header>
+<main>
+<h1>Long application</h1>
+<div id="forma" hidden>
+<div class="blok"><div class="pole"><div class="zag">Applicant name</div><input type="text" data-pole="imya"></div></div>
+<div class="razryv"></div>
+<div class="blok"><div class="pole"><div class="zag">Previous employer</div><input type="text" data-pole="rabota"></div>
+  <div class="pole"><div class="zag">Position held</div><input type="text" data-pole="dolzhnost"></div></div>
+<div class="razryv"></div>
+<div class="blok"><div class="pole"><div class="zag">Cover letter</div><div class="ce bolshoj" contenteditable="true" data-pole="pismo"></div></div></div>
+</div>
+<div class="kontrol-blok"><textarea id="kontrol" readonly aria-label="Kontrol"></textarea></div>
+</main>
+<script src="sosed.js"></script>
+<script>S.pokazat();</script>
+</body></html>

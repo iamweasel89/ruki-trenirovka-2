@@ -10,3 +10,6 @@ ts\.net
 \bsk-ant-[A-Za-z0-9_-]{10,}
 \bAKIA[0-9A-Z]{16}\b
 \bxox[abpr]-[A-Za-z0-9-]{10,}
+\bDESKTOP-[A-Z0-9]{5,}\b
+\bLAPTOP-[A-Z0-9]{5,}\b
+/home/[a-z]+/

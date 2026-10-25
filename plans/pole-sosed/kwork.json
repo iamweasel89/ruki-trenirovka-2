@@ -1,0 +1,24 @@
+{
+ "imya": "kwork",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/kwork.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: profil"
+ },
+ "shagi": [
+  {
+   "metka": "Your Name",
+   "znachenie": "Иван Петров",
+   "pole": "imya"
+  },
+  {
+   "metka": "What do you do?",
+   "znachenie": "Desktop automation and scripts",
+   "pole": "specialnost"
+  },
+  {
+   "metka": "About You",
+   "znachenie": "I build reliable UI automation for Windows desktops.",
+   "pole": "o-sebe"
+  }
+ ]
+}

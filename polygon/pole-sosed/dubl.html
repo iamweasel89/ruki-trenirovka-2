@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Poligon - Pole sosed: dubli</title>
+<link rel="stylesheet" href="sosed.css">
+<style>
+.pole { margin: 14px 0; }
+.pole .zag { font-weight: 600; margin-bottom: 4px; }
+.pole input, .pole textarea, .pole .ce { width: 100%; }
+/* a collapsed copy that comes first in the tree */
+.svyornuto { height: 0; overflow: hidden; }
+/* a copy for another layout: in the tree, far left of the page */
+.mobilnaya { position: absolute; left: -5000px; top: 700px; width: 600px; }
+/* a 1x1 clipped copy, the way some sites hide fields */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.dve { display: flex; gap: 20px; } .dve > div { flex: 1; }
+</style></head>
+<body>
+<header><b>Poligon</b> duplicates and traps</header>
+<main>
+<h1>Order</h1>
+<div id="forma" hidden>
+<div class="svyornuto"><div class="pole"><div class="zag">Company</div><input type="text" data-pole="firma-kopiya"></div></div>
+<div class="sr-only"><div class="pole"><div class="zag">Email</div><input type="text" data-pole="pochta-kopiya-sr"></div></div>
+<div class="blok">
+  <div class="pole"><div class="zag">Company</div><input type="text" data-pole="firma"></div>
+  <div class="pole"><div class="zag">Email</div><input type="text" data-pole="pochta"></div>
+  <div class="pole"><div class="zag">Order note</div><div class="ce" contenteditable="true" data-pole="zametka" aria-placeholder="Anything we should know"></div></div>
+</div>
+<div class="blok">
+  <div class="dve">
+    <div><div class="pole"><div class="zag">Comment</div><textarea data-pole="kommentarij-1"></textarea></div></div>
+    <div><div class="pole"><div class="zag">Comment</div><textarea data-pole="kommentarij-2"></textarea></div></div>
+  </div>
+</div>
+<div class="mobilnaya">
+  <div class="pole"><div class="zag">Email</div><input type="text" data-pole="pochta-kopiya"></div>
+  <div class="pole"><div class="zag">Order note</div><div class="ce" contenteditable="true" data-pole="zametka-kopiya" aria-placeholder="Anything we should know"></div></div>
+</div>
+</div>
+<div class="kontrol-blok"><textarea id="kontrol" readonly aria-label="Kontrol"></textarea></div>
+</main>
+<script src="sosed.js"></script>
+<script>S.pokazat();</script>
+</body></html>

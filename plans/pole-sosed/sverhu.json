@@ -1,0 +1,39 @@
+{
+ "imya": "sverhu",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/sverhu.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: metka sverhu"
+ },
+ "shagi": [
+  {
+   "metka": "First name",
+   "znachenie": "Ivan",
+   "pole": "imya"
+  },
+  {
+   "metka": "Last name",
+   "znachenie": "Petrov",
+   "pole": "familiya"
+  },
+  {
+   "metka": "Postal code",
+   "znachenie": "12345",
+   "pole": "indeks"
+  },
+  {
+   "metka": "Email address",
+   "znachenie": "ivan.petrov.example",
+   "pole": "pochta"
+  },
+  {
+   "metka": "Message",
+   "znachenie": "Please call after six, thank you.",
+   "pole": "soobshchenie"
+  },
+  {
+   "metka": "Signature",
+   "znachenie": "И. Петров",
+   "pole": "podpis"
+  }
+ ]
+}

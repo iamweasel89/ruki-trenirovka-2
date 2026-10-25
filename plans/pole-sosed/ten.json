@@ -1,0 +1,29 @@
+{
+ "imya": "ten",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/ten.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: ten"
+ },
+ "shagi": [
+  {
+   "metka": "Project title",
+   "znachenie": "Neighbour label",
+   "pole": "nazvanie"
+  },
+  {
+   "metka": "Budget",
+   "znachenie": "1500",
+   "pole": "byudzhet"
+  },
+  {
+   "metka": "Deadline",
+   "znachenie": "30.11.2026",
+   "pole": "srok"
+  },
+  {
+   "metka": "Requirements",
+   "znachenie": "Zero typing into the wrong field.",
+   "pole": "trebovaniya"
+  }
+ ]
+}

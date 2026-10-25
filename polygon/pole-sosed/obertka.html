@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Poligon - Pole sosed: obertka</title>
+<link rel="stylesheet" href="sosed.css">
+<style>
+.field-row { margin: 16px 0; }
+.field-row .field-label { font-weight: 600; margin-bottom: 4px; }
+.field-row .field-label .req { color: #c00; margin-left: 3px; }
+.field-row .field-control input, .field-row .field-control .ce { width: 100%; }
+.field-row .help { color: #777; font-size: 13px; margin-top: 3px; }
+</style></head>
+<body>
+<header><b>Poligon</b> label inside a wrapper</header>
+<main>
+<h1>Company</h1>
+<div id="forma" hidden>
+<div class="blok">
+  <!-- label wrapped twice, the field is a child of the label's sibling -->
+  <div class="field-row">
+    <div class="field-label"><span><span>Company name</span></span><span class="req">*</span></div>
+    <div class="field-control"><div class="wrap"><input type="text" data-pole="firma"></div></div>
+    <div class="help">As registered</div>
+  </div>
+  <div class="field-row">
+    <div class="field-label"><span>Registration number</span></div>
+    <div class="field-control"><div class="wrap"><div class="inner"><input type="text" data-pole="nomer"></div></div></div>
+  </div>
+  <div class="field-row">
+    <div class="field-label"><span>Website</span></div>
+    <div class="field-control"><div class="wrap"><div class="ce" contenteditable="true" data-pole="sajt"></div></div></div>
+    <div class="help">Optional</div>
+  </div>
+  <div class="field-row">
+    <div class="field-label"><span>Short description</span></div>
+    <div class="field-control"><div class="wrap"><div class="ce bolshoj" contenteditable="true" data-pole="opisanie"><div><br></div></div></div></div>
+  </div>
+</div>
+</div>
+<div class="kontrol-blok"><textarea id="kontrol" readonly aria-label="Kontrol"></textarea></div>
+</main>
+<script src="sosed.js"></script>
+<script>S.pokazat();</script>
+</body></html>

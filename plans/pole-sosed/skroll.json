@@ -1,0 +1,34 @@
+{
+ "imya": "skroll",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/skroll.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: skroll"
+ },
+ "shagi": [
+  {
+   "metka": "Position held",
+   "znachenie": "Operator",
+   "pole": "dolzhnost"
+  },
+  {
+   "metka": "Applicant name",
+   "znachenie": "Ivan",
+   "pole": "imya"
+  },
+  {
+   "metka": "Cover letter",
+   "znachenie": "I would like to apply.",
+   "pole": "pismo"
+  },
+  {
+   "metka": "Previous employer",
+   "znachenie": "Polygon Works",
+   "pole": "rabota"
+  },
+  {
+   "metka": "Applicant name",
+   "znachenie": "Ivan Petrov",
+   "pole": "imya"
+  }
+ ]
+}

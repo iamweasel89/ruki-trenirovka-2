@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Poligon - Pole sosed: profil</title>
+<link rel="stylesheet" href="sosed.css">
+<style>
+.ryad { display: grid; grid-template-columns: 200px 1fr; gap: 0 24px; align-items: start; margin: 18px 0; }
+.metka { font-weight: 600; padding-top: 7px; }
+.foto { width: 72px; height: 72px; background: #cbd5d0; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 12px; }
+.schetchik { color: #777; font-size: 13px; margin-top: 4px; }
+/* the copy of the form a site keeps for another layout: in the tree, never on screen */
+.drugaya-vyorstka { position: absolute; left: -5000px; top: 866px; width: 560px; }
+</style></head>
+<body>
+<header><b>Poligon</b> profile settings</header>
+<main>
+<h1>Profile settings</h1>
+<div id="forma" hidden>
+<div class="blok">
+  <div class="ryad">
+    <div class="metka">Your Name</div>
+    <div><div class="ce" contenteditable="true" data-pole="imya">&lt;div&gt;&lt;br&gt;&lt;/div&gt;</div></div>
+  </div>
+  <div class="ryad">
+    <div class="metka">Profile Picture</div>
+    <div><span class="foto"></span><button type="button">Replace</button> <button type="button">Delete</button></div>
+  </div>
+  <div class="ryad">
+    <div class="metka">What do you do?</div>
+    <div>
+      <div class="ce" contenteditable="true" data-pole="specialnost" data-maks="50"><div><br></div></div>
+      <div class="schetchik" id="schetchik">0 of 50 characters (minimum 5)</div>
+    </div>
+  </div>
+  <div class="ryad">
+    <div class="metka">About You</div>
+    <div><div class="ce bolshoj" contenteditable="true" data-pole="o-sebe" aria-placeholder="I have over 5 years of experience in..."></div></div>
+  </div>
+  <button type="button" id="sohranit">Save changes</button>
+</div>
+<div class="drugaya-vyorstka">
+  <div class="metka">About You</div>
+  <div class="ce bolshoj" contenteditable="true" data-pole="o-sebe-kopiya" aria-placeholder="I have over 5 years of experience in..."></div>
+</div>
+</div>
+<div class="kontrol-blok"><textarea id="kontrol" readonly aria-label="Kontrol"></textarea></div>
+</main>
+<script src="sosed.js"></script>
+<script>
+(function () {
+  var sp = document.querySelector('[data-pole=specialnost]');
+  var sch = document.getElementById('schetchik');
+  sp.addEventListener('input', function () {
+    var n = S.znach(sp).length;
+    sch.textContent = n + ' of 50 characters (minimum 5)';
+  });
+  S.pokazat();
+})();
+</script>
+</body></html>

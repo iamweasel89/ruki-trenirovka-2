@@ -1,0 +1,24 @@
+{
+ "imya": "dubl-stop",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/dubl.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: dubli"
+ },
+ "shagi": [
+  {
+   "metka": "Comment",
+   "znachenie": "x",
+   "ozhid_stop": "neodnoznachno"
+  },
+  {
+   "metka": "Fax number",
+   "znachenie": "x",
+   "ozhid_stop": "net-metki"
+  },
+  {
+   "metka": "Email",
+   "znachenie": "after.stops",
+   "pole": "pochta"
+  }
+ ]
+}

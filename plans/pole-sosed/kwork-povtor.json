@@ -1,0 +1,29 @@
+{
+ "imya": "kwork-povtor",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/kwork.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: profil"
+ },
+ "shagi": [
+  {
+   "metka": "I have over 5 years of experience in...",
+   "znachenie": "First version",
+   "pole": "o-sebe"
+  },
+  {
+   "metka": "About You",
+   "znachenie": "Second version, replaced",
+   "pole": "o-sebe"
+  },
+  {
+   "metka": "About You",
+   "znachenie": "Третья, окончательная версия",
+   "pole": "o-sebe"
+  },
+  {
+   "metka": "Your Name",
+   "znachenie": "Anna",
+   "pole": "imya"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "imya": "kwork-foto-stop",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/kwork.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: profil"
+ },
+ "shagi": [
+  {
+   "metka": "Profile Picture",
+   "znachenie": "x",
+   "ozhid_stop": "net-polya"
+  },
+  {
+   "metka": "What do you do?",
+   "znachenie": "Testing",
+   "pole": "specialnost"
+  }
+ ]
+}

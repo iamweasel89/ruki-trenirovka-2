@@ -1,0 +1,29 @@
+{
+ "imya": "dubl",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/dubl.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: dubli"
+ },
+ "shagi": [
+  {
+   "metka": "Anything we should know",
+   "znachenie": "Leave at the door",
+   "pole": "zametka"
+  },
+  {
+   "metka": "Company",
+   "znachenie": "Polygon Works",
+   "pole": "firma"
+  },
+  {
+   "metka": "Email",
+   "znachenie": "orders.example",
+   "pole": "pochta"
+  },
+  {
+   "metka": "Order note",
+   "znachenie": "Ring twice",
+   "pole": "zametka"
+  }
+ ]
+}

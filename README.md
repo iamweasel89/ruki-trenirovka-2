@@ -12,3 +12,16 @@ visibility, and a hard stop on password fields.
 - `ci/proverka-gigieny.ps1` public hygiene check (runs first in CI)
 
 Results of the last run are published to the branch `itog` (`itog.md`, `itog.json`).
+
+## Trainer: field next to its label (branch `trener-pole-sosed`)
+
+- `polygon/pole-sosed/` pages: a replica of a profile form with nameless contenteditable
+  fields (one shows the literal text `<div><br></div>`), labels above / left / in wrappers,
+  a column layout, hidden copies (collapsed, 1x1 clipped, far off the page), a shadow root,
+  six nested wrappers, a page that jumps and drifts. Each page checks itself: final value of
+  every field and how many input events each field received.
+- `lib/sosed.ps1` label -> field resolution, `lib/pole-vvod.ps1` click, type, read back,
+  `lib/mysh.ps1` DPI awareness, click, hit test
+- `skills/vvesti-u-metki.ps1` one call: type a value into the field named by a label
+- `ci/pole-sosed/` plans generator, harness, aggregation; workflow `pole-sosed.yml`;
+  results on the branch `itog-pole-sosed`

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Poligon - Pole sosed: ten</title>
+<link rel="stylesheet" href="sosed.css">
+<style>
+.pole { margin: 16px 0; }
+.pole .zag { font-weight: 600; margin-bottom: 4px; }
+x-pole { display: block; }
+.n1 .n2 .n3 .n4 .n5 .n6 input { width: 100%; }
+</style></head>
+<body>
+<header><b>Poligon</b> shadow root and deep nesting</header>
+<main>
+<h1>Project</h1>
+<div id="forma" hidden>
+<div class="blok">
+  <!-- the field lives in a shadow root: a label element outside cannot point into it -->
+  <div class="pole"><div class="zag">Project title</div><x-pole data-vid="input" data-id="nazvanie"></x-pole></div>
+  <!-- six generic wrappers around the field -->
+  <div class="pole"><div class="zag">Budget</div>
+    <div class="n1"><div class="n2"><div class="n3"><div class="n4"><div class="n5"><div class="n6"><input type="text" data-pole="byudzhet"></div></div></div></div></div></div>
+  </div>
+  <!-- contenteditable inside a shadow root, inside wrappers -->
+  <div class="pole"><div class="zag">Deadline</div><div class="n1"><x-pole data-vid="ce" data-id="srok"></x-pole></div></div>
+  <div class="pole"><div class="zag">Requirements</div><x-pole data-vid="ce-bolshoj" data-id="trebovaniya"></x-pole></div>
+</div>
+</div>
+<div class="kontrol-blok"><textarea id="kontrol" readonly aria-label="Kontrol"></textarea></div>
+</main>
+<script src="sosed.js"></script>
+<script>
+customElements.define('x-pole', class extends HTMLElement {
+  connectedCallback() {
+    if (this.shadowRoot) return;
+    var r = this.attachShadow({ mode: 'open' });
+    var vid = this.getAttribute('data-vid'), id = this.getAttribute('data-id');
+    var st = '<style>.a{padding:2px 0}.b{border:0}input,.ce{width:100%;box-sizing:border-box;padding:6px;font-size:15px;border:1px solid #aaa;background:#fff;min-height:34px;outline:none}.big{min-height:100px}</style>';
+    var pole = vid === 'input' ? '<input type="text" data-pole="' + id + '">'
+      : '<div class="ce' + (vid === 'ce-bolshoj' ? ' big' : '') + '" contenteditable="true" data-pole="' + id + '"></div>';
+    r.innerHTML = st + '<div class="a"><div class="b"><div>' + pole + '</div></div></div>';
+  }
+});
+S.posle = function () {
+  Array.prototype.forEach.call(document.querySelectorAll('x-pole'), function (h) {
+    S.dobavit(h.shadowRoot.querySelector('[data-pole]'));
+  });
+};
+S.pokazat();
+</script>
+</body></html>

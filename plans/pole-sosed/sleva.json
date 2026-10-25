@@ -1,0 +1,44 @@
+{
+ "imya": "sleva",
+ "stranica": {
+  "url_soderzhit": "/polygon/pole-sosed/sleva.html",
+  "zagolovok_soderzhit": "Poligon - Pole sosed: metka sleva"
+ },
+ "shagi": [
+  {
+   "metka": "City",
+   "znachenie": "Springfield",
+   "pole": "gorod"
+  },
+  {
+   "metka": "Street",
+   "znachenie": "Main Street",
+   "pole": "ulica"
+  },
+  {
+   "metka": "House",
+   "znachenie": "12",
+   "pole": "dom"
+  },
+  {
+   "metka": "Flat",
+   "znachenie": "7",
+   "pole": "kvartira"
+  },
+  {
+   "metka": "Fax",
+   "znachenie": "0200 000 222",
+   "pole": "faks"
+  },
+  {
+   "metka": "Phone",
+   "znachenie": "0900 000 111",
+   "pole": "telefon"
+  },
+  {
+   "metka": "Courier note",
+   "znachenie": "Ring twice",
+   "pole": "zametka"
+  }
+ ]
+}
