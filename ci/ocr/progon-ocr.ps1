@@ -138,9 +138,11 @@ foreach ($m in $mash) {
             $prov.prichina = if ($prov.uspeh) { "chestno: $st" } else { "lozhnyj-klik: $st" }
           }
         }
-        if (Test-Path $log) { $logTail += @(Get-Content $log -Encoding UTF8 | Select-Object -Last 25) }
+        # plain strings: Get-Content lines carry provider properties that blow up ConvertTo-Json
+        if (Test-Path $log) { $logTail += @([IO.File]::ReadAllLines($log, [Text.Encoding]::UTF8) | Select-Object -Last 25 | ForEach-Object { [string]$_ }) }
         if ($vyvod) { $logTail += @(($vyvod -split "`n") | Where-Object { $_.Trim() } | Select-Object -Last 8) }
       }
+      $logTail = @($logTail | ForEach-Object { [string]$_ })
       $vse += [ordered]@{ progon = $r; seed = $s; plan = $plan.imya; st = $plan.st; masshtab = $m; cel = [string]$plan.cel; skill_ms = $skMs
                           skill = $skill; proverka = $prov; log = $logTail }
       Write-Host ("[{0}/{1}] {2} x{3} seed={4} uspeh={5} {6} {7} ms" -f ($r + 1), $vsegoProgonov, $plan.imya, $mt, $s, $prov.uspeh, $prov.prichina, $skMs)
