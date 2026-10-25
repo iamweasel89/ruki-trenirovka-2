@@ -33,8 +33,18 @@ function Add-Sled([string]$t) {
 }
 function Save-Itog {
   $itog = [ordered]@{ seed = $Seed; sekund = [int]$jobSw.Elapsed.TotalSeconds; sreda = $sreda; sled = $script:sled; progony = $vse }
-  try { ($itog | ConvertTo-Json -Depth 9) | Out-File -FilePath $Vyhod -Encoding utf8 }
-  catch { "{`"seed`": $Seed, `"oshibka`": `"json`"}" | Out-File -FilePath $Vyhod -Encoding utf8 }
+  try { (ConvertTo-Json -InputObject $itog -Depth 9) | Out-File -FilePath $Vyhod -Encoding utf8 }
+  catch {
+    # find the part that does not serialise and drop it, keep the rest
+    $obsh = $_.Exception.Message
+    $chast = [ordered]@{ seed = $Seed; oshibka_json = $obsh; plohie = @() }
+    foreach ($k in @($itog.Keys)) {
+      try { $null = ConvertTo-Json -InputObject $itog[$k] -Depth 9; $chast[$k] = $itog[$k] }
+      catch { $chast.plohie += "${k}: $($_.Exception.Message)" }
+    }
+    try { (ConvertTo-Json -InputObject $chast -Depth 9) | Out-File -FilePath $Vyhod -Encoding utf8 }
+    catch { ('{"seed": ' + $Seed + ', "oshibka": ' + (ConvertTo-Json -InputObject ([string]$obsh)) + '}') | Out-File -FilePath $Vyhod -Encoding utf8 }
+  }
 }
 function Read-Kliki([string]$z) {
   $m = [regex]::Match($z, 'ocr r(\d) n(\d+) k([^ ]*)')

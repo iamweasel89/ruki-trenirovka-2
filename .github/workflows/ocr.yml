@@ -37,7 +37,7 @@ jobs:
           ./ci/ocr/progon-ocr.ps1 -Seed 0 -Tolko 'holst-ru,holst-en,net-en' -Masshtaby '1' -LimitSek 420 -Vyhod rezultat-smoke.json
           if (-not (Test-Path rezultat-smoke.json)) { Write-Host 'harness gave no result'; exit 1 }
           $j = Get-Content -Raw rezultat-smoke.json | ConvertFrom-Json
-          if (@($j.progony).Count -eq 0) { Write-Host 'no run finished'; exit 1 }
+          if (@($j.progony | Where-Object { $_ }).Count -eq 0) { Write-Host 'no run finished'; exit 1 }
           exit 0
       - uses: actions/upload-artifact@v4
         if: always()
