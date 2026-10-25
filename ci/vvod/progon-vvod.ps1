@@ -4,6 +4,11 @@
 # Skill failures never fail the job: they go into the result file.
 param([int]$Seed = 1, [string]$Vyhod = 'rezultat.json', [string]$Tolko = '')
 $ErrorActionPreference = 'Continue'
+# the clipboard needs a single-threaded apartment
+if ([Threading.Thread]::CurrentThread.GetApartmentState() -ne 'STA') {
+  & powershell.exe -NoProfile -STA -ExecutionPolicy Bypass -File $PSCommandPath -Seed $Seed -Vyhod $Vyhod -Tolko $Tolko
+  exit 0
+}
 $koren = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 . (Join-Path $koren 'lib\uia.ps1')
 . (Join-Path $koren 'lib\okno.ps1')
@@ -46,7 +51,14 @@ function Test-Storozh {
   } catch { return [ordered]@{ ok = $false; oshibka = $_.Exception.Message } }
 }
 
+function Save-Itog {
+  $itog = [ordered]@{ seed = $Seed; sekund = [int]$jobSw.Elapsed.TotalSeconds; apartment = [string][Threading.Thread]::CurrentThread.GetApartmentState(); progony = $vse }
+  try { ($itog | ConvertTo-Json -Depth 9) | Out-File -FilePath $Vyhod -Encoding utf8 }
+  catch { "{`"seed`": $Seed, `"oshibka`": `"json`"}" | Out-File -FilePath $Vyhod -Encoding utf8 }
+}
+Save-Itog
 for ($r = 0; $r -lt $plany.Count; $r++) {
+  try {
   $planPut = $plany[($Seed + $r) % $plany.Count]
   $plan = Get-Content -Raw -Encoding UTF8 $planPut | ConvertFrom-Json
   $imya = $plan.imya
@@ -66,7 +78,7 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
     $cherez = $rnd.Next(3, 12)
     $job = Start-Job -ScriptBlock { param($c) Start-Sleep -Seconds $c; Start-Process notepad } -ArgumentList $cherez
   }
-  Set-Storozh
+  try { Set-Storozh } catch { Write-Host "storozh: $($_.Exception.Message)" }
   $out = Join-Path $tmp "skill_$s.json"
   $log = Join-Path $tmp "log_$s.txt"
   $env:RUKI_LOG = $log
@@ -74,7 +86,7 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
   $zapusk = $null
   $skSw = [Diagnostics.Stopwatch]::StartNew()
   try {
-    $vyvod = & powershell.exe -NoProfile -ExecutionPolicy Bypass -File (Join-Path $koren 'skills\zapolnit-formu.ps1') -Plan $planPut -Vyhod $out 2>&1 | Out-String
+    $vyvod = & powershell.exe -NoProfile -STA -ExecutionPolicy Bypass -File (Join-Path $koren 'skills\zapolnit-formu.ps1') -Plan $planPut -Vyhod $out 2>&1 | Out-String
     $zapusk = "kod=$LASTEXITCODE ms=$($skSw.ElapsedMilliseconds)"
   } catch { $zapusk = $_.Exception.Message }
   $skMs = $skSw.ElapsedMilliseconds
@@ -125,7 +137,13 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
   }
   Write-Host ("[{0}/{1}] {2} seed={3} uspeh={4} {5} {6} ms" -f ($r + 1), $plany.Count, $imya, $s, $prov.uspeh, $prov.prichina, $skMs)
   Stop-Lishnee
+  } catch {
+    $vse += [ordered]@{ progon = $r; stranica = $(if ($plan) { $plan.imya } else { $planPut }); proverka = [ordered]@{ uspeh = $false; prichina = 'sboj-stenda' };
+      log = @("STEND: $($_.Exception.Message)", [string]$_.ScriptStackTrace) }
+    Write-Host "STEND: $($_.Exception.Message) $($_.ScriptStackTrace)"
+    Stop-Lishnee
+  }
+  Save-Itog
 }
-$itog = [ordered]@{ seed = $Seed; sekund = [int]$jobSw.Elapsed.TotalSeconds; progony = $vse }
-($itog | ConvertTo-Json -Depth 9) | Out-File -FilePath $Vyhod -Encoding utf8
+Save-Itog
 exit 0
