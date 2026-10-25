@@ -82,3 +82,5 @@ L += ['', '## Po rabotam', ''] + [f"- seed {r['seed']}: {r['verno']}/{r['progono
 with open(os.path.join(dst, 'itog.md'), 'w', encoding='utf-8') as f:
     f.write('\n'.join(L) + '\n')
 print('\n'.join(L))
+# the harness is broken only when there are no runs at all; skill failures stay in itog
+sys.exit(0 if vsego else 1)

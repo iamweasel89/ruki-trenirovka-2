@@ -116,6 +116,13 @@ for ($krug = 0; $krug -lt $Krugov; $krug++) {
     } else {
       $verno = ($status -eq $ozhid) -and $nz.Klikov -eq 0
     }
+    # tree dump of the first wrong positive run of the job, for diagnosis
+    $damp = $null
+    if ($pozitiv -and -not $verno -and -not $script:bylDamp) {
+      $script:bylDamp = $true
+      $o2 = Select-OknoBrauzera $z.okno 2000
+      if ($o2) { $damp = @(Get-DampDereva $o2.Doc 0 12) | Select-Object -First 150 }
+    }
     $logTail = @(); if (Test-Path $log) { $logTail = @(Get-Content $log -Encoding UTF8 | Select-Object -Last 12) }
     $progony += [ordered]@{
       nomer = $nomer; zadacha = $z.imya; seed = $s; pomeha = $pomeha; gotovo = $gotovo
@@ -123,7 +130,7 @@ for ($krug = 0; $krug -lt $Krugov; $krug++) {
       ms = $(if ($dv) { $dv.Ms } else { $null }); ozhidanie = $(if ($dv) { $dv.Ozhidanie } else { $null }); etapy = $(if ($dv) { $dv.Etapy } else { $null })
       strategiya = $(if ($dv) { $dv.Strategiya } else { $null }); kandidatov = $(if ($dv) { $dv.Kandidatov } else { $null })
       okno = $(if ($dv) { @($dv.Okno) } else { @() }); prokrutka = $(if ($dv) { $dv.Prokrutka } else { $null })
-      oshibka = $oshibka; log = $logTail
+      oshibka = $oshibka; log = $logTail; damp = $damp
     }
     Write-Host ("[{0}] {1} pomeha={2} status={3} nazhato={4} verno={5} ms={6}" -f $nomer, $z.imya, $pomeha, $status, ($nz.Klyuchi -join ','), $verno, $(if ($dv) { $dv.Ms }))
     if ($bloknot) { $bloknot | Stop-Process -Force -ErrorAction SilentlyContinue }
@@ -132,3 +139,4 @@ for ($krug = 0; $krug -lt $Krugov; $krug++) {
 Stop-Lishnee
 $itog = [ordered]@{ seed = $Seed; sekund = [int]$jobSw.Elapsed.TotalSeconds; progony = $progony }
 ($itog | ConvertTo-Json -Depth 8) | Out-File -FilePath $Vyhod -Encoding utf8
+exit 0

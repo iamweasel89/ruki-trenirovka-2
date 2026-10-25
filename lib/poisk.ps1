@@ -149,22 +149,30 @@ function Select-Kandidat($spisok, $spec) {
   return @{ Status = 'neodnoznachno' }
 }
 
-# scroll the document a page down; returns $true if the page moved
+# scroll the document and every scrollable frame document inside it to the end.
+# Lazy lists add content at the end, so the next call moves again. Returns $true if anything moved.
 function Move-StranicaVniz($doc, $hwnd) {
-  $p = $null
+  $dvig = $false
+  $docs = @($doc) + @(Find-VseKesh $doc (New-PropCond $AE::ControlTypeProperty $CT::Document))
+  foreach ($d in $docs) {
+    $p = $null
+    try {
+      if ($d.TryGetCurrentPattern([System.Windows.Automation.ScrollPattern]::Pattern, [ref]$p) -and $p.Current.VerticallyScrollable) {
+        if ($p.Current.VerticalScrollPercent -lt 99.5) { $p.SetScrollPercent(-1, 100); $dvig = $true }
+      }
+    } catch {}
+  }
+  if ($dvig) { return $true }
+  # fallback when no scroll pattern answered: mouse wheel over the middle of the document
   try {
-    if ($doc.TryGetCurrentPattern([System.Windows.Automation.ScrollPattern]::Pattern, [ref]$p) -and $p.Current.VerticallyScrollable) {
-      $do = $p.Current.VerticalScrollPercent
-      if ($do -ge 99.9) { return $false }
-      $p.Scroll([System.Windows.Automation.ScrollAmount]::NoAmount, [System.Windows.Automation.ScrollAmount]::LargeIncrement)
+    $p = $null
+    if (-not $doc.TryGetCurrentPattern([System.Windows.Automation.ScrollPattern]::Pattern, [ref]$p)) {
+      $r = $doc.Current.BoundingRectangle
+      [RukiMysh]::Koleso([int]($r.X + $r.Width / 2), [int]($r.Y + $r.Height / 2), -720)
       return $true
     }
   } catch {}
-  # fallback: mouse wheel over the middle of the document
-  $r = $doc.Current.BoundingRectangle
-  $null = Confirm-OknoGotovo $hwnd
-  [RukiMysh]::Koleso([int]($r.X + $r.Width / 2), [int]($r.Y + $r.Height / 2), -360)
-  return $true
+  return $false
 }
 
 function Find-Uzel($koren, $spec, [IntPtr]$hwnd = [IntPtr]::Zero) {
@@ -172,7 +180,7 @@ function Find-Uzel($koren, $spec, [IntPtr]$hwnd = [IntPtr]::Zero) {
   $tmo = Get-Pole $spec 'zhdat_ms'; if (-not $tmo) { $tmo = 3000 }
   $prok = [bool](Get-Pole $spec 'prokrutka')
   if ($prok -and $tmo -lt 8000) { $tmo = 8000 }
-  $pauza = 20; $last = $null; $bezDvizheniya = 0; $prohod = 0
+  $pauza = 20; $last = $null; $bezDvizheniya = 0; $prohod = 0; $avto = $false
   while ($true) {
     $prohod++
     $k = Find-Kandidaty $koren $spec
@@ -188,9 +196,12 @@ function Find-Uzel($koren, $spec, [IntPtr]$hwnd = [IntPtr]::Zero) {
       # lazy list: scroll on; stop when the page no longer moves and nothing new appeared
       if (Move-StranicaVniz $koren $hwnd) { $bezDvizheniya = 0 } else { $bezDvizheniya++ }
       if ($bezDvizheniya -ge 3) { break }
-      Start-Sleep -Milliseconds 60; $script:Spano += 60
+      Start-Sleep -Milliseconds 50; $script:Spano += 50
       continue
     }
+    # nothing yet after a while: content may be built only when scrolled to (frames, lazy parts)
+    if ($sw.ElapsedMilliseconds -ge 700 -and -not $avto) { $avto = $true; Write-RukiLog 'poisk: avto-prokrutka' }
+    if ($avto) { $null = Move-StranicaVniz $koren $hwnd }
     Start-Sleep -Milliseconds $pauza; $script:Spano += $pauza
     if ($pauza -lt 160) { $pauza = [Math]::Min(160, $pauza * 2) }
   }
@@ -272,6 +283,23 @@ function Show-Uzel($el, $doc, [IntPtr]$hwnd) {
   return $null
 }
 
+# after the window was restored / moved the page relayouts: wait until the rectangle stops changing
+function Wait-RectUstojchiv($el, [int]$TimeoutMs = 1200, $ot = $null, [int]$rovnoNado = 2) {
+  $sw = [Diagnostics.Stopwatch]::StartNew(); $pr = $null; $rovno = 0
+  # first the rectangle must leave its old value (the relayout has started), if one is given
+  while ($ot -ne $null -and $sw.ElapsedMilliseconds -lt 600) {
+    try { if ($el.Current.BoundingRectangle -ne $ot) { break } } catch { return $false }
+    Start-Sleep -Milliseconds 25
+  }
+  while ($sw.ElapsedMilliseconds -lt $TimeoutMs) {
+    try { $r = $el.Current.BoundingRectangle } catch { return $false }
+    if ($pr -ne $null -and $r -eq $pr) { $rovno++; if ($rovno -ge $rovnoNado) { return $true } } else { $rovno = 0 }
+    $pr = $r
+    Start-Sleep -Milliseconds 30
+  }
+  return $false
+}
+
 # the element is what lies under its own centre (not covered, not clipped by a frame)
 function Test-PodTochkoj($el, [int]$x, [int]$y, [IntPtr]$hwnd) {
   if ([RukiMysh]::RootPodTochkoj($x, $y) -ne $hwnd) { return 'drugoe-okno' }
@@ -348,11 +376,13 @@ function Invoke-Dvizhenie($zadacha) {
   $et.okno = [int]($sw.ElapsedMilliseconds - $t)
   if (-not $o) { return Konec 'net-okna' }
   $t = $sw.ElapsedMilliseconds
+  $r0 = $null; try { $r0 = $o.Doc.Current.BoundingRectangle } catch {}
   $g = Confirm-OknoGotovo $o.Hwnd
   $rez.Okno = $g.Bylo
   $et.vidimost = [int]($sw.ElapsedMilliseconds - $t)
   if (-not $g.Ok) { return Konec 'okno-ne-vidno' }
   $spec = Get-Pole $zadacha 'element'
+  if ($g.Bylo.Count) { $null = Wait-RectUstojchiv $o.Doc 1500 $r0 }
   for ($pop = 1; $pop -le 3; $pop++) {
     $t = $sw.ElapsedMilliseconds
     $f = Find-Uzel $o.Doc $spec $o.Hwnd
@@ -375,6 +405,8 @@ function Invoke-Dvizhenie($zadacha) {
     $g = Confirm-OknoGotovo $o.Hwnd
     if ($g.Bylo) { $rez.Okno += $g.Bylo }
     if (-not $g.Ok) { return Konec 'okno-ne-vidno' }
+    if ($g.Bylo.Count) { $null = Wait-RectUstojchiv $o.Doc 1500; $null = Show-Uzel $el $o.Doc $o.Hwnd }
+    $null = Wait-RectUstojchiv $el 300 $null 1
     try { $r = $el.Current.BoundingRectangle } catch { continue }
     $x = [int]($r.X + $r.Width / 2); $y = [int]($r.Y + $r.Height / 2)
     $pt = Test-PodTochkoj $el $x $y $o.Hwnd
