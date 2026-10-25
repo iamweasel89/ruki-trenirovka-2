@@ -48,7 +48,7 @@ jobs:
       fail-fast: false
       max-parallel: 4
       matrix:
-        seed: [1, 2, 3, 4]
+        seed: [5, 6, 7, 8]
     steps:
       - uses: actions/checkout@v4
       - name: runs of the skill on neighbour-label plans
