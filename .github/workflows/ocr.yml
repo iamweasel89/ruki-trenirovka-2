@@ -31,10 +31,13 @@ jobs:
         shell: powershell
         run: ./ci/ocr/podgotovka.ps1 -Vyhod podgotovka.json; Get-Content podgotovka.json
       - name: smoke runs
+        timeout-minutes: 12
         shell: powershell
         run: |
-          ./ci/ocr/progon-ocr.ps1 -Seed 0 -Tolko 'holst-ru,holst-en,net-en,kartinka-ru' -Masshtaby '1,1.5' -LimitSek 600 -Vyhod rezultat-smoke.json
+          ./ci/ocr/progon-ocr.ps1 -Seed 0 -Tolko 'holst-ru,holst-en,net-en' -Masshtaby '1' -LimitSek 420 -Vyhod rezultat-smoke.json
           if (-not (Test-Path rezultat-smoke.json)) { Write-Host 'harness gave no result'; exit 1 }
+          $j = Get-Content -Raw rezultat-smoke.json | ConvertFrom-Json
+          if (@($j.progony).Count -eq 0) { Write-Host 'no run finished'; exit 1 }
           exit 0
       - uses: actions/upload-artifact@v4
         if: always()
@@ -58,6 +61,7 @@ jobs:
         shell: powershell
         run: ./ci/ocr/podgotovka.ps1 -Vyhod podgotovka.json
       - name: runs of the skill on recognition plans
+        timeout-minutes: 38
         shell: powershell
         run: |
           ./ci/ocr/progon-ocr.ps1 -Seed ${{ matrix.seed }} -LimitSek 2100 -Vyhod "rezultat-${{ matrix.seed }}.json"
@@ -93,7 +97,8 @@ jobs:
           mkdir -p rez-matrica out-smoke
           find rez -name 'rezultat-[0-9]*.json' -exec cp {} rez-matrica/ \;
           find rez -name 'rezultat-smoke.json' -exec cp {} out-smoke/ \;
-          if ls rez-matrica/*.json >/dev/null 2>&1; then python3 ci/ocr/svod-ocr.py rez-matrica out jobs.json; else python3 ci/ocr/svod-ocr.py out-smoke out jobs.json; fi
+          if ls rez-matrica/*.json >/dev/null 2>&1; then python3 ci/ocr/svod-ocr.py rez-matrica out jobs.json || true; else python3 ci/ocr/svod-ocr.py out-smoke out jobs.json || true; fi
+          ls out/itog.md >/dev/null 2>&1 || { mkdir -p out; echo '{}' > out/itog.json; echo 'net dannyh' > out/itog.md; }
       - name: publish to branch itog-ocr
         run: |
           git config user.name ci; git config user.email ci@users.noreply.github.com

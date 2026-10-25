@@ -23,8 +23,16 @@ function Stop-Lishnee {
   Get-Process chrome -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
   Start-Sleep -Milliseconds 400
 }
+$script:sled = @()
+# step trace, saved at once: a hang shows where it stopped
+function Add-Sled([string]$t) {
+  $script:sled += ('{0} {1}' -f [int]$jobSw.Elapsed.TotalSeconds, $t)
+  if ($script:sled.Count -gt 80) { $script:sled = @($script:sled | Select-Object -Last 80) }
+  Write-Host "SLED $t"
+  Save-Itog
+}
 function Save-Itog {
-  $itog = [ordered]@{ seed = $Seed; sekund = [int]$jobSw.Elapsed.TotalSeconds; sreda = $sreda; progony = $vse }
+  $itog = [ordered]@{ seed = $Seed; sekund = [int]$jobSw.Elapsed.TotalSeconds; sreda = $sreda; sled = $script:sled; progony = $vse }
   try { ($itog | ConvertTo-Json -Depth 9) | Out-File -FilePath $Vyhod -Encoding utf8 }
   catch { "{`"seed`": $Seed, `"oshibka`": `"json`"}" | Out-File -FilePath $Vyhod -Encoding utf8 }
 }
@@ -67,13 +75,17 @@ foreach ($m in $mash) {
       if ($null -ne $plan.mg) { $q += "&mg=$($plan.mg)" }
       $stranica = ((Join-Path $koren 'polygon\ocr\ekran.html') -replace '\\', '/')
       $url = "file:///$stranica`?$q"
+      Add-Sled "progon $r start"
       Stop-Lishnee
+      Add-Sled 'chrome ubit'
       $mt = $m.ToString([Globalization.CultureInfo]::InvariantCulture)
       $prof = Join-Path $tmp ("cprof_ocr_" + ($mt -replace '\.', '_'))
       $arg = @("--app=$url", "--user-data-dir=$prof", '--no-first-run', '--no-default-browser-check', '--disable-features=Translate',
                '--disable-session-crashed-bubble', '--start-maximized', "--force-device-scale-factor=$mt")
       $null = Start-Process $chrome -ArgumentList $arg -PassThru
+      Add-Sled 'chrome zapushchen'
       $okno = Find-OknoStranicy 25000
+      Add-Sled "okno $okno"
       $prov = [ordered]@{ uspeh = $false; prichina = ''; est_cel = ($celI -ge 0); kliki = @() }
       $skill = $null; $skMs = 0; $logTail = @()
       if ($okno -eq [IntPtr]::Zero) { $prov.prichina = 'stranica-ne-otkrylas' }
@@ -84,6 +96,7 @@ foreach ($m in $mash) {
         $log = Join-Path $tmp "log_$s.txt"
         $env:RUKI_LOG = $log
         Remove-Item $out, $log -ErrorAction SilentlyContinue
+        Add-Sled 'skill start'
         $skSw = [Diagnostics.Stopwatch]::StartNew()
         # hard time limit: a hung engine must not eat the job
         $err = Join-Path $tmp "err_$s.txt"
@@ -96,6 +109,7 @@ foreach ($m in $mash) {
         }
         if (Test-Path $err) { $vyvod += (Get-Content $err -Raw -ErrorAction SilentlyContinue) }
         $skMs = $skSw.ElapsedMilliseconds
+        Add-Sled "skill konec $skMs ms"
         $skill = if (Test-Path $out) { Get-Content -Raw -Encoding UTF8 $out | ConvertFrom-Json } else { $null }
         Start-Sleep -Milliseconds 300
         $z = Read-Kliki ([RukiObraz]::Zagolovok($okno))
