@@ -22,6 +22,13 @@ $vse = @()
 $jobSw = [Diagnostics.Stopwatch]::StartNew()
 $KONTROL = [regex]::Unescape('\u041a\u043e\u043d\u0442\u0440\u043e\u043b\u044c')
 
+# last lines of a file as plain strings: Get-Content would attach provider properties that
+# ConvertTo-Json in Windows PowerShell walks into (minutes of work and out-of-memory)
+function Get-Hvost([string]$put, [int]$n) {
+  if (-not (Test-Path $put)) { return @() }
+  try { $a = [IO.File]::ReadAllLines($put, [Text.Encoding]::UTF8) } catch { return @() }
+  return @($a | Select-Object -Last $n)
+}
 function Stop-Lishnee {
   Get-Process chrome, notepad -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
   Start-Sleep -Milliseconds 500
@@ -55,7 +62,7 @@ function Save-Itog {
   $itog = [ordered]@{ seed = $Seed; sekund = [int]$jobSw.Elapsed.TotalSeconds; apartment = [string][Threading.Thread]::CurrentThread.GetApartmentState(); progony = $vse }
   try { ($itog | ConvertTo-Json -Depth 9) | Out-File -FilePath $Vyhod -Encoding utf8 }
   catch {
-    $m = ($_.Exception.Message -replace '[\\"]', ' ')
+    $m = ($_.Exception.Message -replace '[\\"\r\n\t]', ' ')
     "{`"seed`": $Seed, `"oshibka`": `"json: $m`", `"progonov`": $($vse.Count)}" | Out-File -FilePath $Vyhod -Encoding utf8
   }
 }
@@ -63,6 +70,7 @@ Save-Itog
 for ($r = 0; $r -lt $plany.Count; $r++) {
   if ($jobSw.Elapsed.TotalSeconds -gt $BudzhetS) { Write-Host "budzhet ischerpan na progone $r"; break }
   try {
+  $etapy = @(); $tE = [Diagnostics.Stopwatch]::StartNew()
   $planPut = $plany[($Seed + $r) % $plany.Count]
   $plan = Get-Content -Raw -Encoding UTF8 $planPut | ConvertFrom-Json
   $imya = $plan.imya
@@ -75,6 +83,7 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
   $arg = @('--new-window', "--user-data-dir=$prof", '--no-first-run', '--no-default-browser-check',
            '--force-renderer-accessibility', '--disable-features=Translate', '--start-maximized', $url)
   $null = Start-Process $chrome -ArgumentList $arg -PassThru
+  $etapy += "chrome=$($tE.ElapsedMilliseconds)"
   $rnd = New-Object Random($s)
   $oknoPomeha = ($rnd.Next(0, 4) -eq 0)
   $job = $null
@@ -82,6 +91,7 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
     $cherez = $rnd.Next(3, 12)
     $job = Start-Job -ScriptBlock { param($c) Start-Sleep -Seconds $c; Start-Process notepad } -ArgumentList $cherez
   }
+  $etapy += "storozh_pered=$($tE.ElapsedMilliseconds)"
   try { Set-Storozh } catch { Write-Host "storozh: $($_.Exception.Message)" }
   $out = Join-Path $tmp "skill_$s.json"
   $log = Join-Path $tmp "log_$s.txt"
@@ -97,10 +107,11 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
       try { $pr.Kill() } catch {}
       $zapusk = "ubit-po-limitu ${LimitSkillaS}s"
     } else { $zapusk = "kod=$($pr.ExitCode) ms=$($skSw.ElapsedMilliseconds)" }
-    $vyvod = (@(Get-Content $soF, $seF -Encoding UTF8 -ErrorAction SilentlyContinue) | Select-Object -Last 12) -join "`n"
+    $vyvod = ((@(Get-Hvost $soF 8) + @(Get-Hvost $seF 8)) -join "`n")
   } catch { $zapusk = $_.Exception.Message }
   $skMs = $skSw.ElapsedMilliseconds
   $skill = if (Test-Path $out) { Get-Content -Raw -Encoding UTF8 $out | ConvertFrom-Json } else { $null }
+  $etapy += "skill=$($tE.ElapsedMilliseconds)"
   $bufer = Test-Storozh
   $tProv = [Diagnostics.Stopwatch]::StartNew()
 
@@ -137,9 +148,10 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
       $prov.prichina = if ($rash.Count) { 'rashozhdenie: ' + ($rash -join ',') } else { 'ok' }
     }
   }
+  $etapy += "proverka=$($tE.ElapsedMilliseconds)"
   if (-not $bufer.ok) { $prov.uspeh = $false; $prov.prichina += ' bufer-ne-vosstanovlen' }
   if ($job) { Stop-Job $job -ErrorAction SilentlyContinue; Remove-Job $job -Force -ErrorAction SilentlyContinue }
-  $logTail = @(); if (Test-Path $log) { $logTail += @(Get-Content $log -Encoding UTF8 | Select-Object -Last 30) }
+  $logTail = @(); if (Test-Path $log) { $logTail += @(Get-Hvost $log 30) }
   $logTail += "ZAPUSK: $zapusk"
   if ($vyvod) { $logTail += @(($vyvod -split "`n") | Select-Object -Last 10) }
   $vse += [ordered]@{
@@ -147,6 +159,9 @@ for ($r = 0; $r -lt $plany.Count; $r++) {
     skill = $skill; proverka = $prov; log = $logTail
   }
   Write-Host ("[{0}/{1}] {2} seed={3} uspeh={4} {5} {6} ms" -f ($r + 1), $plany.Count, $imya, $s, $prov.uspeh, $prov.prichina, $skMs)
+  # annotations are the one channel readable without signing in
+  $kr = ($logTail | Where-Object { $_ -match 'STOP|shag |vstavka|ZAPUSK|sverka|mnogo|avtodop|pole ' } | Select-Object -Last 8) -join ' / '
+  Write-Host ("::notice title=vvod {0} {1}::uspeh={2} {3} skill={4}ms etapy={5} / {6}" -f $Seed, $imya, $prov.uspeh, $prov.prichina, $skMs, ($etapy -join ','), ($kr -replace '[\r\n]', ' '))
   Stop-Lishnee
   } catch {
     $vse += [ordered]@{ progon = $r; stranica = $(if ($plan) { $plan.imya } else { $planPut }); proverka = [ordered]@{ uspeh = $false; prichina = 'sboj-stenda' };
