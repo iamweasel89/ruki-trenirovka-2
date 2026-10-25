@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Полигон — Ввод: юникод</title>
+<link rel="stylesheet" href="../stil.css">
+<style>.podskazki{list-style:none;margin:0;padding:0;border:1px solid #999;background:#fff;max-width:420px}
+.podskazki li{padding:4px 8px;cursor:pointer}.podskazki li[aria-selected=true]{background:#cde}</style></head>
+<body>
+<header><b>Полигон</b><input id="poisk" type="text" aria-label="Поиск по сайту" placeholder="Поиск"></header>
+<main>
+<h1>Юникод и знаки</h1>
+<form id="forma" hidden>
+  <label>Имя <input id="imya" type="text" aria-label="Имя"></label>
+  <label>Alamat <input id="alamat" type="text" aria-label="Alamat"></label>
+  <label>Цитата <input id="citata" type="text" aria-label="Цитата"></label>
+  <label>Эмодзи <input id="emodzi" type="text" aria-label="Эмодзи"></label>
+  <label>Письмо без вставки <textarea id="pismo" rows="6" data-bez-vstavki aria-label="Письмо без вставки"></textarea></label>
+  <button type="button" id="sohranit" disabled>Сохранить</button>
+</form>
+<label>Контроль <textarea id="kontrol" readonly aria-label="Контроль" rows="2"></textarea></label>
+</main>
+<script src="../pomehi.js"></script>
+<script src="vvod.js"></script>
+<script>
+(function () {
+  var forma = document.getElementById('forma');
+  function z(id) { var e = document.getElementById(id); return e && e.value.length > 0; }
+  V.knopka(forma, 'sohranit', function () { return z('imya') && z('alamat') && z('citata') && z('emodzi') && z('pismo'); });
+  P.pokazatPozzhe(forma, 200, 1800);
+})();
+</script>
+</body></html>

@@ -1,0 +1,22 @@
+{
+ "imya": "limit-stop-vstavka",
+ "ozhidaetsya_ostanovka": "limit-dliny",
+ "stranica": {
+  "url_soderzhit": "/polygon/vvod/limit.html",
+  "zagolovok_soderzhit": "Полигон — Ввод: ограничения"
+ },
+ "shagi": [
+  {
+   "tip": "tekst",
+   "id": "otzyv",
+   "metka": "Отзыв до 140",
+   "znachenie": "Отличный сервис 👍🏽 — быстро, «вежливо», без лишних слов. Pelayanan cepat dan ramah, terima kasih! Отличный сервис 👍🏽 — быстро, «вежливо», без лишних слов. Pelayanan cepat dan ramah, terima kasih! Отличный с"
+  },
+  {
+   "tip": "knopka",
+   "id": "sohranit",
+   "metka": "Отправить отзыв",
+   "final": true
+  }
+ ]
+}

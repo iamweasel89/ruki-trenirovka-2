@@ -1,0 +1,50 @@
+{
+ "imya": "unikod",
+ "stranica": {
+  "url_soderzhit": "/polygon/vvod/unikod.html",
+  "zagolovok_soderzhit": "Полигон — Ввод: юникод"
+ },
+ "shagi": [
+  {
+   "tip": "tekst",
+   "id": "imya",
+   "metka": "Имя",
+   "znachenie": "Ёлка-Мария д’Артаньян-Щукина"
+  },
+  {
+   "tip": "tekst",
+   "id": "alamat",
+   "metka": "Alamat",
+   "znachenie": "Jl. Pèndhèk No. 7 — Kebayoran Baru, Jakarta Selatan"
+  },
+  {
+   "tip": "tekst",
+   "id": "citata",
+   "metka": "Цитата",
+   "znachenie": "«Ёжик» сказал: „Привет“ – “hi” ‘ok’… 1 000 ₽"
+  },
+  {
+   "tip": "tekst",
+   "id": "emodzi",
+   "metka": "Эмодзи",
+   "znachenie": "Ура 👍🏽 👨‍👩‍👧 🇸🇰 café ✅"
+  },
+  {
+   "tip": "tekst",
+   "id": "pismo",
+   "metka": "Письмо без вставки",
+   "znachenie": "Здравствуйте, Ольга Петровна!\nПишу по поводу заявки № 417 — «Ремонт подъезда».\nSaya setuju dengan jadwalnya; Ďakujem.\n\nС уважением, Ж. Щукин 👍🏽"
+  },
+  {
+   "tip": "knopka",
+   "id": "sohranit",
+   "metka": "Сохранить",
+   "final": true,
+   "posle": {
+    "tip": "tekst",
+    "id": "itog",
+    "metka": "Итог"
+   }
+  }
+ ]
+}

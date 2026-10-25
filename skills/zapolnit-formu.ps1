@@ -12,6 +12,8 @@ $koren = Split-Path -Parent $PSScriptRoot
 . (Join-Path $koren 'lib\uia.ps1')
 . (Join-Path $koren 'lib\okno.ps1')
 . (Join-Path $koren 'lib\vvod.ps1')
+. (Join-Path $koren 'lib\bufer.ps1')
+. (Join-Path $koren 'lib\tochnost.ps1')
 
 $sw = [Diagnostics.Stopwatch]::StartNew()
 Write-RukiLog "start plan=$Plan"
@@ -53,6 +55,7 @@ function Invoke-Shag($shag) {
   switch ($shag.tip) {
     { $_ -in 'tekst', 'chislo' } { return Set-Tekst $ctx $shag }
     'flazhok' { return Set-Flazhok $ctx $shag }
+    'avtodop' { return Set-Avtodop $ctx $shag }
     default { return @{ Status = 'stop'; Prichina = 'neizvestnyj-tip' } }
   }
 }
@@ -64,8 +67,8 @@ function Sync-Forma($polya) {
     foreach ($p in $polya) {
       $el = Find-Element $ctx.Doc $p.id $p.metka $p.tip 3000
       $val = Get-ZnachenieUstojchivo $el
-      $cel = if ($p.tip -eq 'flazhok') { [bool]$p.znachenie } else { ([string]$p.znachenie) -replace "`r`n", "`n" }
-      if ($el -and ($val -ceq $cel)) { continue }
+      if ($p.tip -eq 'flazhok') { if ($el -and ($val -ceq [bool]$p.znachenie)) { continue } }
+      elseif ($el -and (Test-Ravno $val (Get-Cel $p) $p)) { continue }
       Write-RukiLog "sverka: $($p.id) razoshlos"
       Add-Pomeha $ctx 'sverka-ispravila'
       $ispr++
@@ -117,7 +120,7 @@ foreach ($shag in $pl.shagi) {
     if ($r.Status -eq 'ok') { $polya += $shag }
   }
   $rez.shagi += [ordered]@{ n = $n; tip = $shag.tip; id = $shag.id; status = $r.Status; popytki = $r.Popytki; ms = [int]($sw.ElapsedMilliseconds - $t0) }
-  if ($r.Status -ne 'ok') { Stop-Skill $n $shag $r.Prichina }
+  if ($r.Status -ne 'ok') { Stop-Skill $n $shag $r.Prichina ([string]$r.Podrobno) }
 }
 $rez.ok = $true
 Save-Rez

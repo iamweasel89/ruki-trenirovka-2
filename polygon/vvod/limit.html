@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Полигон — Ввод: ограничения</title>
+<link rel="stylesheet" href="../stil.css">
+<style>.podskazki{list-style:none;margin:0;padding:0;border:1px solid #999;background:#fff;max-width:420px}
+.podskazki li{padding:4px 8px;cursor:pointer}.podskazki li[aria-selected=true]{background:#cde}</style></head>
+<body>
+<header><b>Полигон</b><input id="poisk" type="text" aria-label="Поиск по сайту" placeholder="Поиск"></header>
+<main>
+<h1>Ограничения и однострочные поля</h1>
+<form id="forma" hidden>
+  <label>Код (до 12) <input id="kod" type="text" maxlength="12" aria-label="Код до 12"></label>
+  <label>Тема <input id="tema" type="text" aria-label="Тема"></label>
+  <label>Отзыв (до 140) <textarea id="otzyv" rows="4" data-limit="140" aria-label="Отзыв до 140"></textarea></label>
+  <button type="button" id="sohranit" disabled>Отправить отзыв</button>
+  <button type="submit" id="bystro">Отправить сразу</button>
+</form>
+<label>Контроль <textarea id="kontrol" readonly aria-label="Контроль" rows="2"></textarea></label>
+</main>
+<script src="../pomehi.js"></script>
+<script src="vvod.js"></script>
+<script>
+(function () {
+  var forma = document.getElementById('forma');
+  function z(id) { var e = document.getElementById(id); return e && e.value.length > 0; }
+  V.knopka(forma, 'sohranit', function () { return z('kod') && z('tema') && z('otzyv'); });
+  P.pokazatPozzhe(forma, 200, 1800);
+})();
+</script>
+</body></html>

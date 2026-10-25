@@ -1,0 +1,38 @@
+{
+ "imya": "limit-ok",
+ "stranica": {
+  "url_soderzhit": "/polygon/vvod/limit.html",
+  "zagolovok_soderzhit": "Полигон — Ввод: ограничения"
+ },
+ "shagi": [
+  {
+   "tip": "tekst",
+   "id": "kod",
+   "metka": "Код до 12",
+   "znachenie": "AB-12_ЖЮ-345"
+  },
+  {
+   "tip": "tekst",
+   "id": "tema",
+   "metka": "Тема",
+   "znachenie": "Тема — одной строкой, без переносов"
+  },
+  {
+   "tip": "tekst",
+   "id": "otzyv",
+   "metka": "Отзыв до 140",
+   "znachenie": "Отличный сервис 👍🏽 — быстро, «вежливо», без лишних слов. Pelayanan cepat dan ramah, terima kasih! Отличный сервис 👍🏽 — быстро, «вежливо»"
+  },
+  {
+   "tip": "knopka",
+   "id": "sohranit",
+   "metka": "Отправить отзыв",
+   "final": true,
+   "posle": {
+    "tip": "tekst",
+    "id": "itog",
+    "metka": "Итог"
+   }
+  }
+ ]
+}

@@ -17,6 +17,17 @@ public static class RukiKlav {
     uint e = ext ? 1u : 0u;
     return SendInput(2, new IN[] { K(vk, 0, e), K(vk, 0, e | 2) }, Sz());
   }
+  // a whole string in one SendInput call: surrogate pairs stay together, '\n' is Enter
+  public static uint Stroka(string s) {
+    var a = new System.Collections.Generic.List<IN>();
+    foreach (char ch in s) {
+      if (ch == '\r') continue;
+      if (ch == '\n') { a.Add(K(0x0D, 0, 0)); a.Add(K(0x0D, 0, 2)); continue; }
+      a.Add(K(0, ch, 4)); a.Add(K(0, ch, 6));
+    }
+    if (a.Count == 0) return 0;
+    return SendInput((uint)a.Count, a.ToArray(), Sz());
+  }
   public static uint SModom(ushort mod, ushort vk, bool ext) {
     uint e = ext ? 1u : 0u;
     return SendInput(4, new IN[] { K(mod, 0, 0), K(vk, 0, e), K(vk, 0, e | 2), K(mod, 0, 2) }, Sz());
@@ -25,22 +36,25 @@ public static class RukiKlav {
 '@
 }
 
-$script:VK = @{ Enter = 0x0D; Tab = 0x09; Esc = 0x1B; End = 0x23; Home = 0x24; Delete = 0x2E; Backspace = 0x08; A = 0x41; Ctrl = 0x11; Space = 0x20 }
-$script:VKext = @{ End = $true; Home = $true; Delete = $true }
+$script:VK = @{ Enter = 0x0D; Tab = 0x09; Esc = 0x1B; End = 0x23; Home = 0x24; Delete = 0x2E; Backspace = 0x08; A = 0x41; V = 0x56; Ctrl = 0x11; Space = 0x20; Down = 0x28; Up = 0x26 }
+$script:VKext = @{ End = $true; Home = $true; Delete = $true; Down = $true; Up = $true }
 
 function Send-Klavisha([string]$imya) {
   switch ($imya) {
     'CtrlA'   { $null = [RukiKlav]::SModom($VK.Ctrl, $VK.A, $false); return }
     'CtrlEnd' { $null = [RukiKlav]::SModom($VK.Ctrl, $VK.End, $true); return }
+    'CtrlV'   { $null = [RukiKlav]::SModom($VK.Ctrl, $VK.V, $false); return }
     default   { $null = [RukiKlav]::Klavisha([uint16]$VK[$imya], [bool]$VKext[$imya]) }
   }
 }
 
+# per character with a pause; a surrogate pair goes as one unit
 function Send-Tekst([string]$s, [int]$pauza = 12) {
-  foreach ($ch in $s.ToCharArray()) {
-    if ($ch -eq "`n") { Send-Klavisha 'Enter' }
-    elseif ($ch -eq "`r") { continue }
-    else { $null = [RukiKlav]::Simvol($ch) }
+  $i = 0
+  while ($i -lt $s.Length) {
+    $n = if ([char]::IsHighSurrogate($s[$i]) -and $i + 1 -lt $s.Length) { 2 } else { 1 }
+    $null = [RukiKlav]::Stroka($s.Substring($i, $n))
+    $i += $n
     Start-Sleep -Milliseconds $pauza
   }
 }
@@ -110,54 +124,6 @@ function Get-ZnachenieUstojchivo($el) {
     $a = $b
   }
   return $a
-}
-
-# type a value into a text-like field. returns @{ Status = ok|stop; Prichina; Popytki }
-function Set-Tekst($ctx, $shag, [int]$kusok = 8) {
-  $cel = ([string]$shag.znachenie) -replace "`r`n", "`n"
-  for ($pop = 1; $pop -le 6; $pop++) {
-    $el = Find-Element $ctx.Doc $shag.id $shag.metka $shag.tip 6000
-    if (-not $el) { return @{ Status = 'stop'; Prichina = 'net-elementa'; Popytki = $pop } }
-    if (Test-Parol $el) { return @{ Status = 'stop'; Prichina = 'pole-parolya'; Popytki = $pop } }
-    $g = Confirm-Gotovnost $ctx $el
-    if ($g -ne 'ok') { continue }
-    $tek = Get-ZnachenieUstojchivo $el
-    if ($tek -ceq $cel) { return @{ Status = 'ok'; Popytki = $pop } }
-    if ($tek -and $cel.StartsWith([string]$tek)) {
-      $ost = $cel.Substring(([string]$tek).Length)
-      Send-Klavisha 'CtrlEnd'
-    } else {
-      Send-Klavisha 'CtrlA'; Send-Klavisha 'Delete'
-      if ((Wait-Znachenie $el '' 800) -cne '') { continue }
-      $ost = $cel
-    }
-    $nabrano = $cel.Substring(0, $cel.Length - $ost.Length)
-    $sboj = $false
-    # careful mode on pages with a password field: focus check before every character
-    $k = if ($ctx.EstParol) { 1 } else { $kusok }
-    while ($ost.Length -gt 0) {
-      if (-not (Test-Zhivoj $el)) { $sboj = $true; break }
-      $f = Get-Fokus
-      if (-not (Test-TotZhe $f $el)) {
-        if (Test-Parol $f) { Add-Pomeha $ctx 'fokus-v-parol' }
-        $g = Confirm-Gotovnost $ctx $el
-        if ($g -ne 'ok') { $sboj = $true; break }
-      }
-      if (-not $ctx.EstParol -and (Find-Dialog $ctx.Doc)) { $null = Close-Dialog $ctx; $sboj = $true; break }
-      $n = [Math]::Min($k, $ost.Length)
-      $ch = $ost.Substring(0, $n)
-      Send-Tekst $ch
-      $nabrano += $ch; $ost = $ost.Substring($n)
-      if ($k -gt 1 -or $ost.Length -eq 0 -or ($nabrano.Length % 8) -eq 0) {
-        $v = Wait-Znachenie $el $nabrano 900
-        if ($v -cne $nabrano) { Write-RukiLog "sverka kuska: zhdali $($nabrano.Length), vidim $(([string]$v).Length)"; $sboj = $true; break }
-      }
-    }
-    if ($sboj) { continue }
-    $v = Wait-Znachenie $el $cel 1200
-    if ($v -ceq $cel) { return @{ Status = 'ok'; Popytki = $pop } }
-  }
-  return @{ Status = 'stop'; Prichina = 'ne-sovpalo-posle-popytok'; Popytki = 6 }
 }
 
 function Set-Flazhok($ctx, $shag) {

@@ -1,0 +1,47 @@
+{
+ "imya": "chislo",
+ "stranica": {
+  "url_soderzhit": "/polygon/vvod/chislo.html",
+  "zagolovok_soderzhit": "Полигон — Ввод: числа"
+ },
+ "shagi": [
+  {
+   "tip": "chislo",
+   "id": "summa_ru",
+   "metka": "Сумма ru",
+   "lokal": "ru",
+   "znachenie": "1 234 567,89"
+  },
+  {
+   "tip": "chislo",
+   "id": "summa_en",
+   "metka": "Amount en",
+   "lokal": "en",
+   "znachenie": "12,345.60"
+  },
+  {
+   "tip": "chislo",
+   "id": "summa_de",
+   "metka": "Betrag de",
+   "lokal": "de",
+   "znachenie": "9.876,05"
+  },
+  {
+   "tip": "chislo",
+   "id": "kolichestvo",
+   "metka": "Количество",
+   "znachenie": "12.75"
+  },
+  {
+   "tip": "knopka",
+   "id": "sohranit",
+   "metka": "Сохранить суммы",
+   "final": true,
+   "posle": {
+    "tip": "tekst",
+    "id": "itog",
+    "metka": "Итог"
+   }
+  }
+ ]
+}

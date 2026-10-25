@@ -1,0 +1,41 @@
+{
+ "imya": "avtodop",
+ "stranica": {
+  "url_soderzhit": "/polygon/vvod/avtodop.html",
+  "zagolovok_soderzhit": "Полигон — Ввод: подсказки"
+ },
+ "shagi": [
+  {
+   "tip": "avtodop",
+   "id": "kota",
+   "metka": "Kota",
+   "vvod": "Band",
+   "znachenie": "Bandar Lampung"
+  },
+  {
+   "tip": "avtodop",
+   "id": "ulica",
+   "metka": "Улица",
+   "vvod": "Брат",
+   "znachenie": "Братиславская"
+  },
+  {
+   "tip": "avtodop",
+   "id": "krajina",
+   "metka": "Krajina",
+   "vvod": "Slov",
+   "znachenie": "Slovenská republika"
+  },
+  {
+   "tip": "knopka",
+   "id": "sohranit",
+   "metka": "Сохранить адрес",
+   "final": true,
+   "posle": {
+    "tip": "tekst",
+    "id": "itog",
+    "metka": "Итог"
+   }
+  }
+ ]
+}

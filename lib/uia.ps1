@@ -24,6 +24,7 @@ function Get-TipyDlya([string]$tip) {
   switch ($tip) {
     'tekst'   { @($CT::Edit, $CT::Document, $CT::Spinner, $CT::ComboBox) }
     'chislo'  { @($CT::Spinner, $CT::Edit) }
+    'avtodop' { @($CT::ComboBox, $CT::Edit) }
     'flazhok' { @($CT::CheckBox) }
     'knopka'  { @($CT::Button) }
     default   { @($CT::Edit) }

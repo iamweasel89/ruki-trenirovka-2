@@ -1,0 +1,22 @@
+{
+ "imya": "perenos-stop",
+ "ozhidaetsya_ostanovka": "perenos-v-odnostrochnom",
+ "stranica": {
+  "url_soderzhit": "/polygon/vvod/limit.html",
+  "zagolovok_soderzhit": "Полигон — Ввод: ограничения"
+ },
+ "shagi": [
+  {
+   "tip": "tekst",
+   "id": "tema",
+   "metka": "Тема",
+   "znachenie": "Первая строка темы\nвторая строка"
+  },
+  {
+   "tip": "knopka",
+   "id": "sohranit",
+   "metka": "Отправить отзыв",
+   "final": true
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Полигон — Ввод: подсказки</title>
+<link rel="stylesheet" href="../stil.css">
+<style>.podskazki{list-style:none;margin:0;padding:0;border:1px solid #999;background:#fff;max-width:420px}
+.podskazki li{padding:4px 8px;cursor:pointer}.podskazki li[aria-selected=true]{background:#cde}</style></head>
+<body>
+<header><b>Полигон</b><input id="poisk" type="text" aria-label="Поиск по сайту" placeholder="Поиск"></header>
+<main>
+<h1>Поля с подсказками</h1>
+<form id="forma" hidden>
+  <label>Kota <input id="kota" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-label="Kota" autocomplete="off" data-podskazki="Bandung|Banda Aceh|Bandar Lampung|Banjarmasin|Banjarbaru|Banyuwangi|Bantul|Bangkalan|Bandung Barat|Bandar Seri Bentan"></label>
+  <label>Улица <input id="ulica" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-label="Улица" autocomplete="off" data-podskazki="Братиславская|Братская|Братьев Капу|Братиславский проезд|Брянская|Бронная Малая|Бронная Большая|Братиславская (дублёр)"></label>
+  <label>Krajina <input id="krajina" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-label="Krajina" autocomplete="off" data-podskazki="Slovensko|Slovinsko|Slovenská republika|Slovakia — Košice|Slovakia — Žilina|Slováci v zahraničí"></label>
+  <button type="submit" id="sohranit" disabled>Сохранить адрес</button>
+</form>
+<label>Контроль <textarea id="kontrol" readonly aria-label="Контроль" rows="2"></textarea></label>
+</main>
+<script src="../pomehi.js"></script>
+<script src="vvod.js"></script>
+<script>
+(function () {
+  var forma = document.getElementById('forma');
+  function z(id) { var e = document.getElementById(id); return e && e.value.length > 0; }
+  V.knopka(forma, 'sohranit', function () { return ['kota','ulica','krajina'].every(function (i) { var e = document.getElementById(i); return e.dataset.vybrano && e.dataset.vybrano === e.value; }); });
+  P.pokazatPozzhe(forma, 200, 1800);
+})();
+</script>
+</body></html>

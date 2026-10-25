@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Полигон — Ввод: длинный текст</title>
+<link rel="stylesheet" href="../stil.css">
+<style>.podskazki{list-style:none;margin:0;padding:0;border:1px solid #999;background:#fff;max-width:420px}
+.podskazki li{padding:4px 8px;cursor:pointer}.podskazki li[aria-selected=true]{background:#cde}</style></head>
+<body>
+<header><b>Полигон</b><input id="poisk" type="text" aria-label="Поиск по сайту" placeholder="Поиск"></header>
+<main>
+<h1>Длинный текст</h1>
+<form id="forma" hidden>
+  <label>Длинный текст <textarea id="dlinnyj" rows="12" aria-label="Длинный текст"></textarea></label>
+  <label>Код с табуляцией <textarea id="kod" rows="6" aria-label="Код с табуляцией"></textarea></label>
+  <button type="button" id="sohranit" disabled>Сохранить текст</button>
+</form>
+<label>Контроль <textarea id="kontrol" readonly aria-label="Контроль" rows="2"></textarea></label>
+</main>
+<script src="../pomehi.js"></script>
+<script src="vvod.js"></script>
+<script>
+(function () {
+  var forma = document.getElementById('forma');
+  function z(id) { var e = document.getElementById(id); return e && e.value.length > 0; }
+  V.knopka(forma, 'sohranit', function () { return z('dlinnyj') && z('kod'); });
+  P.pokazatPozzhe(forma, 200, 1800);
+})();
+</script>
+</body></html>

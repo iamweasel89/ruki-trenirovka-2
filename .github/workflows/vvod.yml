@@ -1,0 +1,93 @@
+name: trenirovka-vvoda
+on:
+  push:
+    branches: [trener-vvod]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: vvod
+  cancel-in-progress: true
+jobs:
+  smoke:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: public hygiene check
+        shell: powershell
+        run: ./ci/proverka-gigieny.ps1
+      - name: parse all scripts
+        shell: powershell
+        run: |
+          $bad = 0
+          Get-ChildItem -Recurse -Filter *.ps1 | ForEach-Object {
+            $e = $null; $null = [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$null, [ref]$e)
+            if ($e) { $bad++; $e | ForEach-Object { Write-Host "$($_.Extent.File):$($_.Extent.StartLineNumber) $($_.Message)" } }
+          }
+          if ($bad) { exit 1 }
+      - name: smoke runs
+        shell: powershell
+        run: |
+          ./ci/vvod/progon-vvod.ps1 -Seed 0 -Tolko 'unikod,perenos-stop' -Vyhod rezultat-smoke.json
+          if (-not (Test-Path rezultat-smoke.json)) { Write-Host 'harness gave no result'; exit 1 }
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rezultat-smoke
+          path: rezultat-smoke.json
+          if-no-files-found: warn
+
+  matrica:
+    needs: smoke
+    runs-on: windows-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        seed: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - name: runs of the skill on input-fidelity plans
+        shell: powershell
+        run: |
+          ./ci/vvod/progon-vvod.ps1 -Seed ${{ matrix.seed }} -Vyhod "rezultat-${{ matrix.seed }}.json"
+          if (-not (Test-Path "rezultat-${{ matrix.seed }}.json")) { Write-Host 'harness gave no result'; exit 1 }
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rezultat-${{ matrix.seed }}
+          path: rezultat-${{ matrix.seed }}.json
+          if-no-files-found: warn
+
+  svod:
+    needs: [smoke, matrica]
+    if: always() && needs.smoke.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: rezultat-*
+          path: rez
+          merge-multiple: true
+      - name: runner minutes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl -sS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/jobs?per_page=50" > jobs.json || echo '{}' > jobs.json
+      - name: aggregate
+        run: python3 ci/vvod/svod-vvod.py rez out jobs.json
+      - name: publish to branch itog-vvod
+        run: |
+          git config user.name ci; git config user.email ci@users.noreply.github.com
+          git checkout --orphan itog-tmp && git rm -rf . -q
+          cp out/itog.json out/itog.md . && git add itog.json itog.md
+          git commit -qm "itog-vvod run $GITHUB_RUN_ID sha $GITHUB_SHA"
+          git push -f origin HEAD:itog-vvod
