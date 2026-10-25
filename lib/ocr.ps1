@@ -113,13 +113,14 @@ public static class RukiObraz {
     return l;
   }
   // grey; mode 0 = plain grey, 1 = local contrast (value minus local mean, amplified),
+  // 2 = deviation from the local mean in either direction (light-on-dark and dark-on-light text both come out dark),
   // always dark text on a light ground (inverted when the ground is dark)
   public static Bitmap Obrabotka(Bitmap src, int rezhim, int radius, double usilenie) {
     int w = src.Width, h = src.Height, n = w * h;
     byte[] a = Bgra(src);
     float[] l = Yarkost(a, n);
     float[] o = new float[n];
-    if (rezhim == 1) {
+    if (rezhim == 1 || rezhim == 2) {
       var s = new double[(w + 1) * (h + 1)];
       for (int y = 0; y < h; y++) { double r = 0; for (int x = 0; x < w; x++) { r += l[y * w + x]; s[(y + 1) * (w + 1) + x + 1] = s[y * (w + 1) + x + 1] + r; } }
       for (int y = 0; y < h; y++) {
@@ -128,7 +129,8 @@ public static class RukiObraz {
           int x1 = Math.Max(0, x - radius), x2 = Math.Min(w, x + radius + 1);
           double sum = s[y2 * (w + 1) + x2] - s[y1 * (w + 1) + x2] - s[y2 * (w + 1) + x1] + s[y1 * (w + 1) + x1];
           double m = sum / ((x2 - x1) * (y2 - y1));
-          o[y * w + x] = (float)(128 + (l[y * w + x] - m) * usilenie);
+          double dv = (l[y * w + x] - m) * usilenie;
+          o[y * w + x] = (float)(rezhim == 1 ? 128 + dv : 255 - Math.Abs(dv));
         }
       }
     } else { Array.Copy(l, o, n); }
@@ -297,7 +299,8 @@ function Read-Tess([string]$yazyk, [System.Drawing.Bitmap]$bmp) {
   $slova = New-Object System.Collections.ArrayList
   try {
     # output into a file: console code pages would spoil Cyrillic
-    $null = & $script:Tess.Exe $png $baza -l $yazyk --psm 11 tsv 2>&1
+    $eap = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+    try { $null = & $script:Tess.Exe $png $baza -l $yazyk --psm 11 tsv 2>&1 } finally { $ErrorActionPreference = $eap }
     $tsv = if (Test-Path "$baza.tsv") { Get-Content -Encoding UTF8 "$baza.tsv" } else { @() }
     foreach ($str in $tsv) {
       $c = $str -split "`t"
@@ -319,6 +322,7 @@ function Read-Prohod($prohod, [System.Drawing.Bitmap]$ishod) {
   $img = if ($k -ne 1) { [RukiObraz]::Masshtab($ishod, $k) } else { $ishod }
   if ($prohod.obr -eq 'seryj') { $n = [RukiObraz]::Obrabotka($img, 0, 0, 1); if ($img -ne $ishod) { $img.Dispose() }; $img = $n }
   elseif ($prohod.obr -eq 'kontrast') { $n = [RukiObraz]::Obrabotka($img, 1, [int](12 * $k), 4.0); if ($img -ne $ishod) { $img.Dispose() }; $img = $n }
+  elseif ($prohod.obr -eq 'otkl') { $n = [RukiObraz]::Obrabotka($img, 2, [int](10 * $k), 3.0); if ($img -ne $ishod) { $img.Dispose() }; $img = $n }
   $vse = New-Object System.Collections.ArrayList
   try {
     if ($prohod.dvizhok -eq 'win') {
@@ -386,7 +390,7 @@ function ConvertTo-Skelet([string]$s, [string]$pismo) {
     elseif ($pismo -eq 'lat' -and $script:LatIzCyr.ContainsKey($c)) { $c = $script:LatIzCyr[$c] }
     if ($c -eq $script:YO) { $c = $script:YE }
     elseif ($c -eq $script:IK) { $c = $script:II }
-    elseif ($pismo -eq 'lat' -and ($c -eq 'i' -or $c -eq '1' -or $c -eq '|' -or $c -eq '!')) { $c = 'l' }
+    elseif ($pismo -eq 'lat' -and ($c -eq 'i' -or $c -eq '1')) { $c = 'l' }
     elseif ($c -eq '0' -and $pismo -eq 'lat') { $c = 'o' }
     if ($c -match '[\p{L}\p{N}]') { $null = $sb.Append($c) } else { $null = $sb.Append(' ') }
   }
@@ -414,9 +418,18 @@ function Get-Frazy($slova) {
   return ,$frazy
 }
 
+# a button border read as one stray stroke (l, i, 1) at an end is not a letter of the label
+function Test-RavnoSkelet([string]$t, [string]$sk) {
+  if ($t -ceq $sk) { return $true }
+  if ($t.Length -ne $sk.Length + 1 -and $t.Length -ne $sk.Length + 2) { return $false }
+  foreach ($v in @($t.TrimEnd('l', ' '), $t.TrimStart('l', ' '), $t.Trim('l', ' '))) {
+    if ($v -ceq $sk -and $t.Length - $v.Length -le 2) { return $true }
+  }
+  return $false
+}
 function Find-Sovpadeniya($frazy, [string]$cel, [string]$pismo) {
   $sk = ConvertTo-Skelet $cel $pismo
-  return @($frazy | Where-Object { (ConvertTo-Skelet $_.t $pismo) -ceq $sk })
+  return @($frazy | Where-Object { Test-RavnoSkelet (ConvertTo-Skelet $_.t $pismo) $sk })
 }
 
 # passes for the target's script; Windows OCR first, Tesseract last
@@ -426,14 +439,14 @@ function Get-Prohody([string]$pismo) {
   if (Get-WinOcrDvizhok $win) {
     $p += @{ dvizhok = 'win'; yazyk = $win; k = 1; obr = 'net' }
     $p += @{ dvizhok = 'win'; yazyk = $win; k = 2; obr = 'seryj' }
-    $p += @{ dvizhok = 'win'; yazyk = $win; k = 2.5; obr = 'kontrast' }
+    $p += @{ dvizhok = 'win'; yazyk = $win; k = 2.5; obr = 'otkl' }
   }
   if (Initialize-Tess) {
     $tl = if ($pismo -eq 'cyr') { 'rus' } else { 'eng' }
     if ($script:Tess.Yazyki -contains $tl) {
       $l = if ($script:Tess.Yazyki -contains 'eng' -and $tl -ne 'eng') { "$tl+eng" } else { $tl }
-      if ($p.Count -eq 0) { $p += @{ dvizhok = 'tess'; yazyk = $l; k = 1.5; obr = 'seryj' } }
-      $p += @{ dvizhok = 'tess'; yazyk = $l; k = 2; obr = 'kontrast' }
+      if ($p.Count -eq 0) { $p += @{ dvizhok = 'tess'; yazyk = $l; k = 1.5; obr = 'otkl' } }
+      $p += @{ dvizhok = 'tess'; yazyk = $l; k = 2.5; obr = 'otkl' }
     }
   }
   return $p
@@ -450,7 +463,7 @@ function Confirm-Kandidat($kand, [System.Drawing.Bitmap]$snimok, $prohod, [strin
   $ox = [Math]::Max(0, [int]($kand.x - $px)); $oy = [Math]::Max(0, [int]($kand.y - $py))
   try {
     $k = if ($h -lt 14) { 3 } elseif ($h -lt 24) { 2 } else { 1.5 }
-    $pp = @{ dvizhok = $prohod.dvizhok; yazyk = $prohod.yazyk; k = $k; obr = $(if ($prohod.obr -eq 'kontrast') { 'seryj' } else { 'kontrast' }) }
+    $pp = @{ dvizhok = $prohod.dvizhok; yazyk = $prohod.yazyk; k = $k; obr = $(if ($prohod.dvizhok -eq 'tess') { 'otkl' } elseif ($prohod.obr -eq 'otkl') { 'seryj' } else { 'otkl' }) }
     $fr = Get-Frazy (Read-Prohod $pp $vy)
   } finally { $vy.Dispose() }
   $cx = $kand.x + $kand.w / 2 - $ox; $cy = $kand.y + $kand.h / 2 - $oy
@@ -460,7 +473,7 @@ function Confirm-Kandidat($kand, [System.Drawing.Bitmap]$snimok, $prohod, [strin
   # only a longer phrase that contains the target rejects it ("Save as", "Saved");
   # a garbled re-read is no evidence against the first one
   $sk = ConvertTo-Skelet $cel $pismo
-  $dlinnee = @($tam | Where-Object { $t = ConvertTo-Skelet $_.t $pismo; $t.Length -gt $sk.Length -and $t.Contains($sk) })
+  $dlinnee = @($tam | Where-Object { $t = ConvertTo-Skelet $_.t $pismo; $t.Length -gt $sk.Length -and $t.Contains($sk) -and -not (Test-RavnoSkelet $t $sk) })
   if ($dlinnee.Count -gt 0) {
     Write-RukiLog ("kandidat otvergnut: na meste vidno [{0}]" -f (($dlinnee | ForEach-Object { $_.t }) -join ' | '))
     return 'net'
@@ -529,6 +542,10 @@ function Read-Ryadom($ramka, $prohod, [string]$Tekst, [int]$zapasX, [int]$zapasY
     $pismo = Get-Pismo $Tekst
     $pp = @{ dvizhok = $prohod.dvizhok; yazyk = $prohod.yazyk; k = [Math]::Max(2, [double]$prohod.k); obr = $prohod.obr }
     $sov = @(Find-Sovpadeniya (Get-Frazy (Read-Prohod $pp $sn)) $Tekst $pismo)
+    if ($sov.Count -eq 0) {
+      $pp = @{ dvizhok = $prohod.dvizhok; yazyk = $prohod.yazyk; k = 3; obr = $(if ($prohod.obr -eq 'otkl') { 'seryj' } else { 'otkl' }) }
+      $sov = @(Find-Sovpadeniya (Get-Frazy (Read-Prohod $pp $sn)) $Tekst $pismo)
+    }
     if ($sov.Count -eq 0) { return $null }
     $cx = $ramka[0] + $ramka[2] / 2 - $x; $cy = $ramka[1] + $ramka[3] / 2 - $y
     $f = $sov | Sort-Object { [Math]::Abs($_.x + $_.w / 2 - $cx) + [Math]::Abs($_.y + $_.h / 2 - $cy) } | Select-Object -First 1

@@ -90,7 +90,7 @@ foreach ($m in $mash) {
       Add-Sled 'chrome ubit'
       $mt = $m.ToString([Globalization.CultureInfo]::InvariantCulture)
       $prof = Join-Path $tmp ("cprof_ocr_" + ($mt -replace '\.', '_'))
-      $arg = @("--app=$url", "--user-data-dir=$prof", '--no-first-run', '--no-default-browser-check', '--disable-features=Translate',
+      $arg = @("--app=$url", "--user-data-dir=$prof", '--no-first-run', '--no-default-browser-check', '--disable-features=Translate,TranslateUI', '--lang=en-US',
                '--disable-session-crashed-bubble', '--start-maximized', "--force-device-scale-factor=$mt")
       $null = Start-Process $chrome -ArgumentList $arg -PassThru
       Add-Sled 'chrome zapushchen'

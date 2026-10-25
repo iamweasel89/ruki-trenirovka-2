@@ -66,18 +66,20 @@ if (-not $BezTess) {
 
 # 3. Windows OCR language for Russian
 function Get-OcrYazyki {
-  $kod = @'
+  $f = Join-Path ([IO.Path]::GetTempPath()) 'ruki-ocr-yazyki.ps1'
+  Set-Content -Path $f -Encoding ASCII -Value @'
 try {
   Add-Type -AssemblyName System.Runtime.WindowsRuntime
-  $t = $null; foreach ($a in 'Windows.Foundation', 'Windows.Media') { if (-not $t) { $t = [Type]::GetType("Windows.Media.Ocr.OcrEngine, $a, ContentType=WindowsRuntime") } }
-  ($t::AvailableRecognizerLanguages | ForEach-Object { $_.LanguageTag }) -join ','
+  $t = $null
+  foreach ($a in 'Windows.Foundation', 'Windows.Media') { if (-not $t) { $t = [Type]::GetType("Windows.Media.Ocr.OcrEngine, $a, ContentType=WindowsRuntime") } }
+  'yazyki:' + (($t::AvailableRecognizerLanguages | ForEach-Object { $_.LanguageTag }) -join ',')
 } catch { 'oshibka: ' + $_.Exception.Message }
 '@
-  return (& powershell.exe -NoProfile -Command $kod 2>&1 | Out-String).Trim()
+  return (& powershell.exe -NoProfile -ExecutionPolicy Bypass -File $f 2>&1 | Out-String).Trim()
 }
 $itog.winocr_bylo = Get-OcrYazyki
 Write-Host "winocr bylo: $($itog.winocr_bylo)"
-if ($itog.winocr_bylo -notmatch 'ru') {
+if ($itog.winocr_bylo -notmatch '[:,]ru-') {
   $t = [Diagnostics.Stopwatch]::StartNew()
   # Windows Update can hang: the install runs in a job with a time limit
   $capJob = Start-Job -ScriptBlock {
